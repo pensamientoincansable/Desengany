@@ -1,0 +1,684 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Desengany - Blog Musical</title>
+    <style>
+        /* Estilos generales */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Courier New', monospace;
+        }
+        
+        body {
+            background-color: #000;
+            color: #0f0;
+            overflow-x: hidden;
+            position: relative;
+        }
+        
+        /* Efecto Matrix de fondo */
+        #matrix-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            opacity: 0.3;
+        }
+        
+        /* Encabezado */
+        header {
+            background: rgba(0, 0, 0, 0.8);
+            padding: 2rem;
+            text-align: center;
+            border-bottom: 2px solid #0f0;
+            box-shadow: 0 0 20px rgba(0, 255, 0, 0.5);
+            position: relative;
+            z-index: 10;
+        }
+        
+        h1 {
+            font-size: 3.5rem;
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            margin-bottom: 1rem;
+            text-shadow: 0 0 10px #0f0;
+            color: #fff;
+        }
+        
+        .tagline {
+            font-size: 1.2rem;
+            color: #aaa;
+            margin-bottom: 1rem;
+        }
+        
+        /* Navegación */
+        nav {
+            background: rgba(20, 20, 20, 0.9);
+            padding: 1rem;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            border-bottom: 1px solid #333;
+        }
+        
+        nav ul {
+            display: flex;
+            justify-content: center;
+            list-style: none;
+            flex-wrap: wrap;
+        }
+        
+        nav li {
+            margin: 0 1.5rem;
+        }
+        
+        nav a {
+            color: #0f0;
+            text-decoration: none;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: all 0.3s;
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+        }
+        
+        nav a:hover {
+            background-color: rgba(0, 255, 0, 0.2);
+            text-shadow: 0 0 10px #0f0;
+        }
+        
+        /* Contenido principal */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+        
+        section {
+            margin-bottom: 3rem;
+            background: rgba(30, 30, 30, 0.7);
+            padding: 2rem;
+            border-radius: 8px;
+            border: 1px solid #333;
+            box-shadow: 0 0 15px rgba(0, 255, 0, 0.2);
+        }
+        
+        h2 {
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+            color: #fff;
+            border-bottom: 1px solid #0f0;
+            padding-bottom: 0.5rem;
+        }
+        
+        /* Biografía */
+        .bio-content {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2rem;
+            align-items: center;
+        }
+        
+        .bio-text {
+            flex: 1;
+            min-width: 300px;
+            line-height: 1.6;
+        }
+        
+        .bio-image {
+            flex: 0 0 200px;
+            height: 200px;
+            background: linear-gradient(45deg, #333, #555);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 3px solid #0f0;
+            box-shadow: 0 0 20px rgba(0, 255, 0, 0.5);
+        }
+        
+        .bio-image::before {
+            content: "DESENGANY";
+            color: #0f0;
+            font-weight: bold;
+            text-align: center;
+        }
+        
+        /* Pestañas de música */
+        .song-tabs {
+            margin-top: 1rem;
+        }
+        
+        .tab {
+            margin-bottom: 1rem;
+            border: 1px solid #333;
+            border-radius: 5px;
+            overflow: hidden;
+        }
+        
+        .tab input {
+            display: none;
+        }
+        
+        .tab label {
+            display: block;
+            padding: 1rem;
+            background: rgba(40, 40, 40, 0.8);
+            cursor: pointer;
+            font-weight: bold;
+            transition: all 0.3s;
+            position: relative;
+        }
+        
+        .tab label:hover {
+            background: rgba(60, 60, 60, 0.8);
+        }
+        
+        .tab label::after {
+            content: "+";
+            position: absolute;
+            right: 1rem;
+            transition: transform 0.3s;
+        }
+        
+        .tab input:checked + label::after {
+            transform: rotate(45deg);
+        }
+        
+        .tab-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out;
+            background: rgba(20, 20, 20, 0.8);
+        }
+        
+        .tab input:checked ~ .tab-content {
+            max-height: 500px;
+        }
+        
+        .platform-links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            padding: 1.5rem;
+        }
+        
+        .platform-link {
+            display: flex;
+            align-items: center;
+            padding: 0.8rem 1.5rem;
+            background: rgba(50, 50, 50, 0.8);
+            border-radius: 5px;
+            text-decoration: none;
+            color: #fff;
+            transition: all 0.3s;
+            border: 1px solid #444;
+        }
+        
+        .platform-link:hover {
+            background: rgba(70, 70, 70, 0.8);
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        }
+        
+        .platform-icon {
+            margin-right: 0.8rem;
+            font-size: 1.2rem;
+        }
+        
+        /* Blog */
+        .blog-posts {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        
+        .post {
+            background: rgba(40, 40, 40, 0.8);
+            border-radius: 8px;
+            overflow: hidden;
+            border: 1px solid #333;
+            transition: all 0.3s;
+        }
+        
+        .post:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 255, 0, 0.2);
+        }
+        
+        .post-image {
+            height: 180px;
+            background: linear-gradient(45deg, #222, #444);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #0f0;
+            font-weight: bold;
+        }
+        
+        .post-content {
+            padding: 1.5rem;
+        }
+        
+        .post-title {
+            font-size: 1.3rem;
+            margin-bottom: 0.8rem;
+            color: #fff;
+        }
+        
+        .post-excerpt {
+            color: #aaa;
+            line-height: 1.5;
+            margin-bottom: 1rem;
+        }
+        
+        .read-more {
+            display: inline-block;
+            color: #0f0;
+            text-decoration: none;
+            font-weight: bold;
+            transition: all 0.3s;
+        }
+        
+        .read-more:hover {
+            text-shadow: 0 0 10px #0f0;
+        }
+        
+        /* Contacto */
+        .contact-form {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: #fff;
+        }
+        
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 0.8rem;
+            background: rgba(20, 20, 20, 0.8);
+            border: 1px solid #333;
+            border-radius: 4px;
+            color: #fff;
+            font-family: 'Courier New', monospace;
+        }
+        
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: #0f0;
+            box-shadow: 0 0 10px rgba(0, 255, 0, 0.3);
+        }
+        
+        .submit-btn {
+            background: rgba(0, 255, 0, 0.2);
+            color: #0f0;
+            border: 1px solid #0f0;
+            padding: 0.8rem 2rem;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: all 0.3s;
+        }
+        
+        .submit-btn:hover {
+            background: rgba(0, 255, 0, 0.3);
+            box-shadow: 0 0 15px rgba(0, 255, 0, 0.5);
+        }
+        
+        /* Footer */
+        footer {
+            background: rgba(0, 0, 0, 0.9);
+            padding: 2rem;
+            text-align: center;
+            border-top: 1px solid #333;
+            margin-top: 3rem;
+        }
+        
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .social-link {
+            color: #0f0;
+            font-size: 1.5rem;
+            transition: all 0.3s;
+        }
+        
+        .social-link:hover {
+            text-shadow: 0 0 10px #0f0;
+            transform: translateY(-3px);
+        }
+        
+        .copyright {
+            color: #666;
+            font-size: 0.9rem;
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.5rem;
+            }
+            
+            nav ul {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            nav li {
+                margin: 0.5rem 0;
+            }
+            
+            .bio-content {
+                flex-direction: column;
+            }
+            
+            .bio-image {
+                margin-top: 1rem;
+            }
+            
+            .platform-links {
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Efecto Matrix en el fondo -->
+    <canvas id="matrix-bg"></canvas>
+    
+    <!-- Encabezado -->
+    <header>
+        <h1>Desengany</h1>
+        <p class="tagline">Buscando respuestas en un mundo de ilusiones</p>
+    </header>
+    
+    <!-- Navegación -->
+    <nav>
+        <ul>
+            <li><a href="#inicio">Inicio</a></li>
+            <li><a href="#biografia">Biografía</a></li>
+            <li><a href="#musica">Música</a></li>
+            <li><a href="#blog">Blog</a></li>
+            <li><a href="#contacto">Contacto</a></li>
+        </ul>
+    </nav>
+    
+    <!-- Contenido principal -->
+    <div class="container">
+        <!-- Biografía -->
+        <section id="biografia">
+            <h2>Biografía</h2>
+            <div class="bio-content">
+                <div class="bio-text">
+                    <p>Desengany es la expresión de un ser humano que siempre ha buscado todas las respuestas a cada pregunta. Desde una temprana edad, cuestionó las narrativas establecidas, explorando los límites del conocimiento y la percepción.</p>
+                    <p>Su pensamiento ecléctico se nutre de múltiples fuentes de sabiduría, encontrando especial afinidad con la filosofía positiva que busca la luz incluso en los rincones más oscuros de la existencia.</p>
+                    <p>Como artista, Desengany canaliza su crítica hacia tres pilares fundamentales de la distorsión contemporánea: la corrupción política sometida a corporativas inversoras, las ideologías sectarias que anulan el pensamiento individual, y los medios de desinformación que manipulan la realidad colectiva.</p>
+                    <p>Su música es un vehículo para despertar conciencias, invitando a quienes la escuchan a cuestionar la matrix social en la que vivimos y encontrar su propia verdad más allá de las ilusiones colectivas.</p>
+                </div>
+                <div class="bio-image"></div>
+            </div>
+        </section>
+        
+        <!-- Música -->
+        <section id="musica">
+            <h2>Música</h2>
+            <p>Explora el universo sonoro de Desengany a través de sus canciones, disponibles en todas las plataformas digitales.</p>
+            
+            <div class="song-tabs">
+                <!-- Canción 1 -->
+                <div class="tab">
+                    <input type="checkbox" id="tab1">
+                    <label for="tab1">Ilusión Colectiva</label>
+                    <div class="tab-content">
+                        <div class="platform-links">
+                            <a href="#" class="platform-link">
+                                <span class="platform-icon">▶</span> Spotify
+                            </a>
+                            <a href="#" class="platform-link">
+                                <span class="platform-icon">▶</span> Apple Music
+                            </a>
+                            <a href="#" class="platform-link">
+                                <span class="platform-icon">▶</span> YouTube Music
+                            </a>
+                            <a href="#" class="platform-link">
+                                <span class="platform-icon">▶</span> Deezer
+                            </a>
+                            <a href="#" class="platform-link">
+                                <span class="platform-icon">▶</span> Amazon Music
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Canción 2 -->
+                <div class="tab">
+                    <input type="checkbox" id="tab2">
+                    <label for="tab2">Despertar Digital</label>
+                    <div class="tab-content">
+                        <div class="platform-links">
+                            <a href="#" class="platform-link">
+                                <span class="platform-icon">▶</span> Spotify
+                            </a>
+                            <a href="#" class="platform-link">
+                                <span class="platform-icon">▶</span> Apple Music
+                            </a>
+                            <a href="#" class="platform-link">
+                                <span class="platform-icon">▶</span> YouTube Music
+                            </a>
+                            <a href="#" class="platform-link">
+                                <span class="platform-icon">▶</span> Deezer
+                            </a>
+                            <a href="#" class="platform-link">
+                                <span class="platform-icon">▶</span> Amazon Music
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Canción 3 -->
+                <div class="tab">
+                    <input type="checkbox" id="tab3">
+                    <label for="tab3">Verdad Oculta</label>
+                    <div class="tab-content">
+                        <div class="platform-links">
+                            <a href="#" class="platform-link">
+                                <span class="platform-icon">▶</span> Spotify
+                            </a>
+                            <a href="#" class="platform-link">
+                                <span class="platform-icon">▶</span> Apple Music
+                            </a>
+                            <a href="#" class="platform-link">
+                                <span class="platform-icon">▶</span> YouTube Music
+                            </a>
+                            <a href="#" class="platform-link">
+                                <span class="platform-icon">▶</span> Deezer
+                            </a>
+                            <a href="#" class="platform-link">
+                                <span class="platform-icon">▶</span> Amazon Music
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Canción 4 -->
+                <div class="tab">
+                    <input type="checkbox" id="tab4">
+                    <label for="tab4">Espejos de la Mente</label>
+                    <div class="tab-content">
+                        <div class="platform-links">
+                            <a href="#" class="platform-link">
+                                <span class="platform-icon">▶</span> Spotify
+                            </a>
+                            <a href="#" class="platform-link">
+                                <span class="platform-icon">▶</span> Apple Music
+                            </a>
+                            <a href="#" class="platform-link">
+                                <span class="platform-icon">▶</span> YouTube Music
+                            </a>
+                            <a href="#" class="platform-link">
+                                <span class="platform-icon">▶</span> Deezer
+                            </a>
+                            <a href="#" class="platform-link">
+                                <span class="platform-icon">▶</span> Amazon Music
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Blog -->
+        <section id="blog">
+            <h2>Blog Filosófico</h2>
+            <div class="blog-posts">
+                <article class="post">
+                    <div class="post-image">IMAGEN DEL POST</div>
+                    <div class="post-content">
+                        <h3 class="post-title">Deconstruyendo la Realidad</h3>
+                        <p class="post-excerpt">Un análisis profundo sobre cómo nuestras percepciones moldean la realidad que experimentamos...</p>
+                        <a href="#" class="read-more">Leer más</a>
+                    </div>
+                </article>
+                
+                <article class="post">
+                    <div class="post-image">IMAGEN DEL POST</div>
+                    <div class="post-content">
+                        <h3 class="post-title">El Arte como Resistencia</h3>
+                        <p class="post-excerpt">Explorando el poder transformador del arte frente a los sistemas de control establecidos...</p>
+                        <a href="#" class="read-more">Leer más</a>
+                    </div>
+                </article>
+                
+                <article class="post">
+                    <div class="post-image">IMAGEN DEL POST</div>
+                    <div class="post-content">
+                        <h3 class="post-title">Filosofía Positiva en Tiempos Oscuros</h3>
+                        <p class="post-excerpt">Cómo mantener una perspectiva positiva sin caer en la ingenuidad ante los desafíos actuales...</p>
+                        <a href="#" class="read-more">Leer más</a>
+                    </div>
+                </article>
+            </div>
+        </section>
+        
+        <!-- Contacto -->
+        <section id="contacto">
+            <h2>Contacto</h2>
+            <form class="contact-form">
+                <div class="form-group">
+                    <label for="name">Nombre</label>
+                    <input type="text" id="name" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="message">Mensaje</label>
+                    <textarea id="message" rows="5" required></textarea>
+                </div>
+                
+                <button type="submit" class="submit-btn">Enviar Mensaje</button>
+            </form>
+        </section>
+    </div>
+    
+    <!-- Footer -->
+    <footer>
+        <div class="social-links">
+            <a href="#" class="social-link">FB</a>
+            <a href="#" class="social-link">IG</a>
+            <a href="#" class="social-link">YT</a>
+            <a href="#" class="social-link">TW</a>
+            <a href="#" class="social-link">SC</a>
+        </div>
+        <p class="copyright">&copy; 2023 Desengany. Todos los derechos reservados.</p>
+    </footer>
+    
+    <!-- Script para el efecto Matrix -->
+    <script>
+        // Efecto Matrix en el fondo
+        const canvas = document.getElementById('matrix-bg');
+        const ctx = canvas.getContext('2d');
+        
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+        
+        const characters = 'DESENGANY010101010101010101';
+        const charArray = characters.split('');
+        
+        const fontSize = 14;
+        const columns = canvas.width / fontSize;
+        
+        const drops = [];
+        for (let i = 0; i < columns; i++) {
+            drops[i] = 1;
+        }
+        
+        function drawMatrix() {
+            ctx.fillStyle = 'rgba(0, 0, 0, 0.04)';
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+            
+            ctx.fillStyle = '#0f0';
+            ctx.font = fontSize + 'px monospace';
+            
+            for (let i = 0; i < drops.length; i++) {
+                const text = charArray[Math.floor(Math.random() * charArray.length)];
+                ctx.fillText(text, i * fontSize, drops[i] * fontSize);
+                
+                if (drops[i] * fontSize > canvas.height && Math.random() > 0.975) {
+                    drops[i] = 0;
+                }
+                
+                drops[i]++;
+            }
+        }
+        
+        setInterval(drawMatrix, 35);
+        
+        // Ajustar canvas al cambiar tamaño de ventana
+        window.addEventListener('resize', function() {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+        });
+        
+        // Smooth scroll para navegación
+        document.querySelectorAll('nav a').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                
+                window.scrollTo({
+                    top: targetElement.offsetTop - 20,
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>

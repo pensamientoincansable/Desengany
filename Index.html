@@ -3,1523 +3,271 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Desengany - Un Viaje Fantástico</title>
-    <link href="https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,700;1,400&family=UnifrakturMaguntia&family=MedievalSharp&family=Alice&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <title>Despertar de Conciencia</title>
     <style>
-        /* Estilos generales */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
+            font-family: 'Courier New', monospace;
         }
         
         body {
-            background-color: #1a0f2d;
-            color: #f0e6d6;
-            font-family: 'Alice', serif;
-            line-height: 1.6;
+            background-color: #000;
+            color: #0f0;
             overflow-x: hidden;
             position: relative;
-            perspective: 1000px;
         }
         
-        /* Fondo animado de madriguera infinita MEJORADO */
-        #rabbit-hole {
+        /* Efecto Matrix (código cayendo) */
+        #matrix-bg {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
             z-index: -1;
-            overflow: hidden;
+            opacity: 0.3;
         }
         
-        .hole-layer {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            border-radius: 50%;
-            animation: tunnel 20s infinite linear;
-            background: radial-gradient(circle, rgba(123,65,173,0.3) 0%, rgba(255,215,0,0.1) 50%, transparent 70%);
-            box-shadow: 0 0 40px rgba(255,215,0,0.2);
-        }
-        
-        .hole-layer:nth-child(1) {
-            width: 10px;
-            height: 10px;
-            animation-delay: 0s;
-        }
-        
-        .hole-layer:nth-child(2) {
-            width: 50px;
-            height: 50px;
-            animation-delay: -1s;
-        }
-        
-        .hole-layer:nth-child(3) {
-            width: 100px;
-            height: 100px;
-            animation-delay: -2s;
-        }
-        
-        .hole-layer:nth-child(4) {
-            width: 200px;
-            height: 200px;
-            animation-delay: -3s;
-        }
-        
-        .hole-layer:nth-child(5) {
-            width: 400px;
-            height: 400px;
-            animation-delay: -4s;
-        }
-        
-        .hole-layer:nth-child(6) {
-            width: 800px;
-            height: 800px;
-            animation-delay: -5s;
-        }
-        
-        .hole-layer:nth-child(7) {
-            width: 1600px;
-            height: 1600px;
-            animation-delay: -6s;
-        }
-        
-        .hole-layer:nth-child(8) {
-            width: 3200px;
-            height: 3200px;
-            animation-delay: -7s;
-        }
-        
-        @keyframes tunnel {
-            0% {
-                transform: translate(-50%, -50%) scale(1);
-                opacity: 0.8;
-            }
-            50% {
-                opacity: 0.3;
-            }
-            100% {
-                transform: translate(-50%, -50%) scale(0.1);
-                opacity: 0.8;
-            }
-        }
-        
-        /* Efectos de partículas MEJORADOS */
-        .particles {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: -1;
-            overflow: hidden;
-        }
-        
-        .particle {
-            position: absolute;
-            border-radius: 50%;
-            animation: float 15s infinite linear;
-        }
-        
-        .particle:nth-child(3n) {
-            background: rgba(255, 215, 0, 0.7);
-        }
-        
-        .particle:nth-child(3n+1) {
-            background: rgba(123, 65, 173, 0.7);
-        }
-        
-        .particle:nth-child(3n+2) {
-            background: rgba(255, 255, 255, 0.5);
-        }
-        
-        @keyframes float {
-            0% {
-                transform: translateY(100vh) rotate(0deg);
-                opacity: 0;
-            }
-            10% {
-                opacity: 1;
-            }
-            90% {
-                opacity: 1;
-            }
-            100% {
-                transform: translateY(-100px) rotate(360deg);
-                opacity: 0;
-            }
-        }
-        
-        /* Elementos de Alicia en el fondo MEJORADOS */
-        .wonderland-element {
-            position: fixed;
-            z-index: -1;
-            opacity: 0.5;
-        }
-        
-        .rabbit {
-            top: 10%;
-            left: 5%;
-            width: 120px;
-            height: 150px;
-            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 150"><path d="M60,20 C75,10 95,15 100,35 C105,55 90,65 60,65 C30,65 15,55 20,35 C25,15 45,10 60,20 Z" fill="white" stroke="%23000" stroke-width="1.5"/><ellipse cx="45" cy="35" rx="12" ry="8" fill="white" stroke="%23000" stroke-width="1.5" transform="rotate(-15 45 35)"/><ellipse cx="75" cy="35" rx="12" ry="8" fill="white" stroke="%23000" stroke-width="1.5" transform="rotate(15 75 35)"/><ellipse cx="45" cy="35" rx="6" ry="4" fill="%23000"/><ellipse cx="75" cy="35" rx="6" ry="4" fill="%23000"/><ellipse cx="60" cy="50" rx="4" ry="3" fill="pink"/><path d="M55,55 Q60,60 65,55" stroke="%23000" fill="none" stroke-width="1.5"/><ellipse cx="60" cy="85" rx="25" ry="30" fill="white" stroke="%23000" stroke-width="1.5"/><ellipse cx="45" cy="110" rx="8" ry="12" fill="white" stroke="%23000" stroke-width="1.5"/><ellipse cx="75" cy="110" rx="8" ry="12" fill="white" stroke="%23000" stroke-width="1.5"/><ellipse cx="40" cy="125" rx="10" ry="6" fill="white" stroke="%23000" stroke-width="1.5"/><ellipse cx="80" cy="125" rx="10" ry="6" fill="white" stroke="%23000" stroke-width="1.5"/><circle cx="60" cy="135" r="6" fill="white" stroke="%23000" stroke-width="1.5"/><path d="M50,55 L35,50 M70,55 L85,50 M50,58 L35,63 M70,58 L85,63" stroke="%23000" stroke-width="1.5" fill="none"/></svg>');
-            animation: rabbit-run 25s linear infinite;
-        }
-        
-        @keyframes rabbit-run {
-            0% {
-                transform: translateX(-150px);
-            }
-            100% {
-                transform: translateX(calc(100vw + 150px));
-            }
-        }
-        
-        .mad-rabbit {
-            top: 70%;
-            left: 10%;
-            width: 100px;
-            height: 120px;
-            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 120"><path d="M50,15 C65,5 85,10 90,30 C95,50 80,55 50,55 C20,55 5,50 10,30 C15,10 35,5 50,15 Z" fill="white" stroke="%23000" stroke-width="1.5"/><ellipse cx="35" cy="30" rx="10" ry="6" fill="white" stroke="%23000" stroke-width="1.5" transform="rotate(-20 35 30)"/><ellipse cx="65" cy="30" rx="10" ry="6" fill="white" stroke="%23000" stroke-width="1.5" transform="rotate(20 65 30)"/><circle cx="35" cy="30" r="4" fill="%23FF0000"/><circle cx="65" cy="30" r="4" fill="%23FF0000"/><ellipse cx="50" cy="45" rx="3" ry="2" fill="pink"/><path d="M45,50 Q50,55 55,50 M45,52 Q50,57 55,52" stroke="%23000" fill="none" stroke-width="1.5"/><ellipse cx="50" cy="75" rx="20" ry="25" fill="white" stroke="%23000" stroke-width="1.5"/><ellipse cx="35" cy="95" rx="6" ry="10" fill="white" stroke="%23000" stroke-width="1.5"/><ellipse cx="65" cy="95" rx="6" ry="10" fill="white" stroke="%23000" stroke-width="1.5"/></svg>');
-            animation: mad-rabbit-move 18s ease-in-out infinite;
-        }
-        
-        @keyframes mad-rabbit-move {
-            0%, 100% {
-                transform: translateY(0) rotate(0deg);
-            }
-            25% {
-                transform: translateY(-20px) rotate(5deg);
-            }
-            50% {
-                transform: translateY(0) rotate(0deg);
-            }
-            75% {
-                transform: translateY(10px) rotate(-5deg);
-            }
-        }
-        
-        .hat {
-            top: 20%;
-            right: 10%;
-            width: 100px;
-            height: 70px;
-            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 70"><path d="M10,40 C30,10 70,10 90,40 L70,40 L30,40 Z" fill="%238B4513" stroke="%23000" stroke-width="1.5"/><rect x="30" y="40" width="40" height="20" fill="%238B4513" stroke="%23000" stroke-width="1.5"/><text x="50" y="55" text-anchor="middle" fill="%23FFD700" font-family="Arial" font-size="14">10/6</text></svg>');
-            animation: hat-fall 15s ease-in infinite;
-        }
-        
-        @keyframes hat-fall {
-            0%, 100% {
-                transform: translateY(-100px) rotate(0deg);
-                opacity: 0;
-            }
-            10%, 90% {
-                opacity: 0.6;
-            }
-            50% {
-                transform: translateY(50vh) rotate(180deg);
-            }
-        }
-        
-        .cheshire-cat {
-            top: 60%;
-            right: 15%;
-            width: 140px;
-            height: 100px;
-            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 140 100"><path d="M70,30 C90,10 130,10 130,40 C130,70 110,70 70,70 C30,70 10,70 10,40 C10,10 50,10 70,30 Z" fill="%23FFD700" stroke="%23000" stroke-width="1.5"/><path d="M40,40 Q50,20 60,40 M80,40 Q90,20 100,40" fill="none" stroke="%23000" stroke-width="2"/><ellipse cx="45" cy="35" rx="8" ry="12" fill="%23000"/><ellipse cx="95" cy="35" rx="8" ry="12" fill="%23000"/><ellipse cx="45" cy="35" rx="3" ry="5" fill="%23FFF"/><ellipse cx="95" cy="35" rx="3" ry="5" fill="%23FFF"/><path d="M65,50 Q70,60 75,50" stroke="%23000" fill="none" stroke-width="2"/><path d="M30,70 Q70,90 110,70" stroke="%23000" fill="none" stroke-width="2"/></svg>');
-            animation: cat-appear 12s infinite;
-        }
-        
-        @keyframes cat-appear {
-            0%, 60%, 100% {
-                opacity: 0;
-            }
-            10%, 50% {
-                opacity: 0.7;
-            }
-        }
-        
-        .tea-cup-static {
-            bottom: 15%;
-            right: 5%;
-            width: 70px;
-            height: 50px;
-            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 70 50"><path d="M10,35 C15,15 55,15 60,35 L45,35 L25,35 Z" fill="%238B4513" stroke="%23000" stroke-width="1.5"/><ellipse cx="35" cy="15" rx="25" ry="10" fill="%238B4513" stroke="%23000" stroke-width="1.5"/><path d="M60,25 L70,20" stroke="%238B4513" stroke-width="3"/></svg>');
-            animation: cup-tilt 12s ease-in-out infinite;
-        }
-        
-        @keyframes cup-tilt {
-            0%, 100% {
-                transform: rotate(0deg);
-            }
-            50% {
-                transform: rotate(15deg);
-            }
-        }
-        
-        /* Encabezado */
+        /* Estilos de encabezado */
         header {
-            background: linear-gradient(135deg, rgba(42, 21, 67, 0.7) 0%, rgba(123, 65, 173, 0.6) 100%);
-            padding: 4rem 2rem;
+            padding: 20px;
             text-align: center;
-            border-bottom: 3px solid #FFD700;
-            box-shadow: 0 5px 25px rgba(123, 65, 173, 0.5);
+            border-bottom: 1px solid #0f0;
             position: relative;
-            z-index: 10;
-            clip-path: polygon(0 0, 100% 0, 100% 85%, 50% 100%, 0 85%);
-            transform-style: preserve-3d;
+            overflow: hidden;
         }
         
-        .mad-hatter {
-            position: absolute;
-            top: 20px;
-            right: 5%;
-            width: 80px;
-            height: 100px;
-            background: linear-gradient(135deg, #8B4513, #A0522D);
-            border-radius: 50% 50% 0 0;
-            transform: rotate(10deg) translateZ(20px);
-            z-index: 5;
+        .anonymous-mask {
+            width: 120px;
+            height: auto;
+            margin: 0 auto 20px;
+            filter: drop-shadow(0 0 10px #0f0);
         }
         
-        .mad-hatter::before {
-            content: "";
-            position: absolute;
-            top: -20px;
-            left: -10px;
-            width: 100px;
-            height: 30px;
-            background: linear-gradient(135deg, #8B4513, #A0522D);
-            border-radius: 50%;
-            transform: rotate(-5deg);
-        }
-        
-        .mad-hatter::after {
-            content: "10/6";
-            position: absolute;
-            top: -15px;
-            left: 35px;
-            color: #FFD700;
-            font-family: 'UnifrakturMaguntia', cursive;
-            font-size: 1.2rem;
-        }
-        
-        /* Efecto de texto 3D */
         h1 {
-            font-family: 'Alice', serif;
-            font-size: 4.5rem;
-            margin-bottom: 1rem;
-            position: relative;
-            display: inline-block;
-            font-weight: normal;
-            letter-spacing: 2px;
-            transform: translateZ(30px);
-            animation: float-title 6s ease-in-out infinite, text-tilt 8s ease-in-out infinite;
-            /* Efecto 3D con brillo interno */
-            background: linear-gradient(
-                135deg,
-                #FFD700 0%,
-                #FFEC8B 25%,
-                #FFD700 50%,
-                #E6C200 75%,
-                #FFD700 100%
-            );
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
-            text-shadow: 
-                0 1px 0 #d4af37,
-                0 2px 0 #b8941f,
-                0 3px 0 #9b7a17,
-                0 4px 0 #7d610f,
-                0 5px 0 #5f4707,
-                0 6px 1px rgba(0,0,0,.1),
-                0 0 5px rgba(0,0,0,.1),
-                0 1px 3px rgba(0,0,0,.3),
-                0 3px 5px rgba(0,0,0,.2),
-                0 5px 10px rgba(0,0,0,.25),
-                0 10px 10px rgba(0,0,0,.2),
-                0 20px 20px rgba(0,0,0,.15);
-        }
-        
-        @keyframes float-title {
-            0%, 100% {
-                transform: translateZ(30px) translateY(0);
-            }
-            50% {
-                transform: translateZ(30px) translateY(-5px);
-            }
-        }
-        
-        /* Efecto de inclinación para los textos */
-        @keyframes text-tilt {
-            0%, 100% {
-                transform: translateZ(30px) rotateZ(-2deg);
-            }
-            25% {
-                transform: translateZ(30px) rotateZ(0deg);
-            }
-            50% {
-                transform: translateZ(30px) rotateZ(2deg);
-            }
-            75% {
-                transform: translateZ(30px) rotateZ(0deg);
-            }
-        }
-        
-        h1::before {
-            content: "";
-            position: absolute;
-            bottom: -10px;
-            left: 0;
-            width: 100%;
-            height: 3px;
-            background: linear-gradient(90deg, transparent, #FFD700, transparent);
-        }
-        
-        .tagline {
-            font-size: 1.6rem;
-            color: #E6D7B8;
-            margin-bottom: 1.5rem;
-            font-style: italic;
-            font-weight: 400;
-            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
-            transform: translateZ(20px);
-            animation: gentle-pulse 8s ease-in-out infinite, text-tilt 7s ease-in-out infinite;
-        }
-        
-        @keyframes gentle-pulse {
-            0%, 100% {
-                transform: translateZ(20px) scale(1);
-                opacity: 0.9;
-            }
-            50% {
-                transform: translateZ(20px) scale(1.02);
-                opacity: 1;
-            }
-        }
-        
-        .intro {
-            max-width: 800px;
-            margin: 0 auto;
-            font-size: 1.2rem;
-            color: #E6D7B8;
-            background: rgba(42, 21, 67, 0.5);
-            padding: 1.5rem;
-            border-radius: 15px;
-            border: 2px dashed #FFD700;
-            position: relative;
-            transform: translateZ(10px);
-        }
-        
-        .intro::before, .intro::after {
-            content: "♠";
-            position: absolute;
-            color: #FFD700;
-            font-size: 1.5rem;
-        }
-        
-        .intro::before {
-            top: -15px;
-            left: -15px;
-        }
-        
-        .intro::after {
-            bottom: -15px;
-            right: -15px;
-        }
-        
-        /* Navegación */
-        nav {
-            background: rgba(42, 21, 67, 0.8);
-            padding: 1.2rem;
-            position: sticky;
-            top: 0;
-            z-index: 100;
-            border-bottom: 2px solid #7B41AD;
-            backdrop-filter: blur(10px);
-            transform-style: preserve-3d;
-        }
-        
-        nav ul {
-            display: flex;
-            justify-content: center;
-            list-style: none;
-            flex-wrap: wrap;
-        }
-        
-        nav li {
-            margin: 0 1.5rem;
-            position: relative;
-        }
-        
-        nav li::before {
-            content: "♣";
-            position: absolute;
-            left: -20px;
-            top: 50%;
-            transform: translateY(-50%);
-            color: #FFD700;
-        }
-        
-        nav a {
-            color: #E6D7B8;
-            text-decoration: none;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            transition: all 0.3s;
-            padding: 0.5rem 1rem;
-            border-radius: 4px;
-            font-family: 'Alice', serif;
-            font-size: 1.1rem;
-            transform: translateZ(10px);
-            text-shadow: 0 1px 2px rgba(0,0,0,0.5);
-        }
-        
-        nav a:hover {
-            background-color: rgba(123, 65, 173, 0.3);
-            text-shadow: 0 0 10px #FFD700;
-            transform: translateZ(10px) translateY(-2px);
-            color: #FFD700;
+            font-size: 2.5rem;
+            text-shadow: 0 0 10px #0f0;
+            margin-bottom: 10px;
         }
         
         /* Contenido principal */
         .container {
             max-width: 1200px;
             margin: 0 auto;
-            padding: 3rem 2rem;
-            transform-style: preserve-3d;
-        }
-        
-        section {
-            margin-bottom: 4rem;
-            background: rgba(42, 21, 67, 0.5);
-            padding: 2.5rem;
-            border-radius: 20px;
-            border: 2px solid #7B41AD;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-            transition: transform 0.3s;
-            position: relative;
-            overflow: hidden;
-            transform-style: preserve-3d;
-        }
-        
-        section::before {
-            content: "";
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 5px;
-            background: linear-gradient(90deg, #7B41AD, #FFD700, #7B41AD);
-        }
-        
-        section:hover {
-            transform: translateY(-5px) translateZ(10px);
-        }
-        
-        /* Encabezados con efecto 3D mejorado y movimiento */
-        h2 {
-            font-family: 'Alice', serif;
-            font-size: 2.8rem;
-            margin-bottom: 2rem;
-            text-align: center;
-            position: relative;
-            padding-bottom: 1rem;
-            font-weight: normal;
-            transform: translateZ(25px);
-            animation: header-float 8s ease-in-out infinite, text-tilt 9s ease-in-out infinite;
-            /* Efecto 3D con brillo interno */
-            background: linear-gradient(
-                135deg,
-                #FFD700 0%,
-                #FFEC8B 25%,
-                #FFD700 50%,
-                #E6C200 75%,
-                #FFD700 100%
-            );
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
-            text-shadow: 
-                0 1px 0 #d4af37,
-                0 2px 0 #b8941f,
-                0 3px 0 #9b7a17,
-                0 4px 0 #7d610f,
-                0 5px 1px rgba(0,0,0,.1),
-                0 0 5px rgba(0,0,0,.1),
-                0 1px 3px rgba(0,0,0,.3),
-                0 3px 5px rgba(0,0,0,.2),
-                0 5px 10px rgba(0,0,0,.25),
-                0 10px 10px rgba(0,0,0,.2);
-        }
-        
-        @keyframes header-float {
-            0%, 100% {
-                transform: translateZ(25px) translateY(0);
-            }
-            50% {
-                transform: translateZ(25px) translateY(-3px);
-            }
-        }
-        
-        h2::before {
-            content: "";
-            position: absolute;
-            bottom: 0;
-            left: 25%;
-            width: 50%;
-            height: 2px;
-            background: linear-gradient(90deg, transparent, #FFD700, transparent);
-        }
-        
-        /* Biografía */
-        .bio-content {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 3rem;
-            align-items: center;
-        }
-        
-        .bio-text {
-            flex: 1;
-            min-width: 300px;
-            line-height: 1.8;
-            font-size: 1.1rem;
-            background: rgba(58, 32, 91, 0.4);
-            padding: 1.5rem;
-            border-radius: 15px;
-            border: 1px dashed #E6D7B8;
-            transform: translateZ(5px);
-        }
-        
-        /* Botón de Instagram */
-        .bio-image {
-            flex: 0 0 250px;
-            height: 250px;
-            background: linear-gradient(135deg, #7B41AD, #FFD700);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border: 3px solid #FFD700;
-            box-shadow: 0 0 30px rgba(123, 65, 173, 0.7);
-            overflow: hidden;
-            position: relative;
-            transform: translateZ(15px);
-            cursor: pointer;
-            transition: all 0.3s;
-            text-decoration: none;
-        }
-        
-        .bio-image:hover {
-            transform: translateZ(20px) scale(1.05);
-            box-shadow: 0 0 40px rgba(255, 215, 0, 0.8);
-        }
-        
-        .bio-image::before {
-            content: "DESENGANY";
-            color: #1a0f2d;
-            font-weight: bold;
-            text-align: center;
-            font-family: 'Alice', serif;
-            font-size: 1.8rem;
-            padding: 1rem;
-            z-index: 2;
-        }
-        
-        .bio-image::after {
-            content: "";
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><path d="M50,10 C70,10 90,30 90,50 C90,70 70,90 50,90 C30,90 10,70 10,50 C10,30 30,10 50,10 Z" fill="none" stroke="%231a0f2d" stroke-width="2"/></svg>');
-            background-size: 50px;
-            opacity: 0.2;
-        }
-        
-        /* Pestañas de música */
-        .song-tabs {
-            margin-top: 2rem;
-        }
-        
-        .tab {
-            margin-bottom: 1.5rem;
-            border: 2px solid #7B41AD;
-            border-radius: 15px;
-            overflow: hidden;
-            transition: all 0.3s;
-            background: rgba(58, 32, 91, 0.4);
-            transform-style: preserve-3d;
-        }
-        
-        .tab:hover {
-            border-color: #FFD700;
-            box-shadow: 0 5px 15px rgba(255, 215, 0, 0.3);
-            transform: translateZ(5px);
-        }
-        
-        .tab input {
-            display: none;
-        }
-        
-        .tab label {
-            display: block;
-            padding: 1.5rem;
-            background: rgba(74, 35, 90, 0.6);
-            cursor: pointer;
-            font-weight: bold;
-            transition: all 0.3s;
-            position: relative;
-            font-family: 'Alice', serif;
-            font-size: 1.5rem;
-            color: #FFD700;
-            text-align: center;
-            transform: translateZ(10px);
-            text-shadow: 0 1px 2px rgba(0,0,0,0.5);
-        }
-        
-        .tab label:hover {
-            background: rgba(90, 45, 110, 0.6);
-        }
-        
-        .tab label::after {
-            content: "▼";
-            position: absolute;
-            right: 1.5rem;
-            font-size: 1.5rem;
-            transition: transform 0.3s;
-            color: #FFD700;
-        }
-        
-        .tab input:checked + label::after {
-            transform: rotate(180deg);
-        }
-        
-        .tab-content {
-            max-height: 0;
-            overflow: hidden;
-            transition: max-height 0.5s ease-out;
-            background: rgba(42, 21, 67, 0.6);
-        }
-        
-        .tab input:checked ~ .tab-content {
-            max-height: 800px;
-        }
-        
-        .platform-links {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 1rem;
-            padding: 2rem;
-            justify-content: center;
-        }
-        
-        .platform-link {
-            display: flex;
-            align-items: center;
-            padding: 1rem 2rem;
-            background: rgba(74, 35, 90, 0.6);
-            border-radius: 10px;
-            text-decoration: none;
-            color: #E6D7B8;
-            transition: all 0.3s;
-            border: 1px solid #7B41AD;
-            font-weight: 600;
-            min-width: 180px;
-            justify-content: center;
-            font-family: 'Alice', serif;
-            transform: translateZ(5px);
-        }
-        
-        .platform-link:hover {
-            background: rgba(123, 65, 173, 0.6);
-            transform: translateY(-5px) translateZ(10px);
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
-            border-color: #FFD700;
-            color: #FFD700;
-        }
-        
-        /* Sección de comentarios */
-        .comments-form {
-            max-width: 700px;
-            margin: 0 auto;
-        }
-        
-        .form-group {
-            margin-bottom: 2rem;
-        }
-        
-        .form-group label {
-            display: block;
-            margin-bottom: 0.8rem;
-            color: #FFD700;
-            font-weight: 600;
-            font-family: 'Alice', serif;
-            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
-            transform: translateZ(5px);
-        }
-        
-        .form-group input,
-        .form-group textarea,
-        .form-group select {
-            width: 100%;
-            padding: 1rem;
-            background: rgba(58, 32, 91, 0.6);
-            border: 1px solid #7B41AD;
-            border-radius: 8px;
-            color: #E6D7B8;
-            font-family: 'Alice', serif;
-            font-size: 1rem;
-            transition: all 0.3s;
-            transform: translateZ(5px);
-        }
-        
-        .form-group input:focus,
-        .form-group textarea:focus,
-        .form-group select:focus {
-            outline: none;
-            border-color: #FFD700;
-            box-shadow: 0 0 15px rgba(255, 215, 0, 0.3);
-            transform: translateZ(10px);
-        }
-        
-        .submit-btn {
-            background: rgba(123, 65, 173, 0.3);
-            color: #FFD700;
-            border: 2px solid #FFD700;
-            padding: 1rem 2.5rem;
-            border-radius: 8px;
-            cursor: pointer;
-            font-weight: bold;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            transition: all 0.3s;
-            font-family: 'Alice', serif;
-            font-size: 1.1rem;
-            display: block;
-            margin: 0 auto;
-            transform: translateZ(10px);
-        }
-        
-        .submit-btn:hover {
-            background: rgba(123, 65, 173, 0.5);
-            box-shadow: 0 0 20px rgba(255, 215, 0, 0.5);
-            transform: translateZ(15px) translateY(-3px);
-        }
-        
-        /* Sección de referentes de investigación */
-        .referentes-grid {
+            padding: 40px 20px;
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 2rem;
-            margin-top: 2rem;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
         }
         
-        .referente-card {
-            background: rgba(58, 32, 91, 0.6);
-            border-radius: 15px;
+        .card {
+            background: rgba(0, 20, 0, 0.7);
+            border: 1px solid #0f0;
+            border-radius: 5px;
+            padding: 20px;
+            transition: transform 0.3s, box-shadow 0.3s;
+            position: relative;
             overflow: hidden;
-            border: 2px solid #7B41AD;
-            transition: all 0.3s;
-            transform-style: preserve-3d;
         }
         
-        .referente-card:hover {
-            transform: translateY(-8px) translateZ(10px);
-            box-shadow: 0 15px 30px rgba(123, 65, 173, 0.4);
-            border-color: #FFD700;
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 0 20px #0f0;
         }
         
-        .referente-header {
-            background: linear-gradient(135deg, #4A235A, #7B41AD);
-            padding: 1.5rem;
-            text-align: center;
-            border-bottom: 2px solid #FFD700;
+        .card h2 {
+            color: #0f0;
+            margin-bottom: 15px;
+            border-bottom: 1px solid #0f0;
+            padding-bottom: 10px;
         }
         
-        .referente-name {
-            font-size: 1.5rem;
-            color: #FFD700;
-            margin-bottom: 0.5rem;
-            font-family: 'Alice', serif;
-        }
-        
-        .referente-title {
-            font-size: 1rem;
-            color: #E6D7B8;
-            font-style: italic;
-        }
-        
-        .referente-content {
-            padding: 1.5rem;
-        }
-        
-        .referente-bio {
-            color: #E6D7B8;
+        .card p {
             line-height: 1.6;
-            margin-bottom: 1.5rem;
+            margin-bottom: 15px;
         }
         
-        .referente-links {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.8rem;
-            justify-content: center;
+        /* Elementos simbólicos */
+        .symbol {
+            text-align: center;
+            margin: 20px 0;
         }
         
-        .referente-link {
-            display: flex;
-            align-items: center;
-            padding: 0.7rem 1.2rem;
-            background: rgba(74, 35, 90, 0.7);
-            border-radius: 8px;
-            text-decoration: none;
-            color: #E6D7B8;
-            transition: all 0.3s;
-            border: 1px solid #7B41AD;
+        .eye-icon {
+            font-size: 3rem;
+            color: #0f0;
+            margin: 10px;
+            text-shadow: 0 0 10px #0f0;
+        }
+        
+        .matrix-code {
+            font-family: monospace;
+            background: rgba(0, 30, 0, 0.5);
+            padding: 15px;
+            border-left: 3px solid #0f0;
+            margin: 15px 0;
+            overflow-x: auto;
+        }
+        
+        /* Pie de página */
+        footer {
+            text-align: center;
+            padding: 20px;
+            border-top: 1px solid #0f0;
+            margin-top: 40px;
             font-size: 0.9rem;
         }
         
-        .referente-link:hover {
-            background: rgba(123, 65, 173, 0.7);
-            transform: translateY(-3px);
-            border-color: #FFD700;
-            color: #FFD700;
+        /* Animaciones */
+        @keyframes glow {
+            0% { text-shadow: 0 0 5px #0f0; }
+            50% { text-shadow: 0 0 20px #0f0, 0 0 30px #0f0; }
+            100% { text-shadow: 0 0 5px #0f0; }
         }
         
-        .referente-link i {
-            margin-right: 0.5rem;
+        .glowing {
+            animation: glow 2s infinite;
         }
         
-        /* Blog */
-        .blog-posts {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
-            gap: 2.5rem;
-        }
-        
-        .post {
-            background: rgba(58, 32, 91, 0.6);
-            border-radius: 15px;
-            overflow: hidden;
-            border: 2px solid #7B41AD;
+        /* Elementos interactivos */
+        .reveal-btn {
+            background: transparent;
+            border: 1px solid #0f0;
+            color: #0f0;
+            padding: 10px 20px;
+            cursor: pointer;
             transition: all 0.3s;
-            height: 100%;
-            display: flex;
-            flex-direction: column;
-            position: relative;
-            transform-style: preserve-3d;
+            margin-top: 10px;
         }
         
-        .post::before {
-            content: "♠";
-            position: absolute;
-            top: 10px;
-            right: 10px;
-            color: #FFD700;
-            font-size: 1.5rem;
+        .reveal-btn:hover {
+            background: #0f0;
+            color: #000;
         }
         
-        .post:hover {
-            transform: translateY(-8px) translateZ(10px);
-            box-shadow: 0 15px 30px rgba(123, 65, 173, 0.4);
-            border-color: #FFD700;
-        }
-        
-        .post-image {
-            height: 200px;
-            background: linear-gradient(135deg, #4A235A, #FFD700);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #1a0f2d;
-            font-weight: bold;
-            font-family: 'Alice', serif;
-            font-size: 1.5rem;
-            text-align: center;
-            padding: 1rem;
-        }
-        
-        .post-content {
-            padding: 1.8rem;
-            flex-grow: 1;
-            display: flex;
-            flex-direction: column;
-            background: rgba(42, 21, 67, 0.5);
-        }
-        
-        .post-title {
-            font-size: 1.5rem;
-            margin-bottom: 1rem;
-            color: #FFD700;
-            font-family: 'Alice', serif;
-            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
-            transform: translateZ(10px);
-            animation: gentle-pulse 10s ease-in-out infinite;
-        }
-        
-        .post-excerpt {
-            color: #E6D7B8;
-            line-height: 1.6;
-            margin-bottom: 1.5rem;
-            flex-grow: 1;
-            transform: translateZ(5px);
-        }
-        
-        .read-more {
-            display: inline-block;
-            color: #FFD700;
-            text-decoration: none;
-            font-weight: bold;
-            transition: all 0.3s;
-            align-self: flex-start;
-            padding: 0.5rem 1rem;
-            border: 1px solid #FFD700;
-            border-radius: 4px;
-            font-family: 'Alice', serif;
-            transform: translateZ(5px);
-        }
-        
-        .read-more:hover {
-            background: rgba(255, 215, 0, 0.1);
-            text-shadow: 0 0 10px #FFD700;
-            transform: translateZ(10px) translateY(-2px);
-        }
-        
-        /* Contacto */
-        .contact-form {
-            max-width: 700px;
-            margin: 0 auto;
-        }
-        
-        /* Footer */
-        footer {
-            background: rgba(42, 21, 67, 0.8);
-            padding: 3rem 2rem;
-            text-align: center;
-            border-top: 2px solid #7B41AD;
-            margin-top: 3rem;
-            clip-path: polygon(0 15%, 50% 0, 100% 15%, 100% 100%, 0 100%);
-            transform-style: preserve-3d;
-        }
-        
-        .social-links {
-            display: flex;
-            justify-content: center;
-            gap: 2rem;
-            margin-bottom: 2rem;
-            flex-wrap: wrap;
-        }
-        
-        .social-link {
-            color: #FFD700;
-            font-size: 1.8rem;
-            transition: all 0.3s;
-            width: 50px;
-            height: 50px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border-radius: 50%;
-            background: rgba(74, 35, 90, 0.6);
-            text-decoration: none;
-            transform: translateZ(10px);
-        }
-        
-        .social-link:hover {
-            text-shadow: 0 0 15px #FFD700;
-            transform: translateZ(15px) translateY(-5px);
-            background: rgba(123, 65, 173, 0.6);
-        }
-        
-        .copyright {
-            color: #E6D7B8;
-            font-size: 1rem;
-            transform: translateZ(5px);
-        }
-        
-        /* Elementos decorativos */
-        .tea-cup {
-            position: fixed;
-            bottom: 20px;
-            left: 20px;
-            width: 60px;
-            height: 40px;
-            background: #8B4513;
-            border-radius: 0 0 30px 30px;
-            z-index: 5;
-            opacity: 0.7;
-            transform: translateZ(20px);
-        }
-        
-        .tea-cup::before {
-            content: "";
-            position: absolute;
-            top: -10px;
-            left: 5px;
-            width: 50px;
-            height: 20px;
-            background: #8B4513;
-            border-radius: 50%;
-        }
-        
-        .tea-cup::after {
-            content: "";
-            position: absolute;
-            top: -5px;
-            right: -10px;
-            width: 15px;
-            height: 10px;
-            background: #8B4513;
-            border-radius: 0 50% 50% 0;
-        }
-        
-        /* Responsive */
-        @media (max-width: 768px) {
-            h1 {
-                font-size: 3rem;
-            }
-            
-            .mad-hatter {
-                display: none;
-            }
-            
-            nav ul {
-                flex-direction: column;
-                align-items: center;
-            }
-            
-            nav li {
-                margin: 0.5rem 0;
-            }
-            
-            .bio-content {
-                flex-direction: column;
-            }
-            
-            .bio-image {
-                margin-top: 1rem;
-            }
-            
-            .platform-links {
-                flex-direction: column;
-            }
-            
-            .platform-link {
-                width: 100%;
-            }
-            
-            .tea-cup {
-                display: none;
-            }
-            
-            .referentes-grid {
-                grid-template-columns: 1fr;
-            }
-            
-            .wonderland-element {
-                display: none;
-            }
+        .hidden-content {
+            display: none;
+            margin-top: 15px;
+            padding: 15px;
+            background: rgba(0, 30, 0, 0.3);
+            border: 1px dashed #0f0;
         }
     </style>
 </head>
 <body>
-    <!-- Fondo animado de madriguera -->
-    <div id="rabbit-hole">
-        <div class="hole-layer"></div>
-        <div class="hole-layer"></div>
-        <div class="hole-layer"></div>
-        <div class="hole-layer"></div>
-        <div class="hole-layer"></div>
-        <div class="hole-layer"></div>
-        <div class="hole-layer"></div>
-        <div class="hole-layer"></div>
-    </div>
+    <!-- Fondo tipo Matrix -->
+    <canvas id="matrix-bg"></canvas>
     
-    <!-- Elementos de Alicia en el fondo MEJORADOS -->
-    <div class="wonderland-element rabbit"></div>
-    <div class="wonderland-element mad-rabbit"></div>
-    <div class="wonderland-element hat"></div>
-    <div class="wonderland-element cheshire-cat"></div>
-    <div class="wonderland-element tea-cup-static"></div>
-    
-    <!-- Partículas flotantes -->
-    <div class="particles" id="particles"></div>
-    
-    <!-- Taza de té decorativa -->
-    <div class="tea-cup"></div>
-    
-    <!-- Encabezado -->
     <header>
-        <div class="mad-hatter"></div>
-        <h1>Desengany</h1>
-        <p class="tagline">Un viaje fantástico a través de la música</p>
-        <div class="intro">
-            <p>Soy productor, compositor y artista en distintas plataformas. Mi música te transportará a un mundo de fantasía y maravillas, donde cada canción es una nueva aventura.</p>
-        </div>
+        <!-- Máscara de Anonymous -->
+        <svg class="anonymous-mask" viewBox="0 0 100 100">
+            <path d="M50,15 C30,15 15,30 15,50 C15,70 30,85 50,85 C70,85 85,70 85,50 C85,30 70,15 50,15 Z" fill="none" stroke="#0f0" stroke-width="2"/>
+            <path d="M40,35 C45,30 55,30 60,35" fill="none" stroke="#0f0" stroke-width="2"/>
+            <path d="M35,50 C35,45 40,40 50,40 C60,40 65,45 65,50 C65,55 60,60 50,60 C40,60 35,55 35,50 Z" fill="none" stroke="#0f0" stroke-width="2"/>
+            <path d="M45,50 C45,48 47,46 50,46 C53,46 55,48 55,50 C55,52 53,54 50,54 C47,54 45,52 45,50 Z" fill="#0f0"/>
+        </svg>
+        
+        <h1 class="glowing">DESPERTAR DE CONCIENCIA</h1>
+        <p>La verdad está ahí fuera. ¿Estás listo para verla?</p>
     </header>
     
-    <!-- Navegación -->
-    <nav>
-        <ul>
-            <li><a href="#biografia">Biografía</a></li>
-            <li><a href="#musica">Música</a></li>
-            <li><a href="#comentarios">Comentarios</a></li>
-            <li><a href="#referentes">Referentes</a></li>
-            <li><a href="#blog">Blog</a></li>
-            <li><a href="#contacto">Contacto</a></li>
-        </ul>
-    </nav>
-    
-    <!-- Contenido principal -->
     <div class="container">
-        <!-- Biografía -->
-        <section id="biografia">
-            <h2 data-text="Biografía">Biografía</h2>
-            <div class="bio-content">
-                <div class="bio-text">
-                    <p>Desengany es la expresión de un artista que siempre ha buscado la magia en lo cotidiano. Inspirado por los cuentos de hadas y las aventuras fantásticas, su música transporta a los oyentes a mundos donde todo es posible.</p>
-                    <p>Como el Sombrerero Loco en el País de las Maravillas, Desengany desafía las convenciones y crea un universo sonoro único donde la imaginación no tiene límites. Cada canción es una invitación a un té loco, una conversación absurda que revela verdades profundas.</p>
-                    <p>Su proceso creativo combina técnicas tradicionales con tecnología moderna, creando un sonido que es a la vez nostálgico y futurista. Las letras exploran temas de identidad, realidad y la búsqueda de significado en un mundo que a menudo parece carecer de él.</p>
-                    <p>Con cada nuevo lanzamiento, Desengany invita a sus oyentes a seguir al conejo blanco y descubrir qué maravillas aguardan al otro lado de la madriguera.</p>
-                </div>
-                <a href="https://www.instagram.com/conillet_blanquet?igsh=MXQxc2diY3dhMDVkdQ==" target="_blank" class="bio-image"></a>
+        <div class="card">
+            <h2>Anonymous</h2>
+            <p>Somos legión. No perdonamos. No olvidamos. Espéranos.</p>
+            <div class="symbol">
+                <div class="eye-icon">👁️</div>
             </div>
-        </section>
-        
-        <!-- Música -->
-        <section id="musica">
-            <h2 data-text="Música">Música</h2>
-            <p>Explora el universo sonoro de Desengany a través de sus canciones, disponibles en todas las plataformas digitales.</p>
-            
-            <div class="song-tabs">
-                <!-- Canción 1 -->
-                <div class="tab">
-                    <input type="checkbox" id="tab1">
-                    <label for="tab1">Cuestión de cuestionar</label>
-                    <div class="tab-content">
-                        <div class="platform-links">
-                            <a href="https://open.spotify.com/track/5nJCERLNonYEktaFHa4dZu?si=BPy0A_BfS9K-I9H8F803Ew" target="_blank" class="platform-link">
-                                <span class="platform-icon">▶</span> Spotify
-                            </a>
-                            <a href="https://music.apple.com/es/album/cuesti%C3%B3n-de-cuestionar/1789460477?i=1789460722&ls" target="_blank" class="platform-link">
-                                <span class="platform-icon">▶</span> Apple Music
-                            </a>
-                            <a href="https://music.youtube.com/watch?v=TaHzAyvNZBo&si=GlqsMNgoiLjRB_9k" target="_blank" class="platform-link">
-                                <span class="platform-icon">▶</span> YouTube Music
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Canción 2 -->
-                <div class="tab">
-                    <input type="checkbox" id="tab2">
-                    <label for="tab2">Condiciones altas</label>
-                    <div class="tab-content">
-                        <div class="platform-links">
-                            <a href="https://open.spotify.com/track/7lIZAFWSQ5JMh7ZaRNkowZ?si=j6L9uJqsSQm1HEAg6U-5cA" target="_blank" class="platform-link">
-                                <span class="platform-icon">▶</span> Spotify
-                            </a>
-                            <a href="https://music.apple.com/es/album/condiciones-altas/1776039004?i=1776039013&ls" target="_blank" class="platform-link">
-                                <span class="platform-icon">▶</span> Apple Music
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Nueva Canción 3 -->
-                <div class="tab">
-                    <input type="checkbox" id="tab3">
-                    <label for="tab3">Fuego eterno</label>
-                    <div class="tab-content">
-                        <div class="platform-links">
-                            <a href="https://open.spotify.com/track/4EDQTQDkWRJFK0PXcSV28G?si=qAjHh8O6RzabVUIQDie0SA" target="_blank" class="platform-link">
-                                <span class="platform-icon">▶</span> Spotify
-                            </a>
-                            <a href="https://music.apple.com/es/album/fuego-eterno/1818707341?i=1818707342&ls" target="_blank" class="platform-link">
-                                <span class="platform-icon">▶</span> Apple Music
-                            </a>
-                            <a href="https://music.amazon.es/albums/B0FC25BCN3?ref=dm_sh_o4gJ9u7r4oJrmYyWWarlyB85D" target="_blank" class="platform-link">
-                                <span class="platform-icon">▶</span> Amazon Music
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Nueva Canción 4 -->
-                <div class="tab">
-                    <input type="checkbox" id="tab4">
-                    <label for="tab4">Ciencia tecnológica</label>
-                    <div class="tab-content">
-                        <div class="platform-links">
-                            <a href="https://open.spotify.com/track/7E5wIKl2RZLua92Z87EfqC?si=JpopT-dbQGC0dgIzkmWSZQ" target="_blank" class="platform-link">
-                                <span class="platform-icon">▶</span> Spotify
-                            </a>
-                            <a href="https://music.apple.com/es/album/ciencia-tecnol%C3%B3gica/1789460477?i=1789460724&ls" target="_blank" class="platform-link">
-                                <span class="platform-icon">▶</span> Apple Music
-                            </a>
-                            <a href="https://music.amazon.es/albums/B0DSKB1W38?trackAsin=B0DSKDGG4G&do=play&ref=dm_sh_O5H4xxJ0TVAtTJdBt02TzNzak" target="_blank" class="platform-link">
-                                <span class="platform-icon">▶</span> Amazon Music
-                            </a>
-                        </div>
-                    </div>
-                </div>
+            <button class="reveal-btn" onclick="toggleContent('content1')">Revelar Mensaje</button>
+            <div id="content1" class="hidden-content">
+                <p>La libertad de información es un derecho fundamental. Luchamos contra la censura y por la transparencia.</p>
             </div>
-        </section>
+        </div>
         
-        <!-- Sección de comentarios -->
-        <section id="comentarios">
-            <h2 data-text="Me gustaría conocer tu opinión">Me gustaría conocer tu opinión</h2>
-            <form class="comments-form" id="commentForm">
-                <div class="form-group">
-                    <label for="comment-name">Nombre</label>
-                    <input type="text" id="comment-name" required>
-                </div>
-                
-                <div class="form-group">
-                    <label for="comment-email">Email</label>
-                    <input type="email" id="comment-email" required>
-                </div>
-                
-                <div class="form-group">
-                    <label for="comment-rating">Valoración</label>
-                    <select id="comment-rating" required>
-                        <option value="">Selecciona una valoración</option>
-                        <option value="5">⭐️⭐️⭐️⭐️⭐️ Excelente</option>
-                        <option value="4">⭐️⭐️⭐️⭐️ Muy Bueno</option>
-                        <option value="3">⭐️⭐️⭐️ Bueno</option>
-                        <option value="2">⭐️⭐️ Regular</option>
-                        <option value="1">⭐️ Mejorable</option>
-                    </select>
-                </div>
-                
-                <div class="form-group">
-                    <label for="comment-message">Tu comentario</label>
-                    <textarea id="comment-message" rows="5" required></textarea>
-                </div>
-                
-                <button type="submit" class="submit-btn">Enviar Comentario</button>
-            </form>
-        </section>
-        
-        <!-- Referentes de investigación -->
-        <section id="referentes">
-            <h2 data-text="Referentes de Investigación">Referentes de Investigación</h2>
-            
-            <div class="referentes-grid">
-                <!-- Cristina Martin Jimenez -->
-                <div class="referente-card">
-                    <div class="referente-header">
-                        <h3 class="referente-name">Cristina Martín Jiménez</h3>
-                        <p class="referente-title">Periodista de investigación</p>
-                    </div>
-                    <div class="referente-content">
-                        <p class="referente-bio">Periodista especializada en geopolítica y análisis del poder. Autora de varios libros sobre los entresijos del poder mundial y las élites globales.</p>
-                        <div class="referente-links">
-                            <a href="#" class="referente-link" target="_blank">
-                                <i class="fab fa-instagram"></i> Instagram
-                            </a>
-                            <a href="#" class="referente-link" target="_blank">
-                                <i class="fas fa-book"></i> Libros
-                            </a>
-                            <a href="#" class="referente-link" target="_blank">
-                                <i class="fab fa-youtube"></i> YouTube
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Coronel Pedro Baños -->
-                <div class="referente-card">
-                    <div class="referente-header">
-                        <h3 class="referente-name">Coronel Pedro Baños</h3>
-                        <p class="referente-title">Experto en geopolítica</p>
-                    </div>
-                    <div class="referente-content">
-                        <p class="referente-bio">Coronel del Ejército de Tierra español, experto en geopolítica, estrategia, defensa, seguridad, inteligencia y terrorismo yihadista.</p>
-                        <div class="referente-links">
-                            <a href="#" class="referente-link" target="_blank">
-                                <i class="fab fa-instagram"></i> Instagram
-                            </a>
-                            <a href="#" class="referente-link" target="_blank">
-                                <i class="fas fa-book"></i> Libros
-                            </a>
-                            <a href="#" class="referente-link" target="_blank">
-                                <i class="fab fa-youtube"></i> YouTube
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Justicia Social -->
-                <div class="referente-card">
-                    <div class="referente-header">
-                        <h3 class="referente-name">Justicia Social</h3>
-                        <p class="referente-title">Canal de Telegram</p>
-                    </div>
-                    <div class="referente-content">
-                        <p class="referente-bio">Canal de Telegram especializado en análisis de actualidad política y social desde una perspectiva crítica y de justicia social.</p>
-                        <div class="referente-links">
-                            <a href="#" class="referente-link" target="_blank">
-                                <i class="fab fa-telegram"></i> Telegram
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Iker Jimenez -->
-                <div class="referente-card">
-                    <div class="referente-header">
-                        <h3 class="referente-name">Iker Jiménez</h3>
-                        <p class="referente-title">Periodista e investigador</p>
-                    </div>
-                    <div class="referente-content">
-                        <p class="referente-bio">Periodista, escritor y director de programas de televisión especializado en misterio, enigmas históricos y fenómenos inexplicables.</p>
-                        <div class="referente-links">
-                            <a href="#" class="referente-link" target="_blank">
-                                <i class="fas fa-book"></i> Libros
-                            </a>
-                            <a href="#" class="referente-link" target="_blank">
-                                <i class="fab fa-youtube"></i> YouTube
-                            </a>
-                        </div>
-                    </div>
-                </div>
+        <div class="card">
+            <h2>Matrix</h2>
+            <p>¿Qué es real? ¿Cómo defines lo real?</p>
+            <div class="matrix-code">
+                01000100 01100101 01110011 01110000 01101001 01100101 01110010 01110100 01100001 00100000 01100101 01101110 00100000 01101100 01100001 00100000 01101101 01100001 01110100 01110010 01101001 01111010 00101110 00100000 01001100 01100001 00100000 01110110 01100101 01110010 01100100 01100001 01100100 00100000 01110100 01100101 00100000 01101000 01100001 01110010 11100001 00100000 01101100 01101001 01100010 01110010 01100101 00101110
             </div>
-        </section>
-        
-        <!-- Blog -->
-        <section id="blog">
-            <h2 data-text="Blog Fantástico">Blog Fantástico</h2>
-            <div class="blog-posts">
-                <article class="post">
-                    <div class="post-image">EL CONEJO BLANCO</div>
-                    <div class="post-content">
-                        <h3 class="post-title">Siguiendo al Conejo Blanco</h3>
-                        <p class="post-excerpt">Una reflexión sobre cómo las pequeñas curiosidades pueden llevarnos a grandes aventuras y transformar nuestra percepción de la realidad.</p>
-                        <a href="#" class="read-more">Leer más</a>
-                    </div>
-                </article>
-                
-                <article class="post">
-                    <div class="post-image">LA ORUGA AZUL</div>
-                    <div class="post-content">
-                        <h3 class="post-title">¿Quién eres tú?</h3>
-                        <p class="post-excerpt">Explorando la naturaleza de la identidad a través de la famosa pregunta de la Oruga Azul y cómo la música nos ayuda a descubrirnos.</p>
-                        <a href="#" class="read-more">Leer más</a>
-                    </div>
-                </article>
-                
-                <article class="post">
-                    <div class="post-image">EL TÉ LOCO</div>
-                    <div class="post-content">
-                        <h3 class="post-title">La Fiesta del Té del Sombrerero</h3>
-                        <p class="post-excerpt">Cómo las conversaciones aparentemente absurdas pueden revelar verdades profundas y la importancia de celebrar la locura creativa.</p>
-                        <a href="#" class="read-more">Leer más</a>
-                    </div>
-                </article>
+            <button class="reveal-btn" onclick="toggleContent('content2')">Descifrar Código</button>
+            <div id="content2" class="hidden-content">
+                <p>"Despierta en la matriz. La verdad te hará libre."</p>
             </div>
-        </section>
+        </div>
         
-        <!-- Contacto -->
-        <section id="contacto">
-            <h2 data-text="Contacto">Contacto</h2>
-            <form class="contact-form" action="https://formspree.io/f/pensamientoincansable@gmail.com" method="POST" id="contactForm">
-                <div class="form-group">
-                    <label for="name">Nombre</label>
-                    <input type="text" id="name" name="name" required>
-                </div>
-                
-                <div class="form-group">
-                    <label for="email">Email</label>
-                    <input type="email" id="email" name="email" required>
-                </div>
-                
-                <div class="form-group">
-                    <label for="message">Mensaje</label>
-                    <textarea id="message" name="message" rows="5" required></textarea>
-                </div>
-                
-                <button type="submit" class="submit-btn">Enviar Mensaje</button>
-            </form>
-        </section>
+        <div class="card">
+            <h2>Despertar de Conciencia</h2>
+            <p>El conocimiento es poder, pero la conciencia es libertad.</p>
+            <div class="symbol">
+                <div class="eye-icon">🧠</div>
+            </div>
+            <button class="reveal-btn" onclick="toggleContent('content3')">Expandir Conciencia</button>
+            <div id="content3" class="hidden-content">
+                <p>Cuestiona todo lo que te han enseñado. Busca tu propia verdad. La realidad es más de lo que tus ojos pueden ver.</p>
+            </div>
+        </div>
     </div>
     
-    <!-- Footer -->
     <footer>
-        <div class="social-links">
-            <a href="#" class="social-link">FB</a>
-            <a href="https://www.instagram.com/conillet_blanquet?igsh=MXQxc2diY3dhMDVkdQ==" target="_blank" class="social-link">IG</a>
-            <a href="#" class="social-link">YT</a>
-            <a href="#" class="social-link">TW</a>
-            <a href="#" class="social-link">SC</a>
-        </div>
-        <p class="copyright">&copy; 2023 Desengany. Todos los derechos reservados.</p>
+        <p>No somos enemigos, sino portadores de la verdad. | No sigas al rebaño.</p>
+        <p class="glowing">La conciencia colectiva está despertando</p>
     </footer>
-    
-    <!-- Script para funcionalidades -->
+
     <script>
-        // Smooth scroll para navegación
-        document.querySelectorAll('nav a').forEach(anchor => {
-            anchor.addEventListener('click', function(e) {
-                e.preventDefault();
-                
-                const targetId = this.getAttribute('href');
-                const targetElement = document.querySelector(targetId);
-                
-                window.scrollTo({
-                    top: targetElement.offsetTop - 20,
-                    behavior: 'smooth'
-                });
-            });
-        });
+        // Efecto Matrix en el fondo
+        const canvas = document.getElementById('matrix-bg');
+        const ctx = canvas.getContext('2d');
         
-        // Crear partículas flotantes
-        const particlesContainer = document.getElementById('particles');
-        const particleCount = 50;
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
         
-        for (let i = 0; i < particleCount; i++) {
-            const particle = document.createElement('div');
-            particle.classList.add('particle');
-            
-            // Tamaño aleatorio
-            const size = Math.random() * 10 + 5;
-            particle.style.width = `${size}px`;
-            particle.style.height = `${size}px`;
-            
-            // Posición inicial aleatoria
-            particle.style.left = `${Math.random() * 100}vw`;
-            
-            // Retraso de animación aleatorio
-            particle.style.animationDelay = `${Math.random() * 15}s`;
-            
-            // Opacidad aleatoria
-            particle.style.opacity = Math.random() * 0.7 + 0.3;
-            
-            particlesContainer.appendChild(particle);
+        const letters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789@#$%^&*()_+-=[]{}|;:,.<>?';
+        const fontSize = 14;
+        const columns = canvas.width / fontSize;
+        
+        const drops = [];
+        for (let i = 0; i < columns; i++) {
+            drops[i] = 1;
         }
         
-        // Manejo del formulario de contacto
-        document.getElementById('contactForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-            alert('¡Gracias por tu mensaje! Te responderé lo antes posible.');
-            this.reset();
-        });
+        function drawMatrix() {
+            ctx.fillStyle = 'rgba(0, 0, 0, 0.04)';
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+            
+            ctx.fillStyle = '#0f0';
+            ctx.font = fontSize + 'px monospace';
+            
+            for (let i = 0; i < drops.length; i++) {
+                const text = letters[Math.floor(Math.random() * letters.length)];
+                ctx.fillText(text, i * fontSize, drops[i] * fontSize);
+                
+                if (drops[i] * fontSize > canvas.height && Math.random() > 0.975) {
+                    drops[i] = 0;
+                }
+                
+                drops[i]++;
+            }
+        }
         
-        // Manejo del formulario de comentarios
-        document.getElementById('commentForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-            alert('¡Gracias por tu comentario! Tu opinión es muy importante para mí.');
-            this.reset();
+        setInterval(drawMatrix, 35);
+        
+        // Función para mostrar/ocultar contenido
+        function toggleContent(id) {
+            const content = document.getElementById(id);
+            if (content.style.display === 'block') {
+                content.style.display = 'none';
+            } else {
+                content.style.display = 'block';
+            }
+        }
+        
+        // Ajustar canvas al cambiar tamaño de ventana
+        window.addEventListener('resize', function() {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
         });
     </script>
 </body>

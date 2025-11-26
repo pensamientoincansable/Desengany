@@ -3,9 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Desengany - Arte y Música</title>
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Exo+2:wght@300;400;600&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap" rel="stylesheet">
+    <title>Desengany - Un Viaje Fantástico</title>
+    <link href="https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,700;1,400&family=UnifrakturMaguntia&family=MedievalSharp&display=swap" rel="stylesheet">
     <style>
         /* Estilos generales */
         * {
@@ -15,86 +14,143 @@
         }
         
         body {
-            background-color: #0a0a0a;
-            color: #e0e0e0;
-            font-family: 'Exo 2', sans-serif;
+            background-color: #1a0f2d;
+            color: #f0e6d6;
+            font-family: 'Crimson Text', serif;
             line-height: 1.6;
             overflow-x: hidden;
             position: relative;
+            background-image: 
+                radial-gradient(circle at 10% 20%, rgba(123, 65, 173, 0.15) 0%, transparent 20%),
+                radial-gradient(circle at 90% 80%, rgba(255, 215, 0, 0.1) 0%, transparent 20%);
         }
         
-        /* Efecto Matrix de fondo mejorado */
-        #matrix-bg {
+        /* Fondo con elementos de Alicia */
+        #wonderland-bg {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
             z-index: -1;
-            opacity: 0.15;
+            opacity: 0.1;
+            background-image: 
+                url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><path d="M50,10 C70,10 90,30 90,50 C90,70 70,90 50,90 C30,90 10,70 10,50 C10,30 30,10 50,10 Z" fill="none" stroke="%23FFD700" stroke-width="2"/></svg>'),
+                url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><path d="M10,50 L90,50 M50,10 L50,90" fill="none" stroke="%237B41AD" stroke-width="2"/><circle cx="50" cy="50" r="5" fill="%237B41AD"/></svg>');
+            background-size: 200px, 150px;
         }
         
         /* Encabezado */
         header {
-            background: linear-gradient(135deg, rgba(10,10,10,0.85) 0%, rgba(30,30,30,0.8) 100%);
-            padding: 3rem 2rem;
+            background: linear-gradient(135deg, rgba(42, 21, 67, 0.9) 0%, rgba(123, 65, 173, 0.8) 100%);
+            padding: 4rem 2rem;
             text-align: center;
-            border-bottom: 1px solid #00ff00;
-            box-shadow: 0 5px 25px rgba(0, 255, 0, 0.3);
+            border-bottom: 3px solid #FFD700;
+            box-shadow: 0 5px 25px rgba(123, 65, 173, 0.5);
             position: relative;
             z-index: 10;
+            clip-path: polygon(0 0, 100% 0, 100% 85%, 50% 100%, 0 85%);
+        }
+        
+        .mad-hatter {
+            position: absolute;
+            top: 20px;
+            right: 5%;
+            width: 80px;
+            height: 100px;
+            background: linear-gradient(135deg, #8B4513, #A0522D);
+            border-radius: 50% 50% 0 0;
+            transform: rotate(10deg);
+            z-index: 5;
+        }
+        
+        .mad-hatter::before {
+            content: "";
+            position: absolute;
+            top: -20px;
+            left: -10px;
+            width: 100px;
+            height: 30px;
+            background: linear-gradient(135deg, #8B4513, #A0522D);
+            border-radius: 50%;
+            transform: rotate(-5deg);
+        }
+        
+        .mad-hatter::after {
+            content: "10/6";
+            position: absolute;
+            top: -15px;
+            left: 35px;
+            color: #FFD700;
+            font-family: 'UnifrakturMaguntia', cursive;
+            font-size: 1.2rem;
         }
         
         h1 {
-            font-family: 'Share Tech Mono', monospace;
-            font-size: 4.5rem;
-            text-transform: uppercase;
-            letter-spacing: 8px;
+            font-family: 'UnifrakturMaguntia', cursive;
+            font-size: 5rem;
             margin-bottom: 1rem;
-            text-shadow: 0 0 10px #00ff00, 0 0 20px #00ff00, 0 0 30px #00ff00;
-            color: #00ff00;
-            background: none;
-            -webkit-text-fill-color: #00ff00;
+            text-shadow: 3px 3px 0 #7B41AD, 6px 6px 0 #4A235A;
+            color: #FFD700;
             position: relative;
+            display: inline-block;
         }
         
         h1::after {
             content: "";
             position: absolute;
-            bottom: -5px;
+            bottom: -10px;
             left: 0;
             width: 100%;
-            height: 2px;
-            background: #00ff00;
-            box-shadow: 0 0 10px #00ff00;
+            height: 3px;
+            background: linear-gradient(90deg, transparent, #FFD700, transparent);
         }
         
         .tagline {
-            font-size: 1.4rem;
-            color: #aaaaaa;
+            font-size: 1.6rem;
+            color: #E6D7B8;
             margin-bottom: 1.5rem;
-            font-weight: 300;
+            font-style: italic;
+            font-weight: 400;
         }
         
         .intro {
             max-width: 800px;
             margin: 0 auto;
             font-size: 1.2rem;
-            color: #cccccc;
-            background: rgba(20, 20, 20, 0.6);
+            color: #E6D7B8;
+            background: rgba(42, 21, 67, 0.7);
             padding: 1.5rem;
-            border-radius: 10px;
-            border-left: 3px solid #00ff00;
+            border-radius: 15px;
+            border: 2px dashed #FFD700;
+            position: relative;
+        }
+        
+        .intro::before, .intro::after {
+            content: "♠";
+            position: absolute;
+            color: #FFD700;
+            font-size: 1.5rem;
+        }
+        
+        .intro::before {
+            top: -15px;
+            left: -15px;
+        }
+        
+        .intro::after {
+            bottom: -15px;
+            right: -15px;
         }
         
         /* Navegación */
         nav {
-            background: rgba(15, 15, 15, 0.85);
+            background: rgba(42, 21, 67, 0.9);
             padding: 1.2rem;
             position: sticky;
             top: 0;
             z-index: 100;
-            border-bottom: 1px solid #222;
+            border-bottom: 2px solid #7B41AD;
             backdrop-filter: blur(10px);
         }
         
@@ -107,10 +163,20 @@
         
         nav li {
             margin: 0 1.5rem;
+            position: relative;
+        }
+        
+        nav li::before {
+            content: "♣";
+            position: absolute;
+            left: -20px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #FFD700;
         }
         
         nav a {
-            color: #00ff00;
+            color: #E6D7B8;
             text-decoration: none;
             font-weight: 600;
             text-transform: uppercase;
@@ -118,13 +184,15 @@
             transition: all 0.3s;
             padding: 0.5rem 1rem;
             border-radius: 4px;
-            font-family: 'Exo 2', sans-serif;
+            font-family: 'Crimson Text', serif;
+            font-size: 1.1rem;
         }
         
         nav a:hover {
-            background-color: rgba(0, 255, 0, 0.15);
-            text-shadow: 0 0 10px #00ff00;
+            background-color: rgba(123, 65, 173, 0.3);
+            text-shadow: 0 0 10px #FFD700;
             transform: translateY(-2px);
+            color: #FFD700;
         }
         
         /* Contenido principal */
@@ -136,12 +204,24 @@
         
         section {
             margin-bottom: 4rem;
-            background: rgba(20, 20, 20, 0.7);
+            background: rgba(42, 21, 67, 0.7);
             padding: 2.5rem;
-            border-radius: 15px;
-            border: 1px solid #333;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            border-radius: 20px;
+            border: 2px solid #7B41AD;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
             transition: transform 0.3s;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        section::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(90deg, #7B41AD, #FFD700, #7B41AD);
         }
         
         section:hover {
@@ -149,13 +229,23 @@
         }
         
         h2 {
-            font-family: 'Orbitron', sans-serif;
-            font-size: 2.5rem;
+            font-family: 'MedievalSharp', cursive;
+            font-size: 2.8rem;
             margin-bottom: 2rem;
-            color: #ffffff;
-            border-bottom: 2px solid #00ff00;
-            padding-bottom: 0.5rem;
-            text-shadow: 0 0 10px rgba(0, 255, 0, 0.5);
+            color: #FFD700;
+            text-align: center;
+            position: relative;
+            padding-bottom: 1rem;
+        }
+        
+        h2::after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 25%;
+            width: 50%;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, #FFD700, transparent);
         }
         
         /* Biografía */
@@ -171,32 +261,47 @@
             min-width: 300px;
             line-height: 1.8;
             font-size: 1.1rem;
-            background: rgba(25, 25, 25, 0.6);
+            background: rgba(58, 32, 91, 0.6);
             padding: 1.5rem;
-            border-radius: 10px;
+            border-radius: 15px;
+            border: 1px dashed #E6D7B8;
         }
         
         .bio-image {
             flex: 0 0 250px;
             height: 250px;
-            background: linear-gradient(135deg, #333, #00ff00);
+            background: linear-gradient(135deg, #7B41AD, #FFD700);
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            border: 3px solid #00ff00;
-            box-shadow: 0 0 30px rgba(0, 255, 0, 0.5);
+            border: 3px solid #FFD700;
+            box-shadow: 0 0 30px rgba(123, 65, 173, 0.7);
             overflow: hidden;
+            position: relative;
         }
         
         .bio-image::before {
             content: "DESENGANY";
-            color: #000;
+            color: #1a0f2d;
             font-weight: bold;
             text-align: center;
-            font-family: 'Share Tech Mono', monospace;
-            font-size: 1.5rem;
+            font-family: 'UnifrakturMaguntia', cursive;
+            font-size: 1.8rem;
             padding: 1rem;
+            z-index: 2;
+        }
+        
+        .bio-image::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><path d="M50,10 C70,10 90,30 90,50 C90,70 70,90 50,90 C30,90 10,70 10,50 C10,30 30,10 50,10 Z" fill="none" stroke="%231a0f2d" stroke-width="2"/></svg>');
+            background-size: 50px;
+            opacity: 0.2;
         }
         
         /* Pestañas de música */
@@ -206,15 +311,16 @@
         
         .tab {
             margin-bottom: 1.5rem;
-            border: 1px solid #333;
-            border-radius: 10px;
+            border: 2px solid #7B41AD;
+            border-radius: 15px;
             overflow: hidden;
             transition: all 0.3s;
+            background: rgba(58, 32, 91, 0.6);
         }
         
         .tab:hover {
-            border-color: #00ff00;
-            box-shadow: 0 5px 15px rgba(0, 255, 0, 0.2);
+            border-color: #FFD700;
+            box-shadow: 0 5px 15px rgba(255, 215, 0, 0.3);
         }
         
         .tab input {
@@ -224,38 +330,39 @@
         .tab label {
             display: block;
             padding: 1.5rem;
-            background: rgba(40, 40, 40, 0.8);
+            background: rgba(74, 35, 90, 0.8);
             cursor: pointer;
             font-weight: bold;
             transition: all 0.3s;
             position: relative;
-            font-family: 'Exo 2', sans-serif;
-            font-size: 1.3rem;
-            color: #ffffff;
+            font-family: 'MedievalSharp', cursive;
+            font-size: 1.5rem;
+            color: #FFD700;
+            text-align: center;
         }
         
         .tab label:hover {
-            background: rgba(60, 60, 60, 0.8);
+            background: rgba(90, 45, 110, 0.8);
         }
         
         .tab label::after {
-            content: "+";
+            content: "▼";
             position: absolute;
             right: 1.5rem;
             font-size: 1.5rem;
             transition: transform 0.3s;
-            color: #00ff00;
+            color: #FFD700;
         }
         
         .tab input:checked + label::after {
-            transform: rotate(45deg);
+            transform: rotate(180deg);
         }
         
         .tab-content {
             max-height: 0;
             overflow: hidden;
             transition: max-height 0.5s ease-out;
-            background: rgba(25, 25, 25, 0.8);
+            background: rgba(42, 21, 67, 0.8);
         }
         
         .tab input:checked ~ .tab-content {
@@ -274,27 +381,24 @@
             display: flex;
             align-items: center;
             padding: 1rem 2rem;
-            background: rgba(50, 50, 50, 0.8);
-            border-radius: 8px;
+            background: rgba(74, 35, 90, 0.8);
+            border-radius: 10px;
             text-decoration: none;
-            color: #ffffff;
+            color: #E6D7B8;
             transition: all 0.3s;
-            border: 1px solid #444;
+            border: 1px solid #7B41AD;
             font-weight: 600;
             min-width: 180px;
             justify-content: center;
+            font-family: 'Crimson Text', serif;
         }
         
         .platform-link:hover {
-            background: rgba(80, 80, 80, 0.8);
+            background: rgba(123, 65, 173, 0.8);
             transform: translateY(-5px);
             box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
-            border-color: #00ff00;
-        }
-        
-        .soundcloud-player {
-            width: 100%;
-            padding: 0 2rem 2rem;
+            border-color: #FFD700;
+            color: #FFD700;
         }
         
         /* Blog */
@@ -305,32 +409,44 @@
         }
         
         .post {
-            background: rgba(40, 40, 40, 0.8);
-            border-radius: 12px;
+            background: rgba(58, 32, 91, 0.8);
+            border-radius: 15px;
             overflow: hidden;
-            border: 1px solid #333;
+            border: 2px solid #7B41AD;
             transition: all 0.3s;
             height: 100%;
             display: flex;
             flex-direction: column;
+            position: relative;
+        }
+        
+        .post::before {
+            content: "♠";
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            color: #FFD700;
+            font-size: 1.5rem;
         }
         
         .post:hover {
             transform: translateY(-8px);
-            box-shadow: 0 15px 30px rgba(0, 255, 0, 0.2);
-            border-color: #00ff00;
+            box-shadow: 0 15px 30px rgba(123, 65, 173, 0.4);
+            border-color: #FFD700;
         }
         
         .post-image {
             height: 200px;
-            background: linear-gradient(135deg, #222, #00ff00);
+            background: linear-gradient(135deg, #4A235A, #FFD700);
             display: flex;
             align-items: center;
             justify-content: center;
-            color: #000;
+            color: #1a0f2d;
             font-weight: bold;
-            font-family: 'Share Tech Mono', monospace;
-            font-size: 1.2rem;
+            font-family: 'MedievalSharp', cursive;
+            font-size: 1.5rem;
+            text-align: center;
+            padding: 1rem;
         }
         
         .post-content {
@@ -338,18 +454,18 @@
             flex-grow: 1;
             display: flex;
             flex-direction: column;
-            background: rgba(35, 35, 35, 0.6);
+            background: rgba(42, 21, 67, 0.7);
         }
         
         .post-title {
             font-size: 1.5rem;
             margin-bottom: 1rem;
-            color: #ffffff;
-            font-family: 'Exo 2', sans-serif;
+            color: #FFD700;
+            font-family: 'MedievalSharp', cursive;
         }
         
         .post-excerpt {
-            color: #cccccc;
+            color: #E6D7B8;
             line-height: 1.6;
             margin-bottom: 1.5rem;
             flex-grow: 1;
@@ -357,19 +473,20 @@
         
         .read-more {
             display: inline-block;
-            color: #00ff00;
+            color: #FFD700;
             text-decoration: none;
             font-weight: bold;
             transition: all 0.3s;
             align-self: flex-start;
             padding: 0.5rem 1rem;
-            border: 1px solid #00ff00;
+            border: 1px solid #FFD700;
             border-radius: 4px;
+            font-family: 'Crimson Text', serif;
         }
         
         .read-more:hover {
-            background: rgba(0, 255, 0, 0.1);
-            text-shadow: 0 0 10px #00ff00;
+            background: rgba(255, 215, 0, 0.1);
+            text-shadow: 0 0 10px #FFD700;
         }
         
         /* Contacto */
@@ -385,19 +502,20 @@
         .form-group label {
             display: block;
             margin-bottom: 0.8rem;
-            color: #ffffff;
+            color: #FFD700;
             font-weight: 600;
+            font-family: 'MedievalSharp', cursive;
         }
         
         .form-group input,
         .form-group textarea {
             width: 100%;
             padding: 1rem;
-            background: rgba(30, 30, 30, 0.8);
-            border: 1px solid #444;
+            background: rgba(58, 32, 91, 0.8);
+            border: 1px solid #7B41AD;
             border-radius: 8px;
-            color: #ffffff;
-            font-family: 'Exo 2', sans-serif;
+            color: #E6D7B8;
+            font-family: 'Crimson Text', serif;
             font-size: 1rem;
             transition: all 0.3s;
         }
@@ -405,14 +523,14 @@
         .form-group input:focus,
         .form-group textarea:focus {
             outline: none;
-            border-color: #00ff00;
-            box-shadow: 0 0 15px rgba(0, 255, 0, 0.3);
+            border-color: #FFD700;
+            box-shadow: 0 0 15px rgba(255, 215, 0, 0.3);
         }
         
         .submit-btn {
-            background: rgba(0, 255, 0, 0.15);
-            color: #00ff00;
-            border: 2px solid #00ff00;
+            background: rgba(123, 65, 173, 0.3);
+            color: #FFD700;
+            border: 2px solid #FFD700;
             padding: 1rem 2.5rem;
             border-radius: 8px;
             cursor: pointer;
@@ -420,25 +538,26 @@
             text-transform: uppercase;
             letter-spacing: 1px;
             transition: all 0.3s;
-            font-family: 'Exo 2', sans-serif;
+            font-family: 'MedievalSharp', cursive;
             font-size: 1.1rem;
             display: block;
             margin: 0 auto;
         }
         
         .submit-btn:hover {
-            background: rgba(0, 255, 0, 0.25);
-            box-shadow: 0 0 20px rgba(0, 255, 0, 0.5);
+            background: rgba(123, 65, 173, 0.5);
+            box-shadow: 0 0 20px rgba(255, 215, 0, 0.5);
             transform: translateY(-3px);
         }
         
         /* Footer */
         footer {
-            background: rgba(10, 10, 10, 0.85);
+            background: rgba(42, 21, 67, 0.9);
             padding: 3rem 2rem;
             text-align: center;
-            border-top: 1px solid #222;
+            border-top: 2px solid #7B41AD;
             margin-top: 3rem;
+            clip-path: polygon(0 15%, 50% 0, 100% 15%, 100% 100%, 0 100%);
         }
         
         .social-links {
@@ -450,7 +569,7 @@
         }
         
         .social-link {
-            color: #00ff00;
+            color: #FFD700;
             font-size: 1.8rem;
             transition: all 0.3s;
             width: 50px;
@@ -459,25 +578,64 @@
             align-items: center;
             justify-content: center;
             border-radius: 50%;
-            background: rgba(30, 30, 30, 0.7);
+            background: rgba(74, 35, 90, 0.8);
+            text-decoration: none;
         }
         
         .social-link:hover {
-            text-shadow: 0 0 15px #00ff00;
+            text-shadow: 0 0 15px #FFD700;
             transform: translateY(-5px);
-            background: rgba(0, 255, 0, 0.1);
+            background: rgba(123, 65, 173, 0.8);
         }
         
         .copyright {
-            color: #666;
+            color: #E6D7B8;
             font-size: 1rem;
+        }
+        
+        /* Elementos decorativos */
+        .tea-cup {
+            position: fixed;
+            bottom: 20px;
+            left: 20px;
+            width: 60px;
+            height: 40px;
+            background: #8B4513;
+            border-radius: 0 0 30px 30px;
+            z-index: 5;
+            opacity: 0.7;
+        }
+        
+        .tea-cup::before {
+            content: "";
+            position: absolute;
+            top: -10px;
+            left: 5px;
+            width: 50px;
+            height: 20px;
+            background: #8B4513;
+            border-radius: 50%;
+        }
+        
+        .tea-cup::after {
+            content: "";
+            position: absolute;
+            top: -5px;
+            right: -10px;
+            width: 15px;
+            height: 10px;
+            background: #8B4513;
+            border-radius: 0 50% 50% 0;
         }
         
         /* Responsive */
         @media (max-width: 768px) {
             h1 {
-                font-size: 2.5rem;
-                letter-spacing: 4px;
+                font-size: 3rem;
+            }
+            
+            .mad-hatter {
+                display: none;
             }
             
             nav ul {
@@ -504,19 +662,27 @@
             .platform-link {
                 width: 100%;
             }
+            
+            .tea-cup {
+                display: none;
+            }
         }
     </style>
 </head>
 <body>
-    <!-- Efecto Matrix en el fondo -->
-    <canvas id="matrix-bg"></canvas>
+    <!-- Fondo de Alicia en el País de las Maravillas -->
+    <div id="wonderland-bg"></div>
+    
+    <!-- Taza de té decorativa -->
+    <div class="tea-cup"></div>
     
     <!-- Encabezado -->
     <header>
+        <div class="mad-hatter"></div>
         <h1>Desengany</h1>
-        <p class="tagline">Buscando respuestas en un mundo de ilusiones</p>
+        <p class="tagline">Un viaje fantástico a través de la música</p>
         <div class="intro">
-            <p>Soy productor, compositor y artista en distintas plataformas. Con el apoyo de herramientas IA he conseguido dar forma a un sueño que parecía inalcanzable.</p>
+            <p>Soy productor, compositor y artista en distintas plataformas. Mi música te transportará a un mundo de fantasía y maravillas, donde cada canción es una nueva aventura.</p>
         </div>
     </header>
     
@@ -537,10 +703,10 @@
             <h2>Biografía</h2>
             <div class="bio-content">
                 <div class="bio-text">
-                    <p>Desengany es la expresión de un ser humano que siempre ha buscado todas las respuestas a cada pregunta. Desde una temprana edad, cuestionó las narrativas establecidas, explorando los límites del conocimiento y la percepción.</p>
-                    <p>Su pensamiento ecléctico se nutre de múltiples fuentes de sabiduría, encontrando especial afinidad con la filosofía positiva que busca la luz incluso en los rincones más oscuros de la existencia.</p>
-                    <p>Como artista, Desengany canaliza su crítica hacia tres pilares fundamentales de la distorsión contemporánea: la corrupción política sometida a corporativas inversoras, las ideologías sectarias que anulan el pensamiento individual, y los medios de desinformación que manipulan la realidad colectiva.</p>
-                    <p>Su música es un vehículo para despertar conciencias, invitando a quienes la escuchan a cuestionar la matrix social en la que vivimos y encontrar su propia verdad más allá de las ilusiones colectivas.</p>
+                    <p>Desengany es la expresión de un artista que siempre ha buscado la magia en lo cotidiano. Inspirado por los cuentos de hadas y las aventuras fantásticas, su música transporta a los oyentes a mundos donde todo es posible.</p>
+                    <p>Como el Sombrerero Loco en el País de las Maravillas, Desengany desafía las convenciones y crea un universo sonoro único donde la imaginación no tiene límites. Cada canción es una invitación a un té loco, una conversación absurda que revela verdades profundas.</p>
+                    <p>Su proceso creativo combina técnicas tradicionales con tecnología moderna, creando un sonido que es a la vez nostálgico y futurista. Las letras exploran temas de identidad, realidad y la búsqueda de significado en un mundo que a menudo parece carecer de él.</p>
+                    <p>Con cada nuevo lanzamiento, Desengany invita a sus oyentes a seguir al conejo blanco y descubrir qué maravillas aguardan al otro lado de la madriguera.</p>
                 </div>
                 <div class="bio-image"></div>
             </div>
@@ -557,9 +723,6 @@
                     <input type="checkbox" id="tab1">
                     <label for="tab1">Cuestión de cuestionar</label>
                     <div class="tab-content">
-                        <div class="soundcloud-player">
-                            <iframe width="100%" height="166" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/1872987012&color=%2300ff00&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true"></iframe>
-                        </div>
                         <div class="platform-links">
                             <a href="https://open.spotify.com/track/5nJCERLNonYEktaFHa4dZu?si=BPy0A_BfS9K-I9H8F803Ew" target="_blank" class="platform-link">
                                 <span class="platform-icon">▶</span> Spotify
@@ -570,9 +733,6 @@
                             <a href="https://music.youtube.com/watch?v=TaHzAyvNZBo&si=GlqsMNgoiLjRB_9k" target="_blank" class="platform-link">
                                 <span class="platform-icon">▶</span> YouTube Music
                             </a>
-                            <a href="https://on.soundcloud.com/5X1T5aRjqgGNbLKZnq" target="_blank" class="platform-link">
-                                <span class="platform-icon">▶</span> SoundCloud
-                            </a>
                         </div>
                     </div>
                 </div>
@@ -582,9 +742,6 @@
                     <input type="checkbox" id="tab2">
                     <label for="tab2">Condiciones altas</label>
                     <div class="tab-content">
-                        <div class="soundcloud-player">
-                            <iframe width="100%" height="166" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/1776039013&color=%2300ff00&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true"></iframe>
-                        </div>
                         <div class="platform-links">
                             <a href="https://open.spotify.com/track/7lIZAFWSQ5JMh7ZaRNkowZ?si=j6L9uJqsSQm1HEAg6U-5cA" target="_blank" class="platform-link">
                                 <span class="platform-icon">▶</span> Spotify
@@ -592,8 +749,43 @@
                             <a href="https://music.apple.com/es/album/condiciones-altas/1776039004?i=1776039013&ls" target="_blank" class="platform-link">
                                 <span class="platform-icon">▶</span> Apple Music
                             </a>
-                            <a href="https://on.soundcloud.com/oJbrGBALoVDh68Kaea" target="_blank" class="platform-link">
-                                <span class="platform-icon">▶</span> SoundCloud
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Nueva Canción 3 -->
+                <div class="tab">
+                    <input type="checkbox" id="tab3">
+                    <label for="tab3">Fuego eterno</label>
+                    <div class="tab-content">
+                        <div class="platform-links">
+                            <a href="https://open.spotify.com/track/4EDQTQDkWRJFK0PXcSV28G?si=qAjHh8O6RzabVUIQDie0SA" target="_blank" class="platform-link">
+                                <span class="platform-icon">▶</span> Spotify
+                            </a>
+                            <a href="https://music.apple.com/es/album/fuego-eterno/1818707341?i=1818707342&ls" target="_blank" class="platform-link">
+                                <span class="platform-icon">▶</span> Apple Music
+                            </a>
+                            <a href="https://music.amazon.es/albums/B0FC25BCN3?ref=dm_sh_o4gJ9u7r4oJrmYyWWarlyB85D" target="_blank" class="platform-link">
+                                <span class="platform-icon">▶</span> Amazon Music
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Nueva Canción 4 -->
+                <div class="tab">
+                    <input type="checkbox" id="tab4">
+                    <label for="tab4">Ciencia tecnológica</label>
+                    <div class="tab-content">
+                        <div class="platform-links">
+                            <a href="https://open.spotify.com/track/7E5wIKl2RZLua92Z87EfqC?si=JpopT-dbQGC0dgIzkmWSZQ" target="_blank" class="platform-link">
+                                <span class="platform-icon">▶</span> Spotify
+                            </a>
+                            <a href="https://music.apple.com/es/album/ciencia-tecnol%C3%B3gica/1789460477?i=1789460724&ls" target="_blank" class="platform-link">
+                                <span class="platform-icon">▶</span> Apple Music
+                            </a>
+                            <a href="https://music.amazon.es/albums/B0DSKB1W38?trackAsin=B0DSKDGG4G&do=play&ref=dm_sh_O5H4xxJ0TVAtTJdBt02TzNzak" target="_blank" class="platform-link">
+                                <span class="platform-icon">▶</span> Amazon Music
                             </a>
                         </div>
                     </div>
@@ -603,31 +795,31 @@
         
         <!-- Blog -->
         <section id="blog">
-            <h2>Blog Filosófico</h2>
+            <h2>Blog Fantástico</h2>
             <div class="blog-posts">
                 <article class="post">
-                    <div class="post-image">DESPERTAR CONSCIENTE</div>
+                    <div class="post-image">EL CONEJO BLANCO</div>
                     <div class="post-content">
-                        <h3 class="post-title">Deconstruyendo la Realidad</h3>
-                        <p class="post-excerpt">Un análisis profundo sobre cómo nuestras percepciones moldean la realidad que experimentamos y cómo podemos trascender las limitaciones impuestas por nuestros sentidos.</p>
+                        <h3 class="post-title">Siguiendo al Conejo Blanco</h3>
+                        <p class="post-excerpt">Una reflexión sobre cómo las pequeñas curiosidades pueden llevarnos a grandes aventuras y transformar nuestra percepción de la realidad.</p>
                         <a href="#" class="read-more">Leer más</a>
                     </div>
                 </article>
                 
                 <article class="post">
-                    <div class="post-image">ARTE Y VERDAD</div>
+                    <div class="post-image">LA ORUGA AZUL</div>
                     <div class="post-content">
-                        <h3 class="post-title">El Arte como Resistencia</h3>
-                        <p class="post-excerpt">Explorando el poder transformador del arte frente a los sistemas de control establecidos y su capacidad para crear grietas en el consenso de la realidad.</p>
+                        <h3 class="post-title">¿Quién eres tú?</h3>
+                        <p class="post-excerpt">Explorando la naturaleza de la identidad a través de la famosa pregunta de la Oruga Azul y cómo la música nos ayuda a descubrirnos.</p>
                         <a href="#" class="read-more">Leer más</a>
                     </div>
                 </article>
                 
                 <article class="post">
-                    <div class="post-image">FILOSOFÍA POSITIVA</div>
+                    <div class="post-image">EL TÉ LOCUO</div>
                     <div class="post-content">
-                        <h3 class="post-title">Filosofía Positiva en Tiempos Oscuros</h3>
-                        <p class="post-excerpt">Cómo mantener una perspectiva positiva sin caer en la ingenuidad ante los desafíos actuales y encontrar luz en medio de la distopía contemporánea.</p>
+                        <h3 class="post-title">La Fiesta del Té del Sombrerero</h3>
+                        <p class="post-excerpt">Cómo las conversaciones aparentemente absurdas pueden revelar verdades profundas y la importancia de celebrar la locura creativa.</p>
                         <a href="#" class="read-more">Leer más</a>
                     </div>
                 </article>
@@ -670,53 +862,8 @@
         <p class="copyright">&copy; 2023 Desengany. Todos los derechos reservados.</p>
     </footer>
     
-    <!-- Script para el efecto Matrix -->
+    <!-- Script para funcionalidades -->
     <script>
-        // Efecto Matrix en el fondo
-        const canvas = document.getElementById('matrix-bg');
-        const ctx = canvas.getContext('2d');
-        
-        canvas.width = window.innerWidth;
-        canvas.height = window.innerHeight;
-        
-        const characters = 'DESENGANY010101010101010101';
-        const charArray = characters.split('');
-        
-        const fontSize = 16;
-        const columns = canvas.width / fontSize;
-        
-        const drops = [];
-        for (let i = 0; i < columns; i++) {
-            drops[i] = 1;
-        }
-        
-        function drawMatrix() {
-            ctx.fillStyle = 'rgba(0, 0, 0, 0.04)';
-            ctx.fillRect(0, 0, canvas.width, canvas.height);
-            
-            ctx.fillStyle = '#00ff00';
-            ctx.font = fontSize + 'px monospace';
-            
-            for (let i = 0; i < drops.length; i++) {
-                const text = charArray[Math.floor(Math.random() * charArray.length)];
-                ctx.fillText(text, i * fontSize, drops[i] * fontSize);
-                
-                if (drops[i] * fontSize > canvas.height && Math.random() > 0.975) {
-                    drops[i] = 0;
-                }
-                
-                drops[i]++;
-            }
-        }
-        
-        setInterval(drawMatrix, 35);
-        
-        // Ajustar canvas al cambiar tamaño de ventana
-        window.addEventListener('resize', function() {
-            canvas.width = window.innerWidth;
-            canvas.height = window.innerHeight;
-        });
-        
         // Smooth scroll para navegación
         document.querySelectorAll('nav a').forEach(anchor => {
             anchor.addEventListener('click', function(e) {

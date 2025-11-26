@@ -188,15 +188,11 @@
             font-size: 1.2rem;
         }
         
+        /* Efecto de texto 3D mejorado con reflejos */
         h1 {
             font-family: 'Alice', serif;
             font-size: 4.5rem;
             margin-bottom: 1rem;
-            text-shadow: 
-                2px 2px 0 #4A235A,
-                4px 4px 0 rgba(74, 35, 90, 0.7),
-                6px 6px 0 rgba(74, 35, 90, 0.5),
-                8px 8px 0 rgba(74, 35, 90, 0.3);
             color: #FFD700;
             position: relative;
             display: inline-block;
@@ -204,14 +200,48 @@
             letter-spacing: 2px;
             transform: translateZ(30px);
             animation: float-title 6s ease-in-out infinite;
+            text-shadow: 
+                0 1px 0 #d4af37,
+                0 2px 0 #b8941f,
+                0 3px 0 #9b7a17,
+                0 4px 0 #7d610f,
+                0 5px 0 #5f4707,
+                0 6px 1px rgba(0,0,0,.1),
+                0 0 5px rgba(0,0,0,.1),
+                0 1px 3px rgba(0,0,0,.3),
+                0 3px 5px rgba(0,0,0,.2),
+                0 5px 10px rgba(0,0,0,.25),
+                0 10px 10px rgba(0,0,0,.2),
+                0 20px 20px rgba(0,0,0,.15);
+        }
+        
+        h1::before {
+            content: "Desengany";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            color: rgba(255, 255, 255, 0.1);
+            transform: translateZ(5px) rotateX(180deg) translateY(10px);
+            background: linear-gradient(transparent, rgba(255, 255, 255, 0.1));
+            -webkit-background-clip: text;
+            background-clip: text;
+            z-index: -1;
         }
         
         @keyframes float-title {
             0%, 100% {
-                transform: translateZ(30px) translateY(0);
+                transform: translateZ(30px) translateY(0) rotateX(0);
+            }
+            25% {
+                transform: translateZ(30px) translateY(-3px) rotateX(1deg);
             }
             50% {
-                transform: translateZ(30px) translateY(-10px);
+                transform: translateZ(30px) translateY(-5px) rotateX(0);
+            }
+            75% {
+                transform: translateZ(30px) translateY(-3px) rotateX(-1deg);
             }
         }
         
@@ -233,17 +263,18 @@
             font-weight: 400;
             text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
             transform: translateZ(20px);
+            animation: gentle-pulse 8s ease-in-out infinite;
         }
         
-        .quote {
-            font-style: italic;
-            margin: 1rem 0;
-            padding: 1rem;
-            background: rgba(42, 21, 67, 0.5);
-            border-left: 3px solid #FFD700;
-            border-radius: 0 10px 10px 0;
-            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
-            transform: translateZ(15px);
+        @keyframes gentle-pulse {
+            0%, 100% {
+                transform: translateZ(20px) scale(1);
+                opacity: 0.9;
+            }
+            50% {
+                transform: translateZ(20px) scale(1.02);
+                opacity: 1;
+            }
         }
         
         .intro {
@@ -321,6 +352,7 @@
             font-family: 'Alice', serif;
             font-size: 1.1rem;
             transform: translateZ(10px);
+            text-shadow: 0 1px 2px rgba(0,0,0,0.5);
         }
         
         nav a:hover {
@@ -365,6 +397,7 @@
             transform: translateY(-5px) translateZ(10px);
         }
         
+        /* Encabezados con efecto 3D mejorado y movimiento */
         h2 {
             font-family: 'Alice', serif;
             font-size: 2.8rem;
@@ -374,11 +407,49 @@
             position: relative;
             padding-bottom: 1rem;
             font-weight: normal;
-            text-shadow: 
-                1px 1px 0 #4A235A,
-                2px 2px 0 rgba(74, 35, 90, 0.7),
-                3px 3px 0 rgba(74, 35, 90, 0.5);
             transform: translateZ(25px);
+            animation: header-float 8s ease-in-out infinite;
+            text-shadow: 
+                0 1px 0 #d4af37,
+                0 2px 0 #b8941f,
+                0 3px 0 #9b7a17,
+                0 4px 0 #7d610f,
+                0 5px 1px rgba(0,0,0,.1),
+                0 0 5px rgba(0,0,0,.1),
+                0 1px 3px rgba(0,0,0,.3),
+                0 3px 5px rgba(0,0,0,.2),
+                0 5px 10px rgba(0,0,0,.25),
+                0 10px 10px rgba(0,0,0,.2);
+        }
+        
+        @keyframes header-float {
+            0%, 100% {
+                transform: translateZ(25px) translateY(0) rotateX(0);
+            }
+            25% {
+                transform: translateZ(25px) translateY(-2px) rotateX(0.5deg);
+            }
+            50% {
+                transform: translateZ(25px) translateY(-3px) rotateX(0);
+            }
+            75% {
+                transform: translateZ(25px) translateY(-2px) rotateX(-0.5deg);
+            }
+        }
+        
+        h2::before {
+            content: attr(data-text);
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            color: rgba(255, 255, 255, 0.05);
+            transform: translateZ(5px) rotateX(180deg) translateY(5px);
+            background: linear-gradient(transparent, rgba(255, 255, 255, 0.05));
+            -webkit-background-clip: text;
+            background-clip: text;
+            z-index: -1;
         }
         
         h2::after {
@@ -487,6 +558,7 @@
             color: #FFD700;
             text-align: center;
             transform: translateZ(10px);
+            text-shadow: 0 1px 2px rgba(0,0,0,0.5);
         }
         
         .tab label:hover {
@@ -588,6 +660,7 @@
             color: #FFD700;
             text-align: center;
             transform: translateZ(10px);
+            text-shadow: 0 1px 2px rgba(0,0,0,0.5);
         }
         
         .quotes-tab label:hover {
@@ -715,6 +788,7 @@
             font-family: 'Alice', serif;
             text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
             transform: translateZ(10px);
+            animation: gentle-pulse 10s ease-in-out infinite;
         }
         
         .post-excerpt {
@@ -962,9 +1036,6 @@
         <div class="mad-hatter"></div>
         <h1>Desengany</h1>
         <p class="tagline">Un viaje fantástico a través de la música</p>
-        <div class="quote">
-            "Solo queda por encontrar la manera de que algunas personas se vuelvan más grandes y otras más pequeñas."
-        </div>
         <div class="intro">
             <p>Soy productor, compositor y artista en distintas plataformas. Mi música te transportará a un mundo de fantasía y maravillas, donde cada canción es una nueva aventura.</p>
         </div>
@@ -985,17 +1056,11 @@
     <div class="container">
         <!-- Biografía -->
         <section id="biografia">
-            <h2>Biografía</h2>
-            <div class="quote">
-                "¿Quién eres tú? -preguntó la Oruga. Ésta no era una pregunta alentadora para comenzar una conversación."
-            </div>
+            <h2 data-text="Biografía">Biografía</h2>
             <div class="bio-content">
                 <div class="bio-text">
                     <p>Desengany es la expresión de un artista que siempre ha buscado la magia en lo cotidiano. Inspirado por los cuentos de hadas y las aventuras fantásticas, su música transporta a los oyentes a mundos donde todo es posible.</p>
                     <p>Como el Sombrerero Loco en el País de las Maravillas, Desengany desafía las convenciones y crea un universo sonoro único donde la imaginación no tiene límites. Cada canción es una invitación a un té loco, una conversación absurda que revela verdades profundas.</p>
-                    <div class="quote">
-                        "La única manera de lograr lo imposible es creer que es posible."
-                    </div>
                     <p>Su proceso creativo combina técnicas tradicionales con tecnología moderna, creando un sonido que es a la vez nostálgico y futurista. Las letras exploran temas de identidad, realidad y la búsqueda de significado en un mundo que a menudo parece carecer de él.</p>
                     <p>Con cada nuevo lanzamiento, Desengany invita a sus oyentes a seguir al conejo blanco y descubrir qué maravillas aguardan al otro lado de la madriguera.</p>
                 </div>
@@ -1005,10 +1070,7 @@
         
         <!-- Música -->
         <section id="musica">
-            <h2>Música</h2>
-            <div class="quote">
-                "Empieza por el principio -dijo el Rey con gravedad- y sigue hasta que llegues al final; entonces para."
-            </div>
+            <h2 data-text="Música">Música</h2>
             <p>Explora el universo sonoro de Desengany a través de sus canciones, disponibles en todas las plataformas digitales.</p>
             
             <div class="song-tabs">
@@ -1089,10 +1151,7 @@
         
         <!-- Frases célebres -->
         <section id="frases">
-            <h2>Frases Célebres de Alicia</h2>
-            <div class="quote">
-                "En el mundo de Alicia, las reglas no son lo que parecen y la lógica a menudo se toma vacaciones."
-            </div>
+            <h2 data-text="Frases Célebres">Frases Célebres de Alicia</h2>
             
             <div class="quotes-section">
                 <div class="quotes-tab">
@@ -1156,7 +1215,7 @@
         
         <!-- Blog -->
         <section id="blog">
-            <h2>Blog Fantástico</h2>
+            <h2 data-text="Blog Fantástico">Blog Fantástico</h2>
             <div class="blog-posts">
                 <article class="post">
                     <div class="post-image">EL CONEJO BLANCO</div>
@@ -1189,10 +1248,7 @@
         
         <!-- Contacto -->
         <section id="contacto">
-            <h2>Contacto</h2>
-            <div class="quote">
-                "Si no sabes a dónde vas, cualquier camino te llevará allí."
-            </div>
+            <h2 data-text="Contacto">Contacto</h2>
             <form class="contact-form">
                 <div class="form-group">
                     <label for="name">Nombre</label>
@@ -1222,9 +1278,6 @@
             <a href="#" class="social-link">YT</a>
             <a href="#" class="social-link">TW</a>
             <a href="#" class="social-link">SC</a>
-        </div>
-        <div class="quote">
-            "¡Qué sueño más curioso!... ¿Y quién sabrá si no habré estado soñando?"
         </div>
         <p class="copyright">&copy; 2023 Desengany. Todos los derechos reservados.</p>
     </footer>
@@ -1272,4 +1325,4 @@
         }
     </script>
 </body>
-</html>        
+</html>

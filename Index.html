@@ -3,23 +3,28 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Despertar de Conciencia</title>
+    <title>Desengany - Despertar de Conciencia</title>
+    <link href="https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,700;1,400&family=UnifrakturMaguntia&family=MedievalSharp&family=Alice&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
+        /* Estilos generales */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Courier New', monospace;
         }
         
         body {
-            background-color: #000;
-            color: #0f0;
+            background-color: #0a0a0a;
+            color: #e0e0e0;
+            font-family: 'Alice', serif;
+            line-height: 1.6;
             overflow-x: hidden;
             position: relative;
+            perspective: 1000px;
         }
         
-        /* Efecto Matrix (código cayendo) */
+        /* Fondo animado de Matrix MEJORADO */
         #matrix-bg {
             position: fixed;
             top: 0;
@@ -27,248 +32,1642 @@
             width: 100%;
             height: 100%;
             z-index: -1;
-            opacity: 0.3;
+            overflow: hidden;
+            background: #000;
         }
         
-        /* Estilos de encabezado */
-        header {
-            padding: 20px;
-            text-align: center;
-            border-bottom: 1px solid #0f0;
-            position: relative;
+        .matrix-code {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent 0%, rgba(0, 255, 0, 0.1) 50%, transparent 100%);
+            animation: matrix-scan 15s infinite linear;
+        }
+        
+        @keyframes matrix-scan {
+            0% {
+                transform: translateY(-100%);
+            }
+            100% {
+                transform: translateY(100%);
+            }
+        }
+        
+        /* Efectos de partículas MEJORADOS */
+        .particles {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
             overflow: hidden;
         }
         
-        .anonymous-mask {
-            width: 120px;
-            height: auto;
-            margin: 0 auto 20px;
-            filter: drop-shadow(0 0 10px #0f0);
+        .particle {
+            position: absolute;
+            border-radius: 50%;
+            animation: float 15s infinite linear;
         }
         
+        .particle:nth-child(3n) {
+            background: rgba(0, 255, 0, 0.7);
+        }
+        
+        .particle:nth-child(3n+1) {
+            background: rgba(255, 0, 0, 0.7);
+        }
+        
+        .particle:nth-child(3n+2) {
+            background: rgba(255, 255, 255, 0.5);
+        }
+        
+        @keyframes float {
+            0% {
+                transform: translateY(100vh) rotate(0deg);
+                opacity: 0;
+            }
+            10% {
+                opacity: 1;
+            }
+            90% {
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(-100px) rotate(360deg);
+                opacity: 0;
+            }
+        }
+        
+        /* Elementos de conciencia en el fondo MEJORADOS */
+        .consciousness-element {
+            position: fixed;
+            z-index: -1;
+            opacity: 0.7;
+        }
+        
+        .anonymous-mask {
+            top: 10%;
+            left: 5%;
+            width: 120px;
+            height: 150px;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 150"><path d="M60,20 C75,10 95,15 100,35 C105,55 90,65 60,65 C30,65 15,55 20,35 C25,15 45,10 60,20 Z" fill="white" stroke="%23000" stroke-width="1.5"/><path d="M30,40 C40,30 60,30 70,40 C70,50 60,60 50,60 C40,60 30,50 30,40 Z" fill="black"/><path d="M40,45 C45,40 55,40 60,45" stroke="white" stroke-width="3" fill="none"/><path d="M35,70 C45,65 55,65 65,70" stroke="black" stroke-width="3" fill="none"/></svg>');
+            animation: mask-float 25s linear infinite;
+        }
+        
+        @keyframes mask-float {
+            0% {
+                transform: translateX(-150px);
+            }
+            100% {
+                transform: translateX(calc(100vw + 150px));
+            }
+        }
+        
+        .matrix-pill {
+            top: 70%;
+            left: 10%;
+            width: 100px;
+            height: 40px;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 40"><rect x="10" y="5" width="80" height="30" rx="15" fill="%2300FF00" stroke="%23000" stroke-width="2"/><text x="50" y="25" text-anchor="middle" fill="%23000" font-family="Arial" font-size="14">DESPERTAR</text></svg>');
+            animation: pill-rotate 18s ease-in-out infinite;
+        }
+        
+        @keyframes pill-rotate {
+            0%, 100% {
+                transform: rotate(0deg);
+            }
+            25% {
+                transform: rotate(90deg);
+            }
+            50% {
+                transform: rotate(180deg);
+            }
+            75% {
+                transform: rotate(270deg);
+            }
+        }
+        
+        .eye-of-providence {
+            top: 20%;
+            right: 10%;
+            width: 100px;
+            height: 100px;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="50" cy="50" r="45" fill="%23FFD700" stroke="%23000" stroke-width="2"/><circle cx="50" cy="50" r="30" fill="%23000"/><circle cx="50" cy="50" r="15" fill="%23FFF"/><circle cx="50" cy="50" r="7" fill="%23000"/><path d="M30,30 L20,20 M70,30 L80,20 M50,10 L50,0" stroke="%23000" stroke-width="3"/></svg>');
+            animation: eye-blink 15s infinite;
+        }
+        
+        @keyframes eye-blink {
+            0%, 60%, 100% {
+                opacity: 0.7;
+            }
+            65%, 95% {
+                opacity: 0.3;
+            }
+        }
+        
+        .consciousness-symbol {
+            top: 60%;
+            right: 15%;
+            width: 140px;
+            height: 140px;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 140 140"><circle cx="70" cy="70" r="60" fill="none" stroke="%2300FF00" stroke-width="3"/><circle cx="70" cy="70" r="40" fill="none" stroke="%2300FF00" stroke-width="2"/><circle cx="70" cy="70" r="20" fill="none" stroke="%2300FF00" stroke-width="1"/><path d="M70,10 L70,130 M10,70 L130,70" stroke="%2300FF00" stroke-width="2"/><path d="M25,25 L115,115 M25,115 L115,25" stroke="%2300FF00" stroke-width="2"/></svg>');
+            animation: symbol-rotate 20s linear infinite;
+        }
+        
+        @keyframes symbol-rotate {
+            0% {
+                transform: rotate(0deg);
+            }
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+        
+        /* Encabezado */
+        header {
+            background: linear-gradient(135deg, rgba(10, 10, 10, 0.8) 0%, rgba(0, 100, 0, 0.6) 100%);
+            padding: 4rem 2rem;
+            text-align: center;
+            border-bottom: 3px solid #00FF00;
+            box-shadow: 0 5px 25px rgba(0, 255, 0, 0.3);
+            position: relative;
+            z-index: 10;
+            clip-path: polygon(0 0, 100% 0, 100% 85%, 50% 100%, 0 85%);
+            transform-style: preserve-3d;
+        }
+        
+        .matrix-code-header {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(0, 255, 0, 0.1) 2px, rgba(0, 255, 0, 0.1) 4px);
+            z-index: -1;
+        }
+        
+        /* Efecto de texto 3D */
         h1 {
-            font-size: 2.5rem;
-            text-shadow: 0 0 10px #0f0;
-            margin-bottom: 10px;
+            font-family: 'Alice', serif;
+            font-size: 4.5rem;
+            margin-bottom: 1rem;
+            position: relative;
+            display: inline-block;
+            font-weight: normal;
+            letter-spacing: 2px;
+            transform: translateZ(30px);
+            animation: float-title 6s ease-in-out infinite;
+            /* Efecto 3D con brillo Matrix */
+            background: linear-gradient(
+                135deg,
+                #00FF00 0%,
+                #99FF99 25%,
+                #00FF00 50%,
+                #009900 75%,
+                #00FF00 100%
+            );
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            text-shadow: 
+                0 1px 0 #00CC00,
+                0 2px 0 #009900,
+                0 3px 0 #006600,
+                0 4px 0 #003300,
+                0 5px 0 #001100,
+                0 6px 1px rgba(0,0,0,.1),
+                0 0 5px rgba(0,0,0,.1),
+                0 1px 3px rgba(0,0,0,.3),
+                0 3px 5px rgba(0,0,0,.2),
+                0 5px 10px rgba(0,0,0,.25),
+                0 10px 10px rgba(0,0,0,.2),
+                0 20px 20px rgba(0,0,0,.15);
+        }
+        
+        @keyframes float-title {
+            0%, 100% {
+                transform: translateZ(30px) translateY(0);
+            }
+            50% {
+                transform: translateZ(30px) translateY(-5px);
+            }
+        }
+        
+        h1::before {
+            content: "";
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: linear-gradient(90deg, transparent, #00FF00, transparent);
+        }
+        
+        .tagline {
+            font-size: 1.6rem;
+            color: #99FF99;
+            margin-bottom: 1.5rem;
+            font-style: italic;
+            font-weight: 400;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+            transform: translateZ(20px);
+            animation: gentle-pulse 8s ease-in-out infinite;
+        }
+        
+        @keyframes gentle-pulse {
+            0%, 100% {
+                transform: translateZ(20px) scale(1);
+                opacity: 0.9;
+            }
+            50% {
+                transform: translateZ(20px) scale(1.02);
+                opacity: 1;
+            }
+        }
+        
+        .intro {
+            max-width: 800px;
+            margin: 0 auto;
+            font-size: 1.2rem;
+            color: #99FF99;
+            background: rgba(10, 30, 10, 0.5);
+            padding: 1.5rem;
+            border-radius: 15px;
+            border: 2px dashed #00FF00;
+            position: relative;
+            transform: translateZ(10px);
+        }
+        
+        .intro::before, .intro::after {
+            content: "⚡";
+            position: absolute;
+            color: #00FF00;
+            font-size: 1.5rem;
+        }
+        
+        .intro::before {
+            top: -15px;
+            left: -15px;
+        }
+        
+        .intro::after {
+            bottom: -15px;
+            right: -15px;
+        }
+        
+        /* Navegación */
+        nav {
+            background: rgba(10, 20, 10, 0.8);
+            padding: 1.2rem;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            border-bottom: 2px solid #00AA00;
+            backdrop-filter: blur(10px);
+            transform-style: preserve-3d;
+        }
+        
+        nav ul {
+            display: flex;
+            justify-content: center;
+            list-style: none;
+            flex-wrap: wrap;
+        }
+        
+        nav li {
+            margin: 0 1.5rem;
+            position: relative;
+        }
+        
+        nav li::before {
+            content: "👁️";
+            position: absolute;
+            left: -20px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #00FF00;
+        }
+        
+        nav a {
+            color: #99FF99;
+            text-decoration: none;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: all 0.3s;
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            font-family: 'Alice', serif;
+            font-size: 1.1rem;
+            transform: translateZ(10px);
+            text-shadow: 0 1px 2px rgba(0,0,0,0.5);
+        }
+        
+        nav a:hover {
+            background-color: rgba(0, 255, 0, 0.2);
+            text-shadow: 0 0 10px #00FF00;
+            transform: translateZ(10px) translateY(-2px);
+            color: #00FF00;
         }
         
         /* Contenido principal */
         .container {
             max-width: 1200px;
             margin: 0 auto;
-            padding: 40px 20px;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
+            padding: 3rem 2rem;
+            transform-style: preserve-3d;
+            display: flex;
+            gap: 2rem;
         }
         
-        .card {
-            background: rgba(0, 20, 0, 0.7);
-            border: 1px solid #0f0;
-            border-radius: 5px;
-            padding: 20px;
-            transition: transform 0.3s, box-shadow 0.3s;
-            position: relative;
+        .main-content {
+            flex: 1;
+        }
+        
+        /* Columna lateral de música */
+        .music-sidebar {
+            width: 300px;
+            background: rgba(10, 20, 10, 0.7);
+            border-radius: 15px;
+            border: 2px solid #00AA00;
+            padding: 1.5rem;
+            position: sticky;
+            top: 100px;
+            height: fit-content;
+            max-height: calc(100vh - 120px);
+            overflow-y: auto;
+        }
+        
+        .music-sidebar h3 {
+            color: #00FF00;
+            text-align: center;
+            margin-bottom: 1.5rem;
+            font-size: 1.5rem;
+            border-bottom: 1px solid #00AA00;
+            padding-bottom: 0.5rem;
+        }
+        
+        .player-container {
+            background: rgba(0, 20, 0, 0.5);
+            border-radius: 10px;
+            padding: 1rem;
+            margin-bottom: 1.5rem;
+            border: 1px solid #00AA00;
+        }
+        
+        .player-controls {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+        
+        .player-btn {
+            background: rgba(0, 255, 0, 0.2);
+            border: 1px solid #00FF00;
+            color: #00FF00;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .player-btn:hover {
+            background: rgba(0, 255, 0, 0.4);
+            transform: scale(1.1);
+        }
+        
+        .progress-container {
+            background: rgba(0, 100, 0, 0.3);
+            height: 6px;
+            border-radius: 3px;
+            margin-bottom: 0.5rem;
             overflow: hidden;
         }
         
-        .card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 0 20px #0f0;
+        .progress-bar {
+            background: #00FF00;
+            height: 100%;
+            width: 0%;
+            transition: width 0.1s;
         }
         
-        .card h2 {
-            color: #0f0;
-            margin-bottom: 15px;
-            border-bottom: 1px solid #0f0;
-            padding-bottom: 10px;
+        .time-display {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.8rem;
+            color: #99FF99;
         }
         
-        .card p {
+        .playlist {
+            list-style: none;
+        }
+        
+        .playlist-item {
+            padding: 0.8rem;
+            border-bottom: 1px solid rgba(0, 255, 0, 0.2);
+            cursor: pointer;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .playlist-item:hover {
+            background: rgba(0, 255, 0, 0.1);
+        }
+        
+        .playlist-item.active {
+            background: rgba(0, 255, 0, 0.2);
+            color: #00FF00;
+        }
+        
+        .playlist-item i {
+            color: #00FF00;
+        }
+        
+        section {
+            margin-bottom: 4rem;
+            background: rgba(10, 20, 10, 0.5);
+            padding: 2.5rem;
+            border-radius: 20px;
+            border: 2px solid #00AA00;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s;
+            position: relative;
+            overflow: hidden;
+            transform-style: preserve-3d;
+        }
+        
+        section::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(90deg, #00AA00, #00FF00, #00AA00);
+        }
+        
+        section:hover {
+            transform: translateY(-5px) translateZ(10px);
+        }
+        
+        /* Encabezados con efecto 3D mejorado */
+        h2 {
+            font-family: 'Alice', serif;
+            font-size: 2.8rem;
+            margin-bottom: 2rem;
+            text-align: center;
+            position: relative;
+            padding-bottom: 1rem;
+            font-weight: normal;
+            transform: translateZ(25px);
+            animation: header-float 8s ease-in-out infinite;
+            /* Efecto 3D con brillo Matrix */
+            background: linear-gradient(
+                135deg,
+                #00FF00 0%,
+                #99FF99 25%,
+                #00FF00 50%,
+                #009900 75%,
+                #00FF00 100%
+            );
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            text-shadow: 
+                0 1px 0 #00CC00,
+                0 2px 0 #009900,
+                0 3px 0 #006600,
+                0 4px 0 #003300,
+                0 5px 1px rgba(0,0,0,.1),
+                0 0 5px rgba(0,0,0,.1),
+                0 1px 3px rgba(0,0,0,.3),
+                0 3px 5px rgba(0,0,0,.2),
+                0 5px 10px rgba(0,0,0,.25),
+                0 10px 10px rgba(0,0,0,.2);
+        }
+        
+        @keyframes header-float {
+            0%, 100% {
+                transform: translateZ(25px) translateY(0);
+            }
+            50% {
+                transform: translateZ(25px) translateY(-3px);
+            }
+        }
+        
+        h2::before {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 25%;
+            width: 50%;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, #00FF00, transparent);
+        }
+        
+        /* Biografía */
+        .bio-content {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 3rem;
+            align-items: center;
+        }
+        
+        .bio-text {
+            flex: 1;
+            min-width: 300px;
+            line-height: 1.8;
+            font-size: 1.1rem;
+            background: rgba(20, 40, 20, 0.4);
+            padding: 1.5rem;
+            border-radius: 15px;
+            border: 1px dashed #99FF99;
+            transform: translateZ(5px);
+        }
+        
+        /* Botón de Instagram */
+        .bio-image {
+            flex: 0 0 250px;
+            height: 250px;
+            background: linear-gradient(135deg, #00AA00, #00FF00);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 3px solid #00FF00;
+            box-shadow: 0 0 30px rgba(0, 255, 0, 0.7);
+            overflow: hidden;
+            position: relative;
+            transform: translateZ(15px);
+            cursor: pointer;
+            transition: all 0.3s;
+            text-decoration: none;
+        }
+        
+        .bio-image:hover {
+            transform: translateZ(20px) scale(1.05);
+            box-shadow: 0 0 40px rgba(0, 255, 0, 0.8);
+        }
+        
+        .bio-image::before {
+            content: "DESENGANY";
+            color: #0a0a0a;
+            font-weight: bold;
+            text-align: center;
+            font-family: 'Alice', serif;
+            font-size: 1.8rem;
+            padding: 1rem;
+            z-index: 2;
+        }
+        
+        .bio-image::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><path d="M50,10 C70,10 90,30 90,50 C90,70 70,90 50,90 C30,90 10,70 10,50 C10,30 30,10 50,10 Z" fill="none" stroke="%230a0a0a" stroke-width="2"/></svg>');
+            background-size: 50px;
+            opacity: 0.2;
+        }
+        
+        /* Pestañas de música */
+        .song-tabs {
+            margin-top: 2rem;
+        }
+        
+        .tab {
+            margin-bottom: 1.5rem;
+            border: 2px solid #00AA00;
+            border-radius: 15px;
+            overflow: hidden;
+            transition: all 0.3s;
+            background: rgba(20, 40, 20, 0.4);
+            transform-style: preserve-3d;
+        }
+        
+        .tab:hover {
+            border-color: #00FF00;
+            box-shadow: 0 5px 15px rgba(0, 255, 0, 0.3);
+            transform: translateZ(5px);
+        }
+        
+        .tab input {
+            display: none;
+        }
+        
+        .tab label {
+            display: block;
+            padding: 1.5rem;
+            background: rgba(30, 60, 30, 0.6);
+            cursor: pointer;
+            font-weight: bold;
+            transition: all 0.3s;
+            position: relative;
+            font-family: 'Alice', serif;
+            font-size: 1.5rem;
+            color: #00FF00;
+            text-align: center;
+            transform: translateZ(10px);
+            text-shadow: 0 1px 2px rgba(0,0,0,0.5);
+        }
+        
+        .tab label:hover {
+            background: rgba(40, 80, 40, 0.6);
+        }
+        
+        .tab label::after {
+            content: "▼";
+            position: absolute;
+            right: 1.5rem;
+            font-size: 1.5rem;
+            transition: transform 0.3s;
+            color: #00FF00;
+        }
+        
+        .tab input:checked + label::after {
+            transform: rotate(180deg);
+        }
+        
+        .tab-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.5s ease-out;
+            background: rgba(10, 20, 10, 0.6);
+        }
+        
+        .tab input:checked ~ .tab-content {
+            max-height: 800px;
+        }
+        
+        .platform-links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            padding: 2rem;
+            justify-content: center;
+        }
+        
+        .platform-link {
+            display: flex;
+            align-items: center;
+            padding: 1rem 2rem;
+            background: rgba(30, 60, 30, 0.6);
+            border-radius: 10px;
+            text-decoration: none;
+            color: #99FF99;
+            transition: all 0.3s;
+            border: 1px solid #00AA00;
+            font-weight: 600;
+            min-width: 180px;
+            justify-content: center;
+            font-family: 'Alice', serif;
+            transform: translateZ(5px);
+        }
+        
+        .platform-link:hover {
+            background: rgba(0, 255, 0, 0.2);
+            transform: translateY(-5px) translateZ(10px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+            border-color: #00FF00;
+            color: #00FF00;
+        }
+        
+        /* Sección de comentarios */
+        .comments-form {
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        
+        .form-group {
+            margin-bottom: 2rem;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 0.8rem;
+            color: #00FF00;
+            font-weight: 600;
+            font-family: 'Alice', serif;
+            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+            transform: translateZ(5px);
+        }
+        
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            width: 100%;
+            padding: 1rem;
+            background: rgba(20, 40, 20, 0.6);
+            border: 1px solid #00AA00;
+            border-radius: 8px;
+            color: #99FF99;
+            font-family: 'Alice', serif;
+            font-size: 1rem;
+            transition: all 0.3s;
+            transform: translateZ(5px);
+        }
+        
+        .form-group input:focus,
+        .form-group textarea:focus,
+        .form-group select:focus {
+            outline: none;
+            border-color: #00FF00;
+            box-shadow: 0 0 15px rgba(0, 255, 0, 0.3);
+            transform: translateZ(10px);
+        }
+        
+        .submit-btn {
+            background: rgba(0, 255, 0, 0.2);
+            color: #00FF00;
+            border: 2px solid #00FF00;
+            padding: 1rem 2.5rem;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: all 0.3s;
+            font-family: 'Alice', serif;
+            font-size: 1.1rem;
+            display: block;
+            margin: 0 auto;
+            transform: translateZ(10px);
+        }
+        
+        .submit-btn:hover {
+            background: rgba(0, 255, 0, 0.3);
+            box-shadow: 0 0 20px rgba(0, 255, 0, 0.5);
+            transform: translateZ(15px) translateY(-3px);
+        }
+        
+        /* Sección de referentes de investigación */
+        .referentes-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        
+        .referente-card {
+            background: rgba(20, 40, 20, 0.6);
+            border-radius: 15px;
+            overflow: hidden;
+            border: 2px solid #00AA00;
+            transition: all 0.3s;
+            transform-style: preserve-3d;
+        }
+        
+        .referente-card:hover {
+            transform: translateY(-8px) translateZ(10px);
+            box-shadow: 0 15px 30px rgba(0, 255, 0, 0.4);
+            border-color: #00FF00;
+        }
+        
+        .referente-header {
+            background: linear-gradient(135deg, #003300, #00AA00);
+            padding: 1.5rem;
+            text-align: center;
+            border-bottom: 2px solid #00FF00;
+        }
+        
+        .referente-name {
+            font-size: 1.5rem;
+            color: #00FF00;
+            margin-bottom: 0.5rem;
+            font-family: 'Alice', serif;
+        }
+        
+        .referente-title {
+            font-size: 1rem;
+            color: #99FF99;
+            font-style: italic;
+        }
+        
+        .referente-content {
+            padding: 1.5rem;
+        }
+        
+        .referente-bio {
+            color: #99FF99;
             line-height: 1.6;
-            margin-bottom: 15px;
+            margin-bottom: 1.5rem;
         }
         
-        /* Elementos simbólicos */
-        .symbol {
-            text-align: center;
-            margin: 20px 0;
+        .referente-links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.8rem;
+            justify-content: center;
         }
         
-        .eye-icon {
-            font-size: 3rem;
-            color: #0f0;
-            margin: 10px;
-            text-shadow: 0 0 10px #0f0;
-        }
-        
-        .matrix-code {
-            font-family: monospace;
-            background: rgba(0, 30, 0, 0.5);
-            padding: 15px;
-            border-left: 3px solid #0f0;
-            margin: 15px 0;
-            overflow-x: auto;
-        }
-        
-        /* Pie de página */
-        footer {
-            text-align: center;
-            padding: 20px;
-            border-top: 1px solid #0f0;
-            margin-top: 40px;
+        .referente-link {
+            display: flex;
+            align-items: center;
+            padding: 0.7rem 1.2rem;
+            background: rgba(30, 60, 30, 0.7);
+            border-radius: 8px;
+            text-decoration: none;
+            color: #99FF99;
+            transition: all 0.3s;
+            border: 1px solid #00AA00;
             font-size: 0.9rem;
         }
         
-        /* Animaciones */
-        @keyframes glow {
-            0% { text-shadow: 0 0 5px #0f0; }
-            50% { text-shadow: 0 0 20px #0f0, 0 0 30px #0f0; }
-            100% { text-shadow: 0 0 5px #0f0; }
+        .referente-link:hover {
+            background: rgba(0, 255, 0, 0.2);
+            transform: translateY(-3px);
+            border-color: #00FF00;
+            color: #00FF00;
         }
         
-        .glowing {
-            animation: glow 2s infinite;
+        .referente-link i {
+            margin-right: 0.5rem;
         }
         
-        /* Elementos interactivos */
-        .reveal-btn {
-            background: transparent;
-            border: 1px solid #0f0;
-            color: #0f0;
-            padding: 10px 20px;
-            cursor: pointer;
+        /* Blog */
+        .blog-posts {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 2.5rem;
+        }
+        
+        .post {
+            background: rgba(20, 40, 20, 0.6);
+            border-radius: 15px;
+            overflow: hidden;
+            border: 2px solid #00AA00;
             transition: all 0.3s;
-            margin-top: 10px;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            transform-style: preserve-3d;
         }
         
-        .reveal-btn:hover {
-            background: #0f0;
-            color: #000;
+        .post::before {
+            content: "👁️";
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            color: #00FF00;
+            font-size: 1.5rem;
         }
         
-        .hidden-content {
-            display: none;
-            margin-top: 15px;
-            padding: 15px;
-            background: rgba(0, 30, 0, 0.3);
-            border: 1px dashed #0f0;
+        .post:hover {
+            transform: translateY(-8px) translateZ(10px);
+            box-shadow: 0 15px 30px rgba(0, 255, 0, 0.4);
+            border-color: #00FF00;
+        }
+        
+        .post-image {
+            height: 200px;
+            background: linear-gradient(135deg, #003300, #00FF00);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #0a0a0a;
+            font-weight: bold;
+            font-family: 'Alice', serif;
+            font-size: 1.5rem;
+            text-align: center;
+            padding: 1rem;
+        }
+        
+        .post-content {
+            padding: 1.8rem;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            background: rgba(10, 20, 10, 0.5);
+        }
+        
+        .post-title {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: #00FF00;
+            font-family: 'Alice', serif;
+            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+            transform: translateZ(10px);
+            animation: gentle-pulse 10s ease-in-out infinite;
+        }
+        
+        .post-excerpt {
+            color: #99FF99;
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+            flex-grow: 1;
+            transform: translateZ(5px);
+        }
+        
+        .read-more {
+            display: inline-block;
+            color: #00FF00;
+            text-decoration: none;
+            font-weight: bold;
+            transition: all 0.3s;
+            align-self: flex-start;
+            padding: 0.5rem 1rem;
+            border: 1px solid #00FF00;
+            border-radius: 4px;
+            font-family: 'Alice', serif;
+            transform: translateZ(5px);
+        }
+        
+        .read-more:hover {
+            background: rgba(0, 255, 0, 0.1);
+            text-shadow: 0 0 10px #00FF00;
+            transform: translateZ(10px) translateY(-2px);
+        }
+        
+        /* Contacto */
+        .contact-form {
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        
+        /* Footer */
+        footer {
+            background: rgba(10, 20, 10, 0.8);
+            padding: 3rem 2rem;
+            text-align: center;
+            border-top: 2px solid #00AA00;
+            margin-top: 3rem;
+            clip-path: polygon(0 15%, 50% 0, 100% 15%, 100% 100%, 0 100%);
+            transform-style: preserve-3d;
+        }
+        
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+        }
+        
+        .social-link {
+            color: #00FF00;
+            font-size: 1.8rem;
+            transition: all 0.3s;
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            background: rgba(30, 60, 30, 0.6);
+            text-decoration: none;
+            transform: translateZ(10px);
+        }
+        
+        .social-link:hover {
+            text-shadow: 0 0 15px #00FF00;
+            transform: translateZ(15px) translateY(-5px);
+            background: rgba(0, 255, 0, 0.2);
+        }
+        
+        .copyright {
+            color: #99FF99;
+            font-size: 1rem;
+            transform: translateZ(5px);
+        }
+        
+        /* Elementos decorativos */
+        .matrix-terminal {
+            position: fixed;
+            bottom: 20px;
+            left: 20px;
+            width: 200px;
+            height: 100px;
+            background: rgba(0, 20, 0, 0.7);
+            border: 1px solid #00FF00;
+            border-radius: 5px;
+            padding: 10px;
+            font-family: 'Courier New', monospace;
+            font-size: 12px;
+            color: #00FF00;
+            overflow: hidden;
+            z-index: 5;
+            opacity: 0.7;
+        }
+        
+        .terminal-text {
+            animation: terminal-type 10s infinite;
+        }
+        
+        @keyframes terminal-type {
+            0% { content: "Sistema iniciado..."; }
+            25% { content: "Analizando realidad..."; }
+            50% { content: "Despertar conciencia..."; }
+            75% { content: "Matrix detectada..."; }
+            100% { content: "Sistema iniciado..."; }
+        }
+        
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .container {
+                flex-direction: column;
+            }
+            
+            .music-sidebar {
+                width: 100%;
+                position: static;
+                margin-bottom: 2rem;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 3rem;
+            }
+            
+            nav ul {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            nav li {
+                margin: 0.5rem 0;
+            }
+            
+            .bio-content {
+                flex-direction: column;
+            }
+            
+            .bio-image {
+                margin-top: 1rem;
+            }
+            
+            .platform-links {
+                flex-direction: column;
+            }
+            
+            .platform-link {
+                width: 100%;
+            }
+            
+            .matrix-terminal {
+                display: none;
+            }
+            
+            .referentes-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .consciousness-element {
+                display: none;
+            }
         }
     </style>
 </head>
 <body>
-    <!-- Fondo tipo Matrix -->
-    <canvas id="matrix-bg"></canvas>
+    <!-- Fondo animado de Matrix -->
+    <div id="matrix-bg">
+        <div class="matrix-code"></div>
+    </div>
     
+    <!-- Elementos de conciencia en el fondo MEJORADOS -->
+    <div class="consciousness-element anonymous-mask"></div>
+    <div class="consciousness-element matrix-pill"></div>
+    <div class="consciousness-element eye-of-providence"></div>
+    <div class="consciousness-element consciousness-symbol"></div>
+    
+    <!-- Partículas flotantes -->
+    <div class="particles" id="particles"></div>
+    
+    <!-- Terminal de Matrix decorativo -->
+    <div class="matrix-terminal">
+        <div class="terminal-text">Sistema iniciado...</div>
+    </div>
+    
+    <!-- Encabezado -->
     <header>
-        <!-- Máscara de Anonymous -->
-        <svg class="anonymous-mask" viewBox="0 0 100 100">
-            <path d="M50,15 C30,15 15,30 15,50 C15,70 30,85 50,85 C70,85 85,70 85,50 C85,30 70,15 50,15 Z" fill="none" stroke="#0f0" stroke-width="2"/>
-            <path d="M40,35 C45,30 55,30 60,35" fill="none" stroke="#0f0" stroke-width="2"/>
-            <path d="M35,50 C35,45 40,40 50,40 C60,40 65,45 65,50 C65,55 60,60 50,60 C40,60 35,55 35,50 Z" fill="none" stroke="#0f0" stroke-width="2"/>
-            <path d="M45,50 C45,48 47,46 50,46 C53,46 55,48 55,50 C55,52 53,54 50,54 C47,54 45,52 45,50 Z" fill="#0f0"/>
-        </svg>
-        
-        <h1 class="glowing">DESPERTAR DE CONCIENCIA</h1>
-        <p>La verdad está ahí fuera. ¿Estás listo para verla?</p>
+        <div class="matrix-code-header"></div>
+        <h1>Desengany</h1>
+        <p class="tagline">Despertar de conciencia a través de la música</p>
+        <div class="intro">
+            <p>Soy productor, compositor y artista en distintas plataformas. Mi música te transportará a un viaje de despertar de conciencia, donde cada canción es una nueva revelación sobre la realidad que nos rodea.</p>
+        </div>
     </header>
     
+    <!-- Navegación -->
+    <nav>
+        <ul>
+            <li><a href="#biografia">Biografía</a></li>
+            <li><a href="#musica">Música</a></li>
+            <li><a href="#comentarios">Comentarios</a></li>
+            <li><a href="#referentes">Referentes</a></li>
+            <li><a href="#blog">Blog</a></li>
+            <li><a href="#contacto">Contacto</a></li>
+        </ul>
+    </nav>
+    
+    <!-- Contenido principal -->
     <div class="container">
-        <div class="card">
-            <h2>Anonymous</h2>
-            <p>Somos legión. No perdonamos. No olvidamos. Espéranos.</p>
-            <div class="symbol">
-                <div class="eye-icon">👁️</div>
-            </div>
-            <button class="reveal-btn" onclick="toggleContent('content1')">Revelar Mensaje</button>
-            <div id="content1" class="hidden-content">
-                <p>La libertad de información es un derecho fundamental. Luchamos contra la censura y por la transparencia.</p>
-            </div>
+        <div class="main-content">
+            <!-- Biografía -->
+            <section id="biografia">
+                <h2 data-text="Biografía">Biografía</h2>
+                <div class="bio-content">
+                    <div class="bio-text">
+                        <p>Desengany es la expresión de un artista que busca la verdad detrás de la realidad aparente. Inspirado por el despertar de conciencia, la simbología de Anonymous y la filosofía de Matrix, su música transporta a los oyentes a mundos donde las verdades ocultas se revelan.</p>
+                        <p>Como Neo en Matrix, Desengany desafía las convenciones y crea un universo sonoro único donde la percepción se expande más allá de los límites impuestos. Cada canción es una invitación a cuestionar la realidad establecida.</p>
+                        <p>Su proceso creativo combina técnicas tradicionales con tecnología moderna, creando un sonido que es a la vez ancestral y futurista. Las letras exploran temas de identidad, realidad, control social y la búsqueda de libertad en un mundo que a menudo parece diseñado para limitarnos.</p>
+                        <p>Con cada nuevo lanzamiento, Desengany invita a sus oyentes a tomar la pastilla roja y descubrir qué maravillas y verdades aguardan al otro lado del velo de la percepción.</p>
+                    </div>
+                    <a href="https://www.instagram.com/conillet_blanquet?igsh=MXQxc2diY3dhMDVkdQ==" target="_blank" class="bio-image"></a>
+                </div>
+            </section>
+            
+            <!-- Música -->
+            <section id="musica">
+                <h2 data-text="Música">Música</h2>
+                <p>Explora el universo sonoro de Desengany a través de sus canciones, disponibles en todas las plataformas digitales.</p>
+                
+                <div class="song-tabs">
+                    <!-- Canción 1 -->
+                    <div class="tab">
+                        <input type="checkbox" id="tab1">
+                        <label for="tab1">Cuestión de cuestionar</label>
+                        <div class="tab-content">
+                            <div class="platform-links">
+                                <a href="https://open.spotify.com/track/5nJCERLNonYEktaFHa4dZu?si=BPy0A_BfS9K-I9H8F803Ew" target="_blank" class="platform-link">
+                                    <span class="platform-icon">▶</span> Spotify
+                                </a>
+                                <a href="https://music.apple.com/es/album/cuesti%C3%B3n-de-cuestionar/1789460477?i=1789460722&ls" target="_blank" class="platform-link">
+                                    <span class="platform-icon">▶</span> Apple Music
+                                </a>
+                                <a href="https://music.youtube.com/watch?v=TaHzAyvNZBo&si=GlqsMNgoiLjRB_9k" target="_blank" class="platform-link">
+                                    <span class="platform-icon">▶</span> YouTube Music
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Canción 2 -->
+                    <div class="tab">
+                        <input type="checkbox" id="tab2">
+                        <label for="tab2">Condiciones altas</label>
+                        <div class="tab-content">
+                            <div class="platform-links">
+                                <a href="https://open.spotify.com/track/7lIZAFWSQ5JMh7ZaRNkowZ?si=j6L9uJqsSQm1HEAg6U-5cA" target="_blank" class="platform-link">
+                                    <span class="platform-icon">▶</span> Spotify
+                                </a>
+                                <a href="https://music.apple.com/es/album/condiciones-altas/1776039004?i=1776039013&ls" target="_blank" class="platform-link">
+                                    <span class="platform-icon">▶</span> Apple Music
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Nueva Canción 3 -->
+                    <div class="tab">
+                        <input type="checkbox" id="tab3">
+                        <label for="tab3">Fuego eterno</label>
+                        <div class="tab-content">
+                            <div class="platform-links">
+                                <a href="https://open.spotify.com/track/4EDQTQDkWRJFK0PXcSV28G?si=qAjHh8O6RzabVUIQDie0SA" target="_blank" class="platform-link">
+                                    <span class="platform-icon">▶</span> Spotify
+                                </a>
+                                <a href="https://music.apple.com/es/album/fuego-eterno/1818707341?i=1818707342&ls" target="_blank" class="platform-link">
+                                    <span class="platform-icon">▶</span> Apple Music
+                                </a>
+                                <a href="https://music.amazon.es/albums/B0FC25BCN3?ref=dm_sh_o4gJ9u7r4oJrmYyWWarlyB85D" target="_blank" class="platform-link">
+                                    <span class="platform-icon">▶</span> Amazon Music
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Nueva Canción 4 -->
+                    <div class="tab">
+                        <input type="checkbox" id="tab4">
+                        <label for="tab4">Ciencia tecnológica</label>
+                        <div class="tab-content">
+                            <div class="platform-links">
+                                <a href="https://open.spotify.com/track/7E5wIKl2RZLua92Z87EfqC?si=JpopT-dbQGC0dgIzkmWSZQ" target="_blank" class="platform-link">
+                                    <span class="platform-icon">▶</span> Spotify
+                                </a>
+                                <a href="https://music.apple.com/es/album/ciencia-tecnol%C3%B3gica/1789460477?i=1789460724&ls" target="_blank" class="platform-link">
+                                    <span class="platform-icon">▶</span> Apple Music
+                                </a>
+                                <a href="https://music.amazon.es/albums/B0DSKB1W38?trackAsin=B0DSKDGG4G&do=play&ref=dm_sh_O5H4xxJ0TVAtTJdBt02TzNzak" target="_blank" class="platform-link">
+                                    <span class="platform-icon">▶</span> Amazon Music
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- Sección de comentarios -->
+            <section id="comentarios">
+                <h2 data-text="Me gustaría conocer tu opinión">Me gustaría conocer tu opinión</h2>
+                <form class="comments-form" id="commentForm">
+                    <div class="form-group">
+                        <label for="comment-name">Nombre</label>
+                        <input type="text" id="comment-name" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="comment-email">Email</label>
+                        <input type="email" id="comment-email" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="comment-rating">Valoración</label>
+                        <select id="comment-rating" required>
+                            <option value="">Selecciona una valoración</option>
+                            <option value="5">⭐️⭐️⭐️⭐️⭐️ Excelente</option>
+                            <option value="4">⭐️⭐️⭐️⭐️ Muy Bueno</option>
+                            <option value="3">⭐️⭐️⭐️ Bueno</option>
+                            <option value="2">⭐️⭐️ Regular</option>
+                            <option value="1">⭐️ Mejorable</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="comment-message">Tu comentario</label>
+                        <textarea id="comment-message" rows="5" required></textarea>
+                    </div>
+                    
+                    <button type="submit" class="submit-btn">Enviar Comentario</button>
+                </form>
+            </section>
+            
+            <!-- Referentes de investigación -->
+            <section id="referentes">
+                <h2 data-text="Referentes de Investigación">Referentes de Investigación</h2>
+                
+                <div class="referentes-grid">
+                    <!-- Cristina Martin Jimenez -->
+                    <div class="referente-card">
+                        <div class="referente-header">
+                            <h3 class="referente-name">Cristina Martín Jiménez</h3>
+                            <p class="referente-title">Periodista de investigación</p>
+                        </div>
+                        <div class="referente-content">
+                            <p class="referente-bio">Periodista especializada en geopolítica y análisis del poder. Autora de varios libros sobre los entresijos del poder mundial y las élites globales.</p>
+                            <div class="referente-links">
+                                <a href="#" class="referente-link" target="_blank">
+                                    <i class="fab fa-instagram"></i> Instagram
+                                </a>
+                                <a href="#" class="referente-link" target="_blank">
+                                    <i class="fas fa-book"></i> Libros
+                                </a>
+                                <a href="#" class="referente-link" target="_blank">
+                                    <i class="fab fa-youtube"></i> YouTube
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Coronel Pedro Baños -->
+                    <div class="referente-card">
+                        <div class="referente-header">
+                            <h3 class="referente-name">Coronel Pedro Baños</h3>
+                            <p class="referente-title">Experto en geopolítica</p>
+                        </div>
+                        <div class="referente-content">
+                            <p class="referente-bio">Coronel del Ejército de Tierra español, experto en geopolítica, estrategia, defensa, seguridad, inteligencia y terrorismo yihadista.</p>
+                            <div class="referente-links">
+                                <a href="#" class="referente-link" target="_blank">
+                                    <i class="fab fa-instagram"></i> Instagram
+                                </a>
+                                <a href="#" class="referente-link" target="_blank">
+                                    <i class="fas fa-book"></i> Libros
+                                </a>
+                                <a href="#" class="referente-link" target="_blank">
+                                    <i class="fab fa-youtube"></i> YouTube
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Justicia Social -->
+                    <div class="referente-card">
+                        <div class="referente-header">
+                            <h3 class="referente-name">Justicia Social</h3>
+                            <p class="referente-title">Canal de Telegram</p>
+                        </div>
+                        <div class="referente-content">
+                            <p class="referente-bio">Canal de Telegram especializado en análisis de actualidad política y social desde una perspectiva crítica y de justicia social.</p>
+                            <div class="referente-links">
+                                <a href="#" class="referente-link" target="_blank">
+                                    <i class="fab fa-telegram"></i> Telegram
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Iker Jimenez -->
+                    <div class="referente-card">
+                        <div class="referente-header">
+                            <h3 class="referente-name">Iker Jiménez</h3>
+                            <p class="referente-title">Periodista e investigador</p>
+                        </div>
+                        <div class="referente-content">
+                            <p class="referente-bio">Periodista, escritor y director de programas de televisión especializado en misterio, enigmas históricos y fenómenos inexplicables.</p>
+                            <div class="referente-links">
+                                <a href="#" class="referente-link" target="_blank">
+                                    <i class="fas fa-book"></i> Libros
+                                </a>
+                                <a href="#" class="referente-link" target="_blank">
+                                    <i class="fab fa-youtube"></i> YouTube
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- Blog -->
+            <section id="blog">
+                <h2 data-text="Blog de Conciencia">Blog de Conciencia</h2>
+                <div class="blog-posts">
+                    <article class="post">
+                        <div class="post-image">DESPERTAR</div>
+                        <div class="post-content">
+                            <h3 class="post-title">Tomando la Pastilla Roja</h3>
+                            <p class="post-excerpt">Una reflexión sobre el momento en que decidimos cuestionar la realidad establecida y buscar verdades más profundas detrás del velo de la percepción.</p>
+                            <a href="#" class="read-more">Leer más</a>
+                        </div>
+                    </article>
+                    
+                    <article class="post">
+                        <div class="post-image">MATRIX</div>
+                        <div class="post-content">
+                            <h3 class="post-title">¿Qué es Real?</h3>
+                            <p class="post-excerpt">Explorando la naturaleza de la realidad a través de la famosa pregunta de Morfeo y cómo la música nos ayuda a trascender límites perceptuales.</p>
+                            <a href="#" class="read-more">Leer más</a>
+                        </div>
+                    </article>
+                    
+                    <article class="post">
+                        <div class="post-image">ANONYMOUS</div>
+                        <div class="post-content">
+                            <h3 class="post-title">La Máscara de la Verdad</h3>
+                            <p class="post-excerpt">Cómo el anonimato puede ser una herramienta para revelar verdades incómodas y la importancia de cuestionar las narrativas oficiales.</p>
+                            <a href="#" class="read-more">Leer más</a>
+                        </div>
+                    </article>
+                </div>
+            </section>
+            
+            <!-- Contacto -->
+            <section id="contacto">
+                <h2 data-text="Contacto">Contacto</h2>
+                <form class="contact-form" action="https://formspree.io/f/pensamientoincansable@gmail.com" method="POST" id="contactForm">
+                    <div class="form-group">
+                        <label for="name">Nombre</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="message">Mensaje</label>
+                        <textarea id="message" name="message" rows="5" required></textarea>
+                    </div>
+                    
+                    <button type="submit" class="submit-btn">Enviar Mensaje</button>
+                </form>
+            </section>
         </div>
         
-        <div class="card">
-            <h2>Matrix</h2>
-            <p>¿Qué es real? ¿Cómo defines lo real?</p>
-            <div class="matrix-code">
-                01000100 01100101 01110011 01110000 01101001 01100101 01110010 01110100 01100001 00100000 01100101 01101110 00100000 01101100 01100001 00100000 01101101 01100001 01110100 01110010 01101001 01111010 00101110 00100000 01001100 01100001 00100000 01110110 01100101 01110010 01100100 01100001 01100100 00100000 01110100 01100101 00100000 01101000 01100001 01110010 11100001 00100000 01101100 01101001 01100010 01110010 01100101 00101110
+        <!-- Columna lateral de música -->
+        <div class="music-sidebar">
+            <h3>Lista de Reproducción</h3>
+            
+            <div class="player-container">
+                <div class="player-controls">
+                    <button class="player-btn" id="prev-btn"><i class="fas fa-step-backward"></i></button>
+                    <button class="player-btn" id="play-btn"><i class="fas fa-play"></i></button>
+                    <button class="player-btn" id="next-btn"><i class="fas fa-step-forward"></i></button>
+                </div>
+                
+                <div class="progress-container">
+                    <div class="progress-bar" id="progress-bar"></div>
+                </div>
+                
+                <div class="time-display">
+                    <span id="current-time">0:00</span>
+                    <span id="total-time">0:00</span>
+                </div>
+                
+                <div class="now-playing" id="now-playing">
+                    Selecciona una canción
+                </div>
             </div>
-            <button class="reveal-btn" onclick="toggleContent('content2')">Descifrar Código</button>
-            <div id="content2" class="hidden-content">
-                <p>"Despierta en la matriz. La verdad te hará libre."</p>
-            </div>
-        </div>
-        
-        <div class="card">
-            <h2>Despertar de Conciencia</h2>
-            <p>El conocimiento es poder, pero la conciencia es libertad.</p>
-            <div class="symbol">
-                <div class="eye-icon">🧠</div>
-            </div>
-            <button class="reveal-btn" onclick="toggleContent('content3')">Expandir Conciencia</button>
-            <div id="content3" class="hidden-content">
-                <p>Cuestiona todo lo que te han enseñado. Busca tu propia verdad. La realidad es más de lo que tus ojos pueden ver.</p>
-            </div>
+            
+            <ul class="playlist" id="playlist">
+                <li class="playlist-item" data-src="https://open.spotify.com/track/5nJCERLNonYEktaFHa4dZu?si=BPy0A_BfS9K-I9H8F803Ew">
+                    <i class="fas fa-music"></i> Cuestión de cuestionar
+                </li>
+                <li class="playlist-item" data-src="https://open.spotify.com/track/7lIZAFWSQ5JMh7ZaRNkowZ?si=j6L9uJqsSQm1HEAg6U-5cA">
+                    <i class="fas fa-music"></i> Condiciones altas
+                </li>
+                <li class="playlist-item" data-src="https://open.spotify.com/track/4EDQTQDkWRJFK0PXcSV28G?si=qAjHh8O6RzabVUIQDie0SA">
+                    <i class="fas fa-music"></i> Fuego eterno
+                </li>
+                <li class="playlist-item" data-src="https://open.spotify.com/track/7E5wIKl2RZLua92Z87EfqC?si=JpopT-dbQGC0dgIzkmWSZQ">
+                    <i class="fas fa-music"></i> Ciencia tecnológica
+                </li>
+            </ul>
         </div>
     </div>
     
+    <!-- Footer -->
     <footer>
-        <p>No somos enemigos, sino portadores de la verdad. | No sigas al rebaño.</p>
-        <p class="glowing">La conciencia colectiva está despertando</p>
+        <div class="social-links">
+            <a href="#" class="social-link">FB</a>
+            <a href="https://www.instagram.com/conillet_blanquet?igsh=MXQxc2diY3dhMDVkdQ==" target="_blank" class="social-link">IG</a>
+            <a href="#" class="social-link">YT</a>
+            <a href="#" class="social-link">TW</a>
+            <a href="#" class="social-link">SC</a>
+        </div>
+        <p class="copyright">&copy; 2023 Desengany. Todos los derechos reservados.</p>
     </footer>
-
+    
+    <!-- Script para funcionalidades -->
     <script>
-        // Efecto Matrix en el fondo
-        const canvas = document.getElementById('matrix-bg');
-        const ctx = canvas.getContext('2d');
-        
-        canvas.width = window.innerWidth;
-        canvas.height = window.innerHeight;
-        
-        const letters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789@#$%^&*()_+-=[]{}|;:,.<>?';
-        const fontSize = 14;
-        const columns = canvas.width / fontSize;
-        
-        const drops = [];
-        for (let i = 0; i < columns; i++) {
-            drops[i] = 1;
-        }
-        
-        function drawMatrix() {
-            ctx.fillStyle = 'rgba(0, 0, 0, 0.04)';
-            ctx.fillRect(0, 0, canvas.width, canvas.height);
-            
-            ctx.fillStyle = '#0f0';
-            ctx.font = fontSize + 'px monospace';
-            
-            for (let i = 0; i < drops.length; i++) {
-                const text = letters[Math.floor(Math.random() * letters.length)];
-                ctx.fillText(text, i * fontSize, drops[i] * fontSize);
+        // Smooth scroll para navegación
+        document.querySelectorAll('nav a').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
                 
-                if (drops[i] * fontSize > canvas.height && Math.random() > 0.975) {
-                    drops[i] = 0;
-                }
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
                 
-                drops[i]++;
-            }
-        }
-        
-        setInterval(drawMatrix, 35);
-        
-        // Función para mostrar/ocultar contenido
-        function toggleContent(id) {
-            const content = document.getElementById(id);
-            if (content.style.display === 'block') {
-                content.style.display = 'none';
-            } else {
-                content.style.display = 'block';
-            }
-        }
-        
-        // Ajustar canvas al cambiar tamaño de ventana
-        window.addEventListener('resize', function() {
-            canvas.width = window.innerWidth;
-            canvas.height = window.innerHeight;
+                window.scrollTo({
+                    top: targetElement.offsetTop - 20,
+                    behavior: 'smooth'
+                });
+            });
         });
+        
+        // Crear partículas flotantes
+        const particlesContainer = document.getElementById('particles');
+        const particleCount = 50;
+        
+        for (let i = 0; i < particleCount; i++) {
+            const particle = document.createElement('div');
+            particle.classList.add('particle');
+            
+            // Tamaño aleatorio
+            const size = Math.random() * 10 + 5;
+            particle.style.width = `${size}px`;
+            particle.style.height = `${size}px`;
+            
+            // Posición inicial aleatoria
+            particle.style.left = `${Math.random() * 100}vw`;
+            
+            // Retraso de animación aleatorio
+            particle.style.animationDelay = `${Math.random() * 15}s`;
+            
+            // Opacidad aleatoria
+            particle.style.opacity = Math.random() * 0.7 + 0.3;
+            
+            particlesContainer.appendChild(particle);
+        }
+        
+        // Manejo del formulario de contacto
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('¡Gracias por tu mensaje! Te responderé lo antes posible.');
+            this.reset();
+        });
+        
+        // Manejo del formulario de comentarios
+        document.getElementById('commentForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('¡Gracias por tu comentario! Tu opinión es muy importante para mí.');
+            this.reset();
+        });
+        
+        // Reproductor de música
+        const playBtn = document.getElementById('play-btn');
+        const prevBtn = document.getElementById('prev-btn');
+        const nextBtn = document.getElementById('next-btn');
+        const progressBar = document.getElementById('progress-bar');
+        const currentTimeEl = document.getElementById('current-time');
+        const totalTimeEl = document.getElementById('total-time');
+        const nowPlayingEl = document.getElementById('now-playing');
+        const playlistItems = document.querySelectorAll('.playlist-item');
+        
+        let currentTrack = 0;
+        let isPlaying = false;
+        let audio = new Audio();
+        
+        // Función para cargar una canción
+        function loadTrack(index) {
+            // En un entorno real, aquí cargaríamos el archivo de audio real
+            // Por ahora, simulamos la carga con un tiempo fijo
+            audio.src = playlistItems[index].getAttribute('data-src');
+            nowPlayingEl.textContent = playlistItems[index].textContent;
+            
+            // Actualizar la clase activa
+            playlistItems.forEach(item => item.classList.remove('active'));
+            playlistItems[index].classList.add('active');
+            
+            // Simular información de la canción
+            totalTimeEl.textContent = '3:45';
+            currentTimeEl.textContent = '0:00';
+            progressBar.style.width = '0%';
+            
+            if (isPlaying) {
+                playBtn.innerHTML = '<i class="fas fa-pause"></i>';
+            }
+        }
+        
+        // Función para reproducir/pausar
+        function playPause() {
+            if (isPlaying) {
+                audio.pause();
+                playBtn.innerHTML = '<i class="fas fa-play"></i>';
+            } else {
+                audio.play();
+                playBtn.innerHTML = '<i class="fas fa-pause"></i>';
+                
+                // Simular progreso de reproducción
+                let currentTime = 0;
+                const totalTime = 225; // 3:45 en segundos
+                
+                const progressInterval = setInterval(() => {
+                    if (!isPlaying) {
+                        clearInterval(progressInterval);
+                        return;
+                    }
+                    
+                    currentTime += 1;
+                    const progressPercent = (currentTime / totalTime) * 100;
+                    progressBar.style.width = `${progressPercent}%`;
+                    
+                    // Actualizar tiempo actual
+                    const minutes = Math.floor(currentTime / 60);
+                    const seconds = currentTime % 60;
+                    currentTimeEl.textContent = `${minutes}:${seconds.toString().padStart(2, '0')}`;
+                    
+                    // Si llegamos al final, pasar a la siguiente canción
+                    if (currentTime >= totalTime) {
+                        nextTrack();
+                    }
+                }, 1000);
+            }
+            
+            isPlaying = !isPlaying;
+        }
+        
+        // Función para la canción anterior
+        function prevTrack() {
+            currentTrack--;
+            if (currentTrack < 0) {
+                currentTrack = playlistItems.length - 1;
+            }
+            loadTrack(currentTrack);
+        }
+        
+        // Función para la siguiente canción
+        function nextTrack() {
+            currentTrack++;
+            if (currentTrack >= playlistItems.length) {
+                currentTrack = 0;
+            }
+            loadTrack(currentTrack);
+        }
+        
+        // Event listeners para los botones del reproductor
+        playBtn.addEventListener('click', playPause);
+        prevBtn.addEventListener('click', prevTrack);
+        nextBtn.addEventListener('click', nextTrack);
+        
+        // Event listeners para los elementos de la lista de reproducción
+        playlistItems.forEach((item, index) => {
+            item.addEventListener('click', () => {
+                currentTrack = index;
+                loadTrack(currentTrack);
+                if (!isPlaying) {
+                    playPause();
+                }
+            });
+        });
+        
+        // Cargar la primera canción al iniciar
+        loadTrack(0);
     </script>
 </body>
 </html>

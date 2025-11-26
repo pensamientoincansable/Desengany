@@ -141,6 +141,89 @@
             }
         }
         
+        /* Elementos de Alicia en el fondo */
+        .wonderland-element {
+            position: fixed;
+            z-index: -1;
+            opacity: 0.4;
+        }
+        
+        .rabbit {
+            top: 10%;
+            left: 5%;
+            width: 80px;
+            height: 120px;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 150"><path d="M50,10 C60,5 80,10 80,30 C80,50 70,60 50,60 C30,60 20,50 20,30 C20,10 40,5 50,10 Z" fill="white"/><circle cx="40" cy="25" r="5" fill="black"/><circle cx="60" cy="25" r="5" fill="black"/><circle cx="50" cy="35" r="3" fill="pink"/><path d="M30,70 Q50,90 70,70" stroke="black" fill="none"/><path d="M50,60 L50,100" stroke="white" fill="none"/><path d="M50,100 L30,130" stroke="white" fill="none"/><path d="M50,100 L70,130" stroke="white" fill="none"/><circle cx="65" cy="20" r="8" fill="none" stroke="gold" stroke-width="2"/><line x1="70" y1="15" x2="75" y2="10" stroke="gold" stroke-width="2"/></svg>');
+            animation: rabbit-run 25s linear infinite;
+        }
+        
+        @keyframes rabbit-run {
+            0% {
+                transform: translateX(-100px);
+            }
+            100% {
+                transform: translateX(calc(100vw + 100px));
+            }
+        }
+        
+        .hat {
+            top: 20%;
+            right: 10%;
+            width: 100px;
+            height: 70px;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 70"><path d="M10,40 C30,10 70,10 90,40 L70,40 L30,40 Z" fill="brown"/><rect x="30" y="40" width="40" height="20" fill="brown"/></svg>');
+            animation: hat-fall 15s ease-in infinite;
+        }
+        
+        @keyframes hat-fall {
+            0%, 100% {
+                transform: translateY(-100px) rotate(0deg);
+                opacity: 0;
+            }
+            10%, 90% {
+                opacity: 0.6;
+            }
+            50% {
+                transform: translateY(50vh) rotate(180deg);
+            }
+        }
+        
+        .cheshire-eyes {
+            top: 60%;
+            left: 15%;
+            width: 120px;
+            height: 60px;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 60"><path d="M20,30 Q40,10 60,30 Q80,50 60,30 Q40,10 20,30 Z" fill="yellow"/><path d="M80,30 Q100,10 120,30 Q140,50 120,30 Q100,10 80,30 Z" fill="yellow"/><circle cx="40" cy="30" r="8" fill="green"/><circle cx="100" cy="30" r="8" fill="green"/><circle cx="38" cy="28" r="3" fill="black"/><circle cx="98" cy="28" r="3" fill="black"/></svg>');
+            animation: eyes-appear 8s infinite;
+        }
+        
+        @keyframes eyes-appear {
+            0%, 60%, 100% {
+                opacity: 0;
+            }
+            10%, 50% {
+                opacity: 0.7;
+            }
+        }
+        
+        .tea-cup-static {
+            bottom: 15%;
+            right: 5%;
+            width: 60px;
+            height: 40px;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 60 40"><path d="M10,30 C15,10 45,10 50,30 L40,30 L20,30 Z" fill="saddlebrown"/><ellipse cx="30" cy="10" rx="20" ry="10" fill="saddlebrown"/></svg>');
+            animation: cup-tilt 12s ease-in-out infinite;
+        }
+        
+        @keyframes cup-tilt {
+            0%, 100% {
+                transform: rotate(0deg);
+            }
+            50% {
+                transform: rotate(15deg);
+            }
+        }
+        
         /* Encabezado */
         header {
             background: linear-gradient(135deg, rgba(42, 21, 67, 0.7) 0%, rgba(123, 65, 173, 0.6) 100%);
@@ -188,7 +271,7 @@
             font-size: 1.2rem;
         }
         
-        /* Efecto de texto 3D mejorado con reflejos */
+        /* Efecto de texto 3D CORREGIDO */
         h1 {
             font-family: 'Alice', serif;
             font-size: 4.5rem;
@@ -199,7 +282,7 @@
             font-weight: normal;
             letter-spacing: 2px;
             transform: translateZ(30px);
-            animation: float-title 6s ease-in-out infinite;
+            animation: float-title 6s ease-in-out infinite, text-tilt 8s ease-in-out infinite;
             text-shadow: 
                 0 1px 0 #d4af37,
                 0 2px 0 #b8941f,
@@ -215,37 +298,43 @@
                 0 20px 20px rgba(0,0,0,.15);
         }
         
-        h1::before {
+        /* Efecto de reflejo CORREGIDO (ahora está debajo) */
+        h1::after {
             content: "Desengany";
             position: absolute;
-            top: 0;
+            top: 100%;
             left: 0;
             width: 100%;
             height: 100%;
             color: rgba(255, 255, 255, 0.1);
-            transform: translateZ(5px) rotateX(180deg) translateY(10px);
+            transform: translateZ(-5px) rotateX(180deg) translateY(5px);
             background: linear-gradient(transparent, rgba(255, 255, 255, 0.1));
             -webkit-background-clip: text;
             background-clip: text;
             z-index: -1;
+            filter: blur(1px);
         }
         
         @keyframes float-title {
             0%, 100% {
-                transform: translateZ(30px) translateY(0) rotateX(0);
-            }
-            25% {
-                transform: translateZ(30px) translateY(-3px) rotateX(1deg);
+                transform: translateZ(30px) translateY(0);
             }
             50% {
-                transform: translateZ(30px) translateY(-5px) rotateX(0);
-            }
-            75% {
-                transform: translateZ(30px) translateY(-3px) rotateX(-1deg);
+                transform: translateZ(30px) translateY(-5px);
             }
         }
         
-        h1::after {
+        /* Nuevo efecto de inclinación para los textos */
+        @keyframes text-tilt {
+            0%, 100% {
+                transform: translateZ(30px) rotateZ(-1deg);
+            }
+            50% {
+                transform: translateZ(30px) rotateZ(1deg);
+            }
+        }
+        
+        h1::before {
             content: "";
             position: absolute;
             bottom: -10px;
@@ -263,7 +352,7 @@
             font-weight: 400;
             text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
             transform: translateZ(20px);
-            animation: gentle-pulse 8s ease-in-out infinite;
+            animation: gentle-pulse 8s ease-in-out infinite, text-tilt 7s ease-in-out infinite;
         }
         
         @keyframes gentle-pulse {
@@ -397,7 +486,7 @@
             transform: translateY(-5px) translateZ(10px);
         }
         
-        /* Encabezados con efecto 3D mejorado y movimiento */
+        /* Encabezados con efecto 3D mejorado y movimiento CORREGIDO */
         h2 {
             font-family: 'Alice', serif;
             font-size: 2.8rem;
@@ -408,7 +497,7 @@
             padding-bottom: 1rem;
             font-weight: normal;
             transform: translateZ(25px);
-            animation: header-float 8s ease-in-out infinite;
+            animation: header-float 8s ease-in-out infinite, text-tilt 9s ease-in-out infinite;
             text-shadow: 
                 0 1px 0 #d4af37,
                 0 2px 0 #b8941f,
@@ -422,37 +511,33 @@
                 0 10px 10px rgba(0,0,0,.2);
         }
         
-        @keyframes header-float {
-            0%, 100% {
-                transform: translateZ(25px) translateY(0) rotateX(0);
-            }
-            25% {
-                transform: translateZ(25px) translateY(-2px) rotateX(0.5deg);
-            }
-            50% {
-                transform: translateZ(25px) translateY(-3px) rotateX(0);
-            }
-            75% {
-                transform: translateZ(25px) translateY(-2px) rotateX(-0.5deg);
-            }
-        }
-        
-        h2::before {
+        /* Efecto de reflejo CORREGIDO para h2 */
+        h2::after {
             content: attr(data-text);
             position: absolute;
-            top: 0;
+            top: 100%;
             left: 0;
             width: 100%;
             height: 100%;
             color: rgba(255, 255, 255, 0.05);
-            transform: translateZ(5px) rotateX(180deg) translateY(5px);
+            transform: translateZ(-5px) rotateX(180deg) translateY(5px);
             background: linear-gradient(transparent, rgba(255, 255, 255, 0.05));
             -webkit-background-clip: text;
             background-clip: text;
             z-index: -1;
+            filter: blur(1px);
         }
         
-        h2::after {
+        @keyframes header-float {
+            0%, 100% {
+                transform: translateZ(25px) translateY(0);
+            }
+            50% {
+                transform: translateZ(25px) translateY(-3px);
+            }
+        }
+        
+        h2::before {
             content: "";
             position: absolute;
             bottom: 0;
@@ -482,6 +567,7 @@
             transform: translateZ(5px);
         }
         
+        /* Botón de Instagram */
         .bio-image {
             flex: 0 0 250px;
             height: 250px;
@@ -495,6 +581,14 @@
             overflow: hidden;
             position: relative;
             transform: translateZ(15px);
+            cursor: pointer;
+            transition: all 0.3s;
+            text-decoration: none;
+        }
+        
+        .bio-image:hover {
+            transform: translateZ(20px) scale(1.05);
+            box-shadow: 0 0 40px rgba(255, 215, 0, 0.8);
         }
         
         .bio-image::before {
@@ -620,6 +714,74 @@
             box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
             border-color: #FFD700;
             color: #FFD700;
+        }
+        
+        /* Sección de comentarios */
+        .comments-form {
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        
+        .form-group {
+            margin-bottom: 2rem;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 0.8rem;
+            color: #FFD700;
+            font-weight: 600;
+            font-family: 'Alice', serif;
+            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+            transform: translateZ(5px);
+        }
+        
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            width: 100%;
+            padding: 1rem;
+            background: rgba(58, 32, 91, 0.6);
+            border: 1px solid #7B41AD;
+            border-radius: 8px;
+            color: #E6D7B8;
+            font-family: 'Alice', serif;
+            font-size: 1rem;
+            transition: all 0.3s;
+            transform: translateZ(5px);
+        }
+        
+        .form-group input:focus,
+        .form-group textarea:focus,
+        .form-group select:focus {
+            outline: none;
+            border-color: #FFD700;
+            box-shadow: 0 0 15px rgba(255, 215, 0, 0.3);
+            transform: translateZ(10px);
+        }
+        
+        .submit-btn {
+            background: rgba(123, 65, 173, 0.3);
+            color: #FFD700;
+            border: 2px solid #FFD700;
+            padding: 1rem 2.5rem;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: all 0.3s;
+            font-family: 'Alice', serif;
+            font-size: 1.1rem;
+            display: block;
+            margin: 0 auto;
+            transform: translateZ(10px);
+        }
+        
+        .submit-btn:hover {
+            background: rgba(123, 65, 173, 0.5);
+            box-shadow: 0 0 20px rgba(255, 215, 0, 0.5);
+            transform: translateZ(15px) translateY(-3px);
         }
         
         /* Sección de frases célebres */
@@ -825,66 +987,6 @@
             margin: 0 auto;
         }
         
-        .form-group {
-            margin-bottom: 2rem;
-        }
-        
-        .form-group label {
-            display: block;
-            margin-bottom: 0.8rem;
-            color: #FFD700;
-            font-weight: 600;
-            font-family: 'Alice', serif;
-            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
-            transform: translateZ(5px);
-        }
-        
-        .form-group input,
-        .form-group textarea {
-            width: 100%;
-            padding: 1rem;
-            background: rgba(58, 32, 91, 0.6);
-            border: 1px solid #7B41AD;
-            border-radius: 8px;
-            color: #E6D7B8;
-            font-family: 'Alice', serif;
-            font-size: 1rem;
-            transition: all 0.3s;
-            transform: translateZ(5px);
-        }
-        
-        .form-group input:focus,
-        .form-group textarea:focus {
-            outline: none;
-            border-color: #FFD700;
-            box-shadow: 0 0 15px rgba(255, 215, 0, 0.3);
-            transform: translateZ(10px);
-        }
-        
-        .submit-btn {
-            background: rgba(123, 65, 173, 0.3);
-            color: #FFD700;
-            border: 2px solid #FFD700;
-            padding: 1rem 2.5rem;
-            border-radius: 8px;
-            cursor: pointer;
-            font-weight: bold;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            transition: all 0.3s;
-            font-family: 'Alice', serif;
-            font-size: 1.1rem;
-            display: block;
-            margin: 0 auto;
-            transform: translateZ(10px);
-        }
-        
-        .submit-btn:hover {
-            background: rgba(123, 65, 173, 0.5);
-            box-shadow: 0 0 20px rgba(255, 215, 0, 0.5);
-            transform: translateZ(15px) translateY(-3px);
-        }
-        
         /* Footer */
         footer {
             background: rgba(42, 21, 67, 0.8);
@@ -1009,6 +1111,10 @@
             .quotes-list {
                 grid-template-columns: 1fr;
             }
+            
+            .wonderland-element {
+                display: none;
+            }
         }
     </style>
 </head>
@@ -1024,6 +1130,12 @@
         <div class="hole-layer"></div>
         <div class="hole-layer"></div>
     </div>
+    
+    <!-- Elementos de Alicia en el fondo -->
+    <div class="wonderland-element rabbit"></div>
+    <div class="wonderland-element hat"></div>
+    <div class="wonderland-element cheshire-eyes"></div>
+    <div class="wonderland-element tea-cup-static"></div>
     
     <!-- Partículas flotantes -->
     <div class="particles" id="particles"></div>
@@ -1046,6 +1158,7 @@
         <ul>
             <li><a href="#biografia">Biografía</a></li>
             <li><a href="#musica">Música</a></li>
+            <li><a href="#comentarios">Comentarios</a></li>
             <li><a href="#frases">Frases Célebres</a></li>
             <li><a href="#blog">Blog</a></li>
             <li><a href="#contacto">Contacto</a></li>
@@ -1064,7 +1177,7 @@
                     <p>Su proceso creativo combina técnicas tradicionales con tecnología moderna, creando un sonido que es a la vez nostálgico y futurista. Las letras exploran temas de identidad, realidad y la búsqueda de significado en un mundo que a menudo parece carecer de él.</p>
                     <p>Con cada nuevo lanzamiento, Desengany invita a sus oyentes a seguir al conejo blanco y descubrir qué maravillas aguardan al otro lado de la madriguera.</p>
                 </div>
-                <div class="bio-image"></div>
+                <a href="https://www.instagram.com/conillet_blanquet?igsh=MXQxc2diY3dhMDVkdQ==" target="_blank" class="bio-image"></a>
             </div>
         </section>
         
@@ -1147,6 +1260,41 @@
                     </div>
                 </div>
             </div>
+        </section>
+        
+        <!-- Sección de comentarios -->
+        <section id="comentarios">
+            <h2 data-text="Me gustaría conocer tu opinión">Me gustaría conocer tu opinión</h2>
+            <form class="comments-form" id="commentForm">
+                <div class="form-group">
+                    <label for="comment-name">Nombre</label>
+                    <input type="text" id="comment-name" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="comment-email">Email</label>
+                    <input type="email" id="comment-email" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="comment-rating">Valoración</label>
+                    <select id="comment-rating" required>
+                        <option value="">Selecciona una valoración</option>
+                        <option value="5">⭐️⭐️⭐️⭐️⭐️ Excelente</option>
+                        <option value="4">⭐️⭐️⭐️⭐️ Muy Bueno</option>
+                        <option value="3">⭐️⭐️⭐️ Bueno</option>
+                        <option value="2">⭐️⭐️ Regular</option>
+                        <option value="1">⭐️ Mejorable</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label for="comment-message">Tu comentario</label>
+                    <textarea id="comment-message" rows="5" required></textarea>
+                </div>
+                
+                <button type="submit" class="submit-btn">Enviar Comentario</button>
+            </form>
         </section>
         
         <!-- Frases célebres -->
@@ -1249,20 +1397,20 @@
         <!-- Contacto -->
         <section id="contacto">
             <h2 data-text="Contacto">Contacto</h2>
-            <form class="contact-form">
+            <form class="contact-form" action="https://formspree.io/f/pensamientoincansable@gmail.com" method="POST" id="contactForm">
                 <div class="form-group">
                     <label for="name">Nombre</label>
-                    <input type="text" id="name" required>
+                    <input type="text" id="name" name="name" required>
                 </div>
                 
                 <div class="form-group">
                     <label for="email">Email</label>
-                    <input type="email" id="email" required>
+                    <input type="email" id="email" name="email" required>
                 </div>
                 
                 <div class="form-group">
                     <label for="message">Mensaje</label>
-                    <textarea id="message" rows="5" required></textarea>
+                    <textarea id="message" name="message" rows="5" required></textarea>
                 </div>
                 
                 <button type="submit" class="submit-btn">Enviar Mensaje</button>
@@ -1274,7 +1422,7 @@
     <footer>
         <div class="social-links">
             <a href="#" class="social-link">FB</a>
-            <a href="#" class="social-link">IG</a>
+            <a href="https://www.instagram.com/conillet_blanquet?igsh=MXQxc2diY3dhMDVkdQ==" target="_blank" class="social-link">IG</a>
             <a href="#" class="social-link">YT</a>
             <a href="#" class="social-link">TW</a>
             <a href="#" class="social-link">SC</a>
@@ -1323,6 +1471,20 @@
             
             particlesContainer.appendChild(particle);
         }
+        
+        // Manejo del formulario de contacto
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('¡Gracias por tu mensaje! Te responderé lo antes posible.');
+            this.reset();
+        });
+        
+        // Manejo del formulario de comentarios
+        document.getElementById('commentForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('¡Gracias por tu comentario! Tu opinión es muy importante para mí.');
+            this.reset();
+        });
     </script>
 </body>
 </html>

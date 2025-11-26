@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Desengany - Un Viaje Fantástico</title>
-    <link href="https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,700;1,400&family=UnifrakturMaguntia&family=MedievalSharp&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,700;1,400&family=UnifrakturMaguntia&family=MedievalSharp&family=Alice&display=swap" rel="stylesheet">
     <style>
         /* Estilos generales */
         * {
@@ -16,16 +16,13 @@
         body {
             background-color: #1a0f2d;
             color: #f0e6d6;
-            font-family: 'Crimson Text', serif;
+            font-family: 'Alice', serif;
             line-height: 1.6;
             overflow-x: hidden;
             position: relative;
-            background-image: 
-                radial-gradient(circle at 10% 20%, rgba(123, 65, 173, 0.15) 0%, transparent 20%),
-                radial-gradient(circle at 90% 80%, rgba(255, 215, 0, 0.1) 0%, transparent 20%);
         }
         
-        /* Fondo con elementos de Alicia */
+        /* Fondo con personajes de Alicia */
         #wonderland-bg {
             position: fixed;
             top: 0;
@@ -33,16 +30,21 @@
             width: 100%;
             height: 100%;
             z-index: -1;
-            opacity: 0.1;
+            opacity: 0.25;
             background-image: 
-                url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><path d="M50,10 C70,10 90,30 90,50 C90,70 70,90 50,90 C30,90 10,70 10,50 C10,30 30,10 50,10 Z" fill="none" stroke="%23FFD700" stroke-width="2"/></svg>'),
-                url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><path d="M10,50 L90,50 M50,10 L50,90" fill="none" stroke="%237B41AD" stroke-width="2"/><circle cx="50" cy="50" r="5" fill="%237B41AD"/></svg>');
-            background-size: 200px, 150px;
+                url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="200" height="200"><path d="M100,20 C120,10 180,30 180,70 C180,110 140,130 100,130 C60,130 20,110 20,70 C20,30 80,10 100,20 Z" fill="%238B4513" stroke="%234A235A" stroke-width="2"/><circle cx="80" cy="60" r="5" fill="%23000"/><circle cx="120" cy="60" r="5" fill="%23000"/><path d="M70,90 Q100,110 130,90" stroke="%23000" stroke-width="2" fill="none"/></svg>'), /* Sombrerero */
+                url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="200" height="200"><path d="M100,30 C130,10 170,40 170,80 C170,120 140,140 100,140 C60,140 30,120 30,80 C30,40 70,10 100,30 Z" fill="%23FFF" stroke="%234A235A" stroke-width="2"/><circle cx="80" cy="70" r="8" fill="%23000"/><circle cx="120" cy="70" r="8" fill="%23000"/><path d="M70,110 Q100,130 130,110" stroke="%23000" stroke-width="2" fill="none"/><path d="M100,140 L100,160" stroke="%23000" stroke-width="2"/><path d="M100,160 L80,180" stroke="%23000" stroke-width="2"/><path d="M100,160 L120,180" stroke="%23000" stroke-width="2"/></svg>'), /* Alicia */
+                url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="200" height="200"><ellipse cx="100" cy="70" rx="50" ry="30" fill="%23FFF" stroke="%234A235A" stroke-width="2"/><circle cx="80" cy="60" r="5" fill="%23000"/><circle cx="120" cy="60" r="5" fill="%23000"/><path d="M90,80 Q100,90 110,80" stroke="%23000" stroke-width="2" fill="none"/><path d="M100,100 L100,130" stroke="%23000" stroke-width="2"/><path d="M100,130 L80,160" stroke="%23000" stroke-width="2"/><path d="M100,130 L120,160" stroke="%23000" stroke-width="2"/><path d="M50,50 L70,30" stroke="%23000" stroke-width="2"/></svg>'), /* Conejo Blanco */
+                radial-gradient(circle at 10% 20%, rgba(123, 65, 173, 0.15) 0%, transparent 20%),
+                radial-gradient(circle at 90% 80%, rgba(255, 215, 0, 0.1) 0%, transparent 20%);
+            background-size: 150px, 120px, 100px, 200px, 200px;
+            background-position: 10% 20%, 80% 30%, 15% 70%, 0 0, 0 0;
+            background-repeat: no-repeat;
         }
         
         /* Encabezado */
         header {
-            background: linear-gradient(135deg, rgba(42, 21, 67, 0.9) 0%, rgba(123, 65, 173, 0.8) 100%);
+            background: linear-gradient(135deg, rgba(42, 21, 67, 0.85) 0%, rgba(123, 65, 173, 0.75) 100%);
             padding: 4rem 2rem;
             text-align: center;
             border-bottom: 3px solid #FFD700;
@@ -87,13 +89,15 @@
         }
         
         h1 {
-            font-family: 'UnifrakturMaguntia', cursive;
-            font-size: 5rem;
+            font-family: 'Alice', serif;
+            font-size: 4.5rem;
             margin-bottom: 1rem;
-            text-shadow: 3px 3px 0 #7B41AD, 6px 6px 0 #4A235A;
+            text-shadow: 2px 2px 0 #4A235A;
             color: #FFD700;
             position: relative;
             display: inline-block;
+            font-weight: normal;
+            letter-spacing: 2px;
         }
         
         h1::after {
@@ -114,12 +118,21 @@
             font-weight: 400;
         }
         
+        .quote {
+            font-style: italic;
+            margin: 1rem 0;
+            padding: 1rem;
+            background: rgba(42, 21, 67, 0.6);
+            border-left: 3px solid #FFD700;
+            border-radius: 0 10px 10px 0;
+        }
+        
         .intro {
             max-width: 800px;
             margin: 0 auto;
             font-size: 1.2rem;
             color: #E6D7B8;
-            background: rgba(42, 21, 67, 0.7);
+            background: rgba(42, 21, 67, 0.6);
             padding: 1.5rem;
             border-radius: 15px;
             border: 2px dashed #FFD700;
@@ -145,7 +158,7 @@
         
         /* Navegación */
         nav {
-            background: rgba(42, 21, 67, 0.9);
+            background: rgba(42, 21, 67, 0.85);
             padding: 1.2rem;
             position: sticky;
             top: 0;
@@ -184,7 +197,7 @@
             transition: all 0.3s;
             padding: 0.5rem 1rem;
             border-radius: 4px;
-            font-family: 'Crimson Text', serif;
+            font-family: 'Alice', serif;
             font-size: 1.1rem;
         }
         
@@ -204,7 +217,7 @@
         
         section {
             margin-bottom: 4rem;
-            background: rgba(42, 21, 67, 0.7);
+            background: rgba(42, 21, 67, 0.6);
             padding: 2.5rem;
             border-radius: 20px;
             border: 2px solid #7B41AD;
@@ -229,13 +242,14 @@
         }
         
         h2 {
-            font-family: 'MedievalSharp', cursive;
+            font-family: 'Alice', serif;
             font-size: 2.8rem;
             margin-bottom: 2rem;
             color: #FFD700;
             text-align: center;
             position: relative;
             padding-bottom: 1rem;
+            font-weight: normal;
         }
         
         h2::after {
@@ -261,7 +275,7 @@
             min-width: 300px;
             line-height: 1.8;
             font-size: 1.1rem;
-            background: rgba(58, 32, 91, 0.6);
+            background: rgba(58, 32, 91, 0.5);
             padding: 1.5rem;
             border-radius: 15px;
             border: 1px dashed #E6D7B8;
@@ -286,7 +300,7 @@
             color: #1a0f2d;
             font-weight: bold;
             text-align: center;
-            font-family: 'UnifrakturMaguntia', cursive;
+            font-family: 'Alice', serif;
             font-size: 1.8rem;
             padding: 1rem;
             z-index: 2;
@@ -315,7 +329,7 @@
             border-radius: 15px;
             overflow: hidden;
             transition: all 0.3s;
-            background: rgba(58, 32, 91, 0.6);
+            background: rgba(58, 32, 91, 0.5);
         }
         
         .tab:hover {
@@ -330,19 +344,19 @@
         .tab label {
             display: block;
             padding: 1.5rem;
-            background: rgba(74, 35, 90, 0.8);
+            background: rgba(74, 35, 90, 0.7);
             cursor: pointer;
             font-weight: bold;
             transition: all 0.3s;
             position: relative;
-            font-family: 'MedievalSharp', cursive;
+            font-family: 'Alice', serif;
             font-size: 1.5rem;
             color: #FFD700;
             text-align: center;
         }
         
         .tab label:hover {
-            background: rgba(90, 45, 110, 0.8);
+            background: rgba(90, 45, 110, 0.7);
         }
         
         .tab label::after {
@@ -362,7 +376,7 @@
             max-height: 0;
             overflow: hidden;
             transition: max-height 0.5s ease-out;
-            background: rgba(42, 21, 67, 0.8);
+            background: rgba(42, 21, 67, 0.7);
         }
         
         .tab input:checked ~ .tab-content {
@@ -381,7 +395,7 @@
             display: flex;
             align-items: center;
             padding: 1rem 2rem;
-            background: rgba(74, 35, 90, 0.8);
+            background: rgba(74, 35, 90, 0.7);
             border-radius: 10px;
             text-decoration: none;
             color: #E6D7B8;
@@ -390,11 +404,11 @@
             font-weight: 600;
             min-width: 180px;
             justify-content: center;
-            font-family: 'Crimson Text', serif;
+            font-family: 'Alice', serif;
         }
         
         .platform-link:hover {
-            background: rgba(123, 65, 173, 0.8);
+            background: rgba(123, 65, 173, 0.7);
             transform: translateY(-5px);
             box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
             border-color: #FFD700;
@@ -409,7 +423,7 @@
         }
         
         .post {
-            background: rgba(58, 32, 91, 0.8);
+            background: rgba(58, 32, 91, 0.7);
             border-radius: 15px;
             overflow: hidden;
             border: 2px solid #7B41AD;
@@ -443,7 +457,7 @@
             justify-content: center;
             color: #1a0f2d;
             font-weight: bold;
-            font-family: 'MedievalSharp', cursive;
+            font-family: 'Alice', serif;
             font-size: 1.5rem;
             text-align: center;
             padding: 1rem;
@@ -454,14 +468,14 @@
             flex-grow: 1;
             display: flex;
             flex-direction: column;
-            background: rgba(42, 21, 67, 0.7);
+            background: rgba(42, 21, 67, 0.6);
         }
         
         .post-title {
             font-size: 1.5rem;
             margin-bottom: 1rem;
             color: #FFD700;
-            font-family: 'MedievalSharp', cursive;
+            font-family: 'Alice', serif;
         }
         
         .post-excerpt {
@@ -481,7 +495,7 @@
             padding: 0.5rem 1rem;
             border: 1px solid #FFD700;
             border-radius: 4px;
-            font-family: 'Crimson Text', serif;
+            font-family: 'Alice', serif;
         }
         
         .read-more:hover {
@@ -504,18 +518,18 @@
             margin-bottom: 0.8rem;
             color: #FFD700;
             font-weight: 600;
-            font-family: 'MedievalSharp', cursive;
+            font-family: 'Alice', serif;
         }
         
         .form-group input,
         .form-group textarea {
             width: 100%;
             padding: 1rem;
-            background: rgba(58, 32, 91, 0.8);
+            background: rgba(58, 32, 91, 0.7);
             border: 1px solid #7B41AD;
             border-radius: 8px;
             color: #E6D7B8;
-            font-family: 'Crimson Text', serif;
+            font-family: 'Alice', serif;
             font-size: 1rem;
             transition: all 0.3s;
         }
@@ -538,7 +552,7 @@
             text-transform: uppercase;
             letter-spacing: 1px;
             transition: all 0.3s;
-            font-family: 'MedievalSharp', cursive;
+            font-family: 'Alice', serif;
             font-size: 1.1rem;
             display: block;
             margin: 0 auto;
@@ -552,7 +566,7 @@
         
         /* Footer */
         footer {
-            background: rgba(42, 21, 67, 0.9);
+            background: rgba(42, 21, 67, 0.85);
             padding: 3rem 2rem;
             text-align: center;
             border-top: 2px solid #7B41AD;
@@ -578,14 +592,14 @@
             align-items: center;
             justify-content: center;
             border-radius: 50%;
-            background: rgba(74, 35, 90, 0.8);
+            background: rgba(74, 35, 90, 0.7);
             text-decoration: none;
         }
         
         .social-link:hover {
             text-shadow: 0 0 15px #FFD700;
             transform: translateY(-5px);
-            background: rgba(123, 65, 173, 0.8);
+            background: rgba(123, 65, 173, 0.7);
         }
         
         .copyright {
@@ -670,7 +684,7 @@
     </style>
 </head>
 <body>
-    <!-- Fondo de Alicia en el País de las Maravillas -->
+    <!-- Fondo con personajes de Alicia -->
     <div id="wonderland-bg"></div>
     
     <!-- Taza de té decorativa -->
@@ -681,6 +695,9 @@
         <div class="mad-hatter"></div>
         <h1>Desengany</h1>
         <p class="tagline">Un viaje fantástico a través de la música</p>
+        <div class="quote">
+            "Solo queda por encontrar la manera de que algunas personas se vuelvan más grandes y otras más pequeñas."
+        </div>
         <div class="intro">
             <p>Soy productor, compositor y artista en distintas plataformas. Mi música te transportará a un mundo de fantasía y maravillas, donde cada canción es una nueva aventura.</p>
         </div>
@@ -701,10 +718,16 @@
         <!-- Biografía -->
         <section id="biografia">
             <h2>Biografía</h2>
+            <div class="quote">
+                "¿Quién eres tú? -preguntó la Oruga. Ésta no era una pregunta alentadora para comenzar una conversación."
+            </div>
             <div class="bio-content">
                 <div class="bio-text">
                     <p>Desengany es la expresión de un artista que siempre ha buscado la magia en lo cotidiano. Inspirado por los cuentos de hadas y las aventuras fantásticas, su música transporta a los oyentes a mundos donde todo es posible.</p>
                     <p>Como el Sombrerero Loco en el País de las Maravillas, Desengany desafía las convenciones y crea un universo sonoro único donde la imaginación no tiene límites. Cada canción es una invitación a un té loco, una conversación absurda que revela verdades profundas.</p>
+                    <div class="quote">
+                        "La única manera de lograr lo imposible es creer que es posible."
+                    </div>
                     <p>Su proceso creativo combina técnicas tradicionales con tecnología moderna, creando un sonido que es a la vez nostálgico y futurista. Las letras exploran temas de identidad, realidad y la búsqueda de significado en un mundo que a menudo parece carecer de él.</p>
                     <p>Con cada nuevo lanzamiento, Desengany invita a sus oyentes a seguir al conejo blanco y descubrir qué maravillas aguardan al otro lado de la madriguera.</p>
                 </div>
@@ -715,6 +738,9 @@
         <!-- Música -->
         <section id="musica">
             <h2>Música</h2>
+            <div class="quote">
+                "Empieza por el principio -dijo el Rey con gravedad- y sigue hasta que llegues al final; entonces para."
+            </div>
             <p>Explora el universo sonoro de Desengany a través de sus canciones, disponibles en todas las plataformas digitales.</p>
             
             <div class="song-tabs">
@@ -796,12 +822,18 @@
         <!-- Blog -->
         <section id="blog">
             <h2>Blog Fantástico</h2>
+            <div class="quote">
+                "En el mundo de Alicia, las reglas no son lo que parecen y la lógica a menudo se toma vacaciones."
+            </div>
             <div class="blog-posts">
                 <article class="post">
                     <div class="post-image">EL CONEJO BLANCO</div>
                     <div class="post-content">
                         <h3 class="post-title">Siguiendo al Conejo Blanco</h3>
                         <p class="post-excerpt">Una reflexión sobre cómo las pequeñas curiosidades pueden llevarnos a grandes aventuras y transformar nuestra percepción de la realidad.</p>
+                        <div class="quote">
+                            "Es demasiado tarde para corregirlo -dijo la Liebre- cuando has dicho una cosa, esa cosa se queda dicha, fíjate."
+                        </div>
                         <a href="#" class="read-more">Leer más</a>
                     </div>
                 </article>
@@ -811,15 +843,21 @@
                     <div class="post-content">
                         <h3 class="post-title">¿Quién eres tú?</h3>
                         <p class="post-excerpt">Explorando la naturaleza de la identidad a través de la famosa pregunta de la Oruga Azul y cómo la música nos ayuda a descubrirnos.</p>
+                        <div class="quote">
+                            "¿Quién diablos eres tú? -preguntó la Oruga."
+                        </div>
                         <a href="#" class="read-more">Leer más</a>
                     </div>
                 </article>
                 
                 <article class="post">
-                    <div class="post-image">EL TÉ LOCUO</div>
+                    <div class="post-image">EL TÉ LOCO</div>
                     <div class="post-content">
                         <h3 class="post-title">La Fiesta del Té del Sombrerero</h3>
                         <p class="post-excerpt">Cómo las conversaciones aparentemente absurdas pueden revelar verdades profundas y la importancia de celebrar la locura creativa.</p>
+                        <div class="quote">
+                            "¡Estamos todos locos aquí! Yo estoy loco. Tú estás loca."
+                        </div>
                         <a href="#" class="read-more">Leer más</a>
                     </div>
                 </article>
@@ -829,6 +867,9 @@
         <!-- Contacto -->
         <section id="contacto">
             <h2>Contacto</h2>
+            <div class="quote">
+                "Si no sabes a dónde vas, cualquier camino te llevará allí."
+            </div>
             <form class="contact-form">
                 <div class="form-group">
                     <label for="name">Nombre</label>
@@ -858,6 +899,9 @@
             <a href="#" class="social-link">YT</a>
             <a href="#" class="social-link">TW</a>
             <a href="#" class="social-link">SC</a>
+        </div>
+        <div class="quote">
+            "¡Qué sueño más curioso!... ¿Y quién sabrá si no habré estado soñando?"
         </div>
         <p class="copyright">&copy; 2023 Desengany. Todos los derechos reservados.</p>
     </footer>

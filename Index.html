@@ -20,31 +20,130 @@
             line-height: 1.6;
             overflow-x: hidden;
             position: relative;
+            perspective: 1000px;
         }
         
-        /* Fondo con personajes de Alicia */
-        #wonderland-bg {
+        /* Fondo animado de madriguera infinita */
+        #rabbit-hole {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
             z-index: -1;
-            opacity: 0.25;
-            background-image: 
-                url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="200" height="200"><path d="M100,20 C120,10 180,30 180,70 C180,110 140,130 100,130 C60,130 20,110 20,70 C20,30 80,10 100,20 Z" fill="%238B4513" stroke="%234A235A" stroke-width="2"/><circle cx="80" cy="60" r="5" fill="%23000"/><circle cx="120" cy="60" r="5" fill="%23000"/><path d="M70,90 Q100,110 130,90" stroke="%23000" stroke-width="2" fill="none"/></svg>'), /* Sombrerero */
-                url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="200" height="200"><path d="M100,30 C130,10 170,40 170,80 C170,120 140,140 100,140 C60,140 30,120 30,80 C30,40 70,10 100,30 Z" fill="%23FFF" stroke="%234A235A" stroke-width="2"/><circle cx="80" cy="70" r="8" fill="%23000"/><circle cx="120" cy="70" r="8" fill="%23000"/><path d="M70,110 Q100,130 130,110" stroke="%23000" stroke-width="2" fill="none"/><path d="M100,140 L100,160" stroke="%23000" stroke-width="2"/><path d="M100,160 L80,180" stroke="%23000" stroke-width="2"/><path d="M100,160 L120,180" stroke="%23000" stroke-width="2"/></svg>'), /* Alicia */
-                url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="200" height="200"><ellipse cx="100" cy="70" rx="50" ry="30" fill="%23FFF" stroke="%234A235A" stroke-width="2"/><circle cx="80" cy="60" r="5" fill="%23000"/><circle cx="120" cy="60" r="5" fill="%23000"/><path d="M90,80 Q100,90 110,80" stroke="%23000" stroke-width="2" fill="none"/><path d="M100,100 L100,130" stroke="%23000" stroke-width="2"/><path d="M100,130 L80,160" stroke="%23000" stroke-width="2"/><path d="M100,130 L120,160" stroke="%23000" stroke-width="2"/><path d="M50,50 L70,30" stroke="%23000" stroke-width="2"/></svg>'), /* Conejo Blanco */
-                radial-gradient(circle at 10% 20%, rgba(123, 65, 173, 0.15) 0%, transparent 20%),
-                radial-gradient(circle at 90% 80%, rgba(255, 215, 0, 0.1) 0%, transparent 20%);
-            background-size: 150px, 120px, 100px, 200px, 200px;
-            background-position: 10% 20%, 80% 30%, 15% 70%, 0 0, 0 0;
-            background-repeat: no-repeat;
+            overflow: hidden;
+        }
+        
+        .hole-layer {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            border-radius: 50%;
+            border: 2px solid rgba(123, 65, 173, 0.5);
+            animation: tunnel 20s infinite linear;
+        }
+        
+        .hole-layer:nth-child(1) {
+            width: 10px;
+            height: 10px;
+            animation-delay: 0s;
+        }
+        
+        .hole-layer:nth-child(2) {
+            width: 50px;
+            height: 50px;
+            animation-delay: -1s;
+        }
+        
+        .hole-layer:nth-child(3) {
+            width: 100px;
+            height: 100px;
+            animation-delay: -2s;
+        }
+        
+        .hole-layer:nth-child(4) {
+            width: 200px;
+            height: 200px;
+            animation-delay: -3s;
+        }
+        
+        .hole-layer:nth-child(5) {
+            width: 400px;
+            height: 400px;
+            animation-delay: -4s;
+        }
+        
+        .hole-layer:nth-child(6) {
+            width: 800px;
+            height: 800px;
+            animation-delay: -5s;
+        }
+        
+        .hole-layer:nth-child(7) {
+            width: 1600px;
+            height: 1600px;
+            animation-delay: -6s;
+        }
+        
+        .hole-layer:nth-child(8) {
+            width: 3200px;
+            height: 3200px;
+            animation-delay: -7s;
+        }
+        
+        @keyframes tunnel {
+            0% {
+                transform: translate(-50%, -50%) scale(1);
+                opacity: 0.8;
+            }
+            50% {
+                opacity: 0.3;
+            }
+            100% {
+                transform: translate(-50%, -50%) scale(0.1);
+                opacity: 0.8;
+            }
+        }
+        
+        /* Efectos de partículas */
+        .particles {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            overflow: hidden;
+        }
+        
+        .particle {
+            position: absolute;
+            background: rgba(255, 215, 0, 0.7);
+            border-radius: 50%;
+            animation: float 15s infinite linear;
+        }
+        
+        @keyframes float {
+            0% {
+                transform: translateY(100vh) rotate(0deg);
+                opacity: 0;
+            }
+            10% {
+                opacity: 1;
+            }
+            90% {
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(-100px) rotate(360deg);
+                opacity: 0;
+            }
         }
         
         /* Encabezado */
         header {
-            background: linear-gradient(135deg, rgba(42, 21, 67, 0.85) 0%, rgba(123, 65, 173, 0.75) 100%);
+            background: linear-gradient(135deg, rgba(42, 21, 67, 0.7) 0%, rgba(123, 65, 173, 0.6) 100%);
             padding: 4rem 2rem;
             text-align: center;
             border-bottom: 3px solid #FFD700;
@@ -52,6 +151,7 @@
             position: relative;
             z-index: 10;
             clip-path: polygon(0 0, 100% 0, 100% 85%, 50% 100%, 0 85%);
+            transform-style: preserve-3d;
         }
         
         .mad-hatter {
@@ -62,7 +162,7 @@
             height: 100px;
             background: linear-gradient(135deg, #8B4513, #A0522D);
             border-radius: 50% 50% 0 0;
-            transform: rotate(10deg);
+            transform: rotate(10deg) translateZ(20px);
             z-index: 5;
         }
         
@@ -92,12 +192,27 @@
             font-family: 'Alice', serif;
             font-size: 4.5rem;
             margin-bottom: 1rem;
-            text-shadow: 2px 2px 0 #4A235A;
+            text-shadow: 
+                2px 2px 0 #4A235A,
+                4px 4px 0 rgba(74, 35, 90, 0.7),
+                6px 6px 0 rgba(74, 35, 90, 0.5),
+                8px 8px 0 rgba(74, 35, 90, 0.3);
             color: #FFD700;
             position: relative;
             display: inline-block;
             font-weight: normal;
             letter-spacing: 2px;
+            transform: translateZ(30px);
+            animation: float-title 6s ease-in-out infinite;
+        }
+        
+        @keyframes float-title {
+            0%, 100% {
+                transform: translateZ(30px) translateY(0);
+            }
+            50% {
+                transform: translateZ(30px) translateY(-10px);
+            }
         }
         
         h1::after {
@@ -116,15 +231,19 @@
             margin-bottom: 1.5rem;
             font-style: italic;
             font-weight: 400;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+            transform: translateZ(20px);
         }
         
         .quote {
             font-style: italic;
             margin: 1rem 0;
             padding: 1rem;
-            background: rgba(42, 21, 67, 0.6);
+            background: rgba(42, 21, 67, 0.5);
             border-left: 3px solid #FFD700;
             border-radius: 0 10px 10px 0;
+            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+            transform: translateZ(15px);
         }
         
         .intro {
@@ -132,11 +251,12 @@
             margin: 0 auto;
             font-size: 1.2rem;
             color: #E6D7B8;
-            background: rgba(42, 21, 67, 0.6);
+            background: rgba(42, 21, 67, 0.5);
             padding: 1.5rem;
             border-radius: 15px;
             border: 2px dashed #FFD700;
             position: relative;
+            transform: translateZ(10px);
         }
         
         .intro::before, .intro::after {
@@ -158,13 +278,14 @@
         
         /* Navegación */
         nav {
-            background: rgba(42, 21, 67, 0.85);
+            background: rgba(42, 21, 67, 0.8);
             padding: 1.2rem;
             position: sticky;
             top: 0;
             z-index: 100;
             border-bottom: 2px solid #7B41AD;
             backdrop-filter: blur(10px);
+            transform-style: preserve-3d;
         }
         
         nav ul {
@@ -199,12 +320,13 @@
             border-radius: 4px;
             font-family: 'Alice', serif;
             font-size: 1.1rem;
+            transform: translateZ(10px);
         }
         
         nav a:hover {
             background-color: rgba(123, 65, 173, 0.3);
             text-shadow: 0 0 10px #FFD700;
-            transform: translateY(-2px);
+            transform: translateZ(10px) translateY(-2px);
             color: #FFD700;
         }
         
@@ -213,11 +335,12 @@
             max-width: 1200px;
             margin: 0 auto;
             padding: 3rem 2rem;
+            transform-style: preserve-3d;
         }
         
         section {
             margin-bottom: 4rem;
-            background: rgba(42, 21, 67, 0.6);
+            background: rgba(42, 21, 67, 0.5);
             padding: 2.5rem;
             border-radius: 20px;
             border: 2px solid #7B41AD;
@@ -225,6 +348,7 @@
             transition: transform 0.3s;
             position: relative;
             overflow: hidden;
+            transform-style: preserve-3d;
         }
         
         section::before {
@@ -238,7 +362,7 @@
         }
         
         section:hover {
-            transform: translateY(-5px);
+            transform: translateY(-5px) translateZ(10px);
         }
         
         h2 {
@@ -250,6 +374,11 @@
             position: relative;
             padding-bottom: 1rem;
             font-weight: normal;
+            text-shadow: 
+                1px 1px 0 #4A235A,
+                2px 2px 0 rgba(74, 35, 90, 0.7),
+                3px 3px 0 rgba(74, 35, 90, 0.5);
+            transform: translateZ(25px);
         }
         
         h2::after {
@@ -275,10 +404,11 @@
             min-width: 300px;
             line-height: 1.8;
             font-size: 1.1rem;
-            background: rgba(58, 32, 91, 0.5);
+            background: rgba(58, 32, 91, 0.4);
             padding: 1.5rem;
             border-radius: 15px;
             border: 1px dashed #E6D7B8;
+            transform: translateZ(5px);
         }
         
         .bio-image {
@@ -293,6 +423,7 @@
             box-shadow: 0 0 30px rgba(123, 65, 173, 0.7);
             overflow: hidden;
             position: relative;
+            transform: translateZ(15px);
         }
         
         .bio-image::before {
@@ -329,12 +460,14 @@
             border-radius: 15px;
             overflow: hidden;
             transition: all 0.3s;
-            background: rgba(58, 32, 91, 0.5);
+            background: rgba(58, 32, 91, 0.4);
+            transform-style: preserve-3d;
         }
         
         .tab:hover {
             border-color: #FFD700;
             box-shadow: 0 5px 15px rgba(255, 215, 0, 0.3);
+            transform: translateZ(5px);
         }
         
         .tab input {
@@ -344,7 +477,7 @@
         .tab label {
             display: block;
             padding: 1.5rem;
-            background: rgba(74, 35, 90, 0.7);
+            background: rgba(74, 35, 90, 0.6);
             cursor: pointer;
             font-weight: bold;
             transition: all 0.3s;
@@ -353,10 +486,11 @@
             font-size: 1.5rem;
             color: #FFD700;
             text-align: center;
+            transform: translateZ(10px);
         }
         
         .tab label:hover {
-            background: rgba(90, 45, 110, 0.7);
+            background: rgba(90, 45, 110, 0.6);
         }
         
         .tab label::after {
@@ -376,7 +510,7 @@
             max-height: 0;
             overflow: hidden;
             transition: max-height 0.5s ease-out;
-            background: rgba(42, 21, 67, 0.7);
+            background: rgba(42, 21, 67, 0.6);
         }
         
         .tab input:checked ~ .tab-content {
@@ -395,7 +529,7 @@
             display: flex;
             align-items: center;
             padding: 1rem 2rem;
-            background: rgba(74, 35, 90, 0.7);
+            background: rgba(74, 35, 90, 0.6);
             border-radius: 10px;
             text-decoration: none;
             color: #E6D7B8;
@@ -405,14 +539,116 @@
             min-width: 180px;
             justify-content: center;
             font-family: 'Alice', serif;
+            transform: translateZ(5px);
         }
         
         .platform-link:hover {
-            background: rgba(123, 65, 173, 0.7);
-            transform: translateY(-5px);
+            background: rgba(123, 65, 173, 0.6);
+            transform: translateY(-5px) translateZ(10px);
             box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
             border-color: #FFD700;
             color: #FFD700;
+        }
+        
+        /* Sección de frases célebres */
+        .quotes-section {
+            margin-top: 2rem;
+        }
+        
+        .quotes-tab {
+            margin-bottom: 1.5rem;
+            border: 2px solid #7B41AD;
+            border-radius: 15px;
+            overflow: hidden;
+            transition: all 0.3s;
+            background: rgba(58, 32, 91, 0.4);
+            transform-style: preserve-3d;
+        }
+        
+        .quotes-tab:hover {
+            border-color: #FFD700;
+            box-shadow: 0 5px 15px rgba(255, 215, 0, 0.3);
+            transform: translateZ(5px);
+        }
+        
+        .quotes-tab input {
+            display: none;
+        }
+        
+        .quotes-tab label {
+            display: block;
+            padding: 1.5rem;
+            background: rgba(74, 35, 90, 0.6);
+            cursor: pointer;
+            font-weight: bold;
+            transition: all 0.3s;
+            position: relative;
+            font-family: 'Alice', serif;
+            font-size: 1.5rem;
+            color: #FFD700;
+            text-align: center;
+            transform: translateZ(10px);
+        }
+        
+        .quotes-tab label:hover {
+            background: rgba(90, 45, 110, 0.6);
+        }
+        
+        .quotes-tab label::after {
+            content: "▼";
+            position: absolute;
+            right: 1.5rem;
+            font-size: 1.5rem;
+            transition: transform 0.3s;
+            color: #FFD700;
+        }
+        
+        .quotes-tab input:checked + label::after {
+            transform: rotate(180deg);
+        }
+        
+        .quotes-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.5s ease-out;
+            background: rgba(42, 21, 67, 0.6);
+        }
+        
+        .quotes-tab input:checked ~ .quotes-content {
+            max-height: 800px;
+        }
+        
+        .quotes-list {
+            padding: 2rem;
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 1.5rem;
+        }
+        
+        .quote-item {
+            background: rgba(74, 35, 90, 0.5);
+            padding: 1.5rem;
+            border-radius: 10px;
+            border-left: 3px solid #FFD700;
+            transform: translateZ(5px);
+            transition: all 0.3s;
+        }
+        
+        .quote-item:hover {
+            transform: translateZ(10px) translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        }
+        
+        .quote-text {
+            font-style: italic;
+            margin-bottom: 1rem;
+            line-height: 1.6;
+        }
+        
+        .quote-author {
+            text-align: right;
+            color: #FFD700;
+            font-weight: bold;
         }
         
         /* Blog */
@@ -423,7 +659,7 @@
         }
         
         .post {
-            background: rgba(58, 32, 91, 0.7);
+            background: rgba(58, 32, 91, 0.6);
             border-radius: 15px;
             overflow: hidden;
             border: 2px solid #7B41AD;
@@ -432,6 +668,7 @@
             display: flex;
             flex-direction: column;
             position: relative;
+            transform-style: preserve-3d;
         }
         
         .post::before {
@@ -444,7 +681,7 @@
         }
         
         .post:hover {
-            transform: translateY(-8px);
+            transform: translateY(-8px) translateZ(10px);
             box-shadow: 0 15px 30px rgba(123, 65, 173, 0.4);
             border-color: #FFD700;
         }
@@ -468,7 +705,7 @@
             flex-grow: 1;
             display: flex;
             flex-direction: column;
-            background: rgba(42, 21, 67, 0.6);
+            background: rgba(42, 21, 67, 0.5);
         }
         
         .post-title {
@@ -476,6 +713,8 @@
             margin-bottom: 1rem;
             color: #FFD700;
             font-family: 'Alice', serif;
+            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+            transform: translateZ(10px);
         }
         
         .post-excerpt {
@@ -483,6 +722,7 @@
             line-height: 1.6;
             margin-bottom: 1.5rem;
             flex-grow: 1;
+            transform: translateZ(5px);
         }
         
         .read-more {
@@ -496,11 +736,13 @@
             border: 1px solid #FFD700;
             border-radius: 4px;
             font-family: 'Alice', serif;
+            transform: translateZ(5px);
         }
         
         .read-more:hover {
             background: rgba(255, 215, 0, 0.1);
             text-shadow: 0 0 10px #FFD700;
+            transform: translateZ(10px) translateY(-2px);
         }
         
         /* Contacto */
@@ -519,19 +761,22 @@
             color: #FFD700;
             font-weight: 600;
             font-family: 'Alice', serif;
+            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+            transform: translateZ(5px);
         }
         
         .form-group input,
         .form-group textarea {
             width: 100%;
             padding: 1rem;
-            background: rgba(58, 32, 91, 0.7);
+            background: rgba(58, 32, 91, 0.6);
             border: 1px solid #7B41AD;
             border-radius: 8px;
             color: #E6D7B8;
             font-family: 'Alice', serif;
             font-size: 1rem;
             transition: all 0.3s;
+            transform: translateZ(5px);
         }
         
         .form-group input:focus,
@@ -539,6 +784,7 @@
             outline: none;
             border-color: #FFD700;
             box-shadow: 0 0 15px rgba(255, 215, 0, 0.3);
+            transform: translateZ(10px);
         }
         
         .submit-btn {
@@ -556,22 +802,24 @@
             font-size: 1.1rem;
             display: block;
             margin: 0 auto;
+            transform: translateZ(10px);
         }
         
         .submit-btn:hover {
             background: rgba(123, 65, 173, 0.5);
             box-shadow: 0 0 20px rgba(255, 215, 0, 0.5);
-            transform: translateY(-3px);
+            transform: translateZ(15px) translateY(-3px);
         }
         
         /* Footer */
         footer {
-            background: rgba(42, 21, 67, 0.85);
+            background: rgba(42, 21, 67, 0.8);
             padding: 3rem 2rem;
             text-align: center;
             border-top: 2px solid #7B41AD;
             margin-top: 3rem;
             clip-path: polygon(0 15%, 50% 0, 100% 15%, 100% 100%, 0 100%);
+            transform-style: preserve-3d;
         }
         
         .social-links {
@@ -592,19 +840,21 @@
             align-items: center;
             justify-content: center;
             border-radius: 50%;
-            background: rgba(74, 35, 90, 0.7);
+            background: rgba(74, 35, 90, 0.6);
             text-decoration: none;
+            transform: translateZ(10px);
         }
         
         .social-link:hover {
             text-shadow: 0 0 15px #FFD700;
-            transform: translateY(-5px);
-            background: rgba(123, 65, 173, 0.7);
+            transform: translateZ(15px) translateY(-5px);
+            background: rgba(123, 65, 173, 0.6);
         }
         
         .copyright {
             color: #E6D7B8;
             font-size: 1rem;
+            transform: translateZ(5px);
         }
         
         /* Elementos decorativos */
@@ -618,6 +868,7 @@
             border-radius: 0 0 30px 30px;
             z-index: 5;
             opacity: 0.7;
+            transform: translateZ(20px);
         }
         
         .tea-cup::before {
@@ -680,12 +931,28 @@
             .tea-cup {
                 display: none;
             }
+            
+            .quotes-list {
+                grid-template-columns: 1fr;
+            }
         }
     </style>
 </head>
 <body>
-    <!-- Fondo con personajes de Alicia -->
-    <div id="wonderland-bg"></div>
+    <!-- Fondo animado de madriguera -->
+    <div id="rabbit-hole">
+        <div class="hole-layer"></div>
+        <div class="hole-layer"></div>
+        <div class="hole-layer"></div>
+        <div class="hole-layer"></div>
+        <div class="hole-layer"></div>
+        <div class="hole-layer"></div>
+        <div class="hole-layer"></div>
+        <div class="hole-layer"></div>
+    </div>
+    
+    <!-- Partículas flotantes -->
+    <div class="particles" id="particles"></div>
     
     <!-- Taza de té decorativa -->
     <div class="tea-cup"></div>
@@ -708,6 +975,7 @@
         <ul>
             <li><a href="#biografia">Biografía</a></li>
             <li><a href="#musica">Música</a></li>
+            <li><a href="#frases">Frases Célebres</a></li>
             <li><a href="#blog">Blog</a></li>
             <li><a href="#contacto">Contacto</a></li>
         </ul>
@@ -819,21 +1087,82 @@
             </div>
         </section>
         
-        <!-- Blog -->
-        <section id="blog">
-            <h2>Blog Fantástico</h2>
+        <!-- Frases célebres -->
+        <section id="frases">
+            <h2>Frases Célebres de Alicia</h2>
             <div class="quote">
                 "En el mundo de Alicia, las reglas no son lo que parecen y la lógica a menudo se toma vacaciones."
             </div>
+            
+            <div class="quotes-section">
+                <div class="quotes-tab">
+                    <input type="checkbox" id="quotes-tab">
+                    <label for="quotes-tab">Ver Frases Célebres</label>
+                    <div class="quotes-content">
+                        <div class="quotes-list">
+                            <div class="quote-item">
+                                <div class="quote-text">
+                                    "Solo queda por encontrar la manera de que algunas personas se vuelvan más grandes y otras más pequeñas."
+                                </div>
+                                <div class="quote-author">- El Sombrerero Loco</div>
+                            </div>
+                            <div class="quote-item">
+                                <div class="quote-text">
+                                    "¿Quién eres tú? -preguntó la Oruga. Ésta no era una pregunta alentadora para comenzar una conversación."
+                                </div>
+                                <div class="quote-author">- La Oruga Azul</div>
+                            </div>
+                            <div class="quote-item">
+                                <div class="quote-text">
+                                    "La única manera de lograr lo imposible es creer que es posible."
+                                </div>
+                                <div class="quote-author">- Alicia</div>
+                            </div>
+                            <div class="quote-item">
+                                <div class="quote-text">
+                                    "Empieza por el principio -dijo el Rey con gravedad- y sigue hasta que llegues al final; entonces para."
+                                </div>
+                                <div class="quote-author">- El Rey de Corazones</div>
+                            </div>
+                            <div class="quote-item">
+                                <div class="quote-text">
+                                    "¡Estamos todos locos aquí! Yo estoy loco. Tú estás loca."
+                                </div>
+                                <div class="quote-author">- El Gato de Cheshire</div>
+                            </div>
+                            <div class="quote-item">
+                                <div class="quote-text">
+                                    "Si no sabes a dónde vas, cualquier camino te llevará allí."
+                                </div>
+                                <div class="quote-author">- El Gato de Cheshire</div>
+                            </div>
+                            <div class="quote-item">
+                                <div class="quote-text">
+                                    "Es demasiado tarde para corregirlo -dijo la Liebre- cuando has dicho una cosa, esa cosa se queda dicha, fíjate."
+                                </div>
+                                <div class="quote-author">- La Liebre de Marzo</div>
+                            </div>
+                            <div class="quote-item">
+                                <div class="quote-text">
+                                    "¿Qué importa un nombre? -dijo el Gato- La rosa con cualquier otro nombre olería igual de dulce."
+                                </div>
+                                <div class="quote-author">- El Gato de Cheshire</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Blog -->
+        <section id="blog">
+            <h2>Blog Fantástico</h2>
             <div class="blog-posts">
                 <article class="post">
                     <div class="post-image">EL CONEJO BLANCO</div>
                     <div class="post-content">
                         <h3 class="post-title">Siguiendo al Conejo Blanco</h3>
                         <p class="post-excerpt">Una reflexión sobre cómo las pequeñas curiosidades pueden llevarnos a grandes aventuras y transformar nuestra percepción de la realidad.</p>
-                        <div class="quote">
-                            "Es demasiado tarde para corregirlo -dijo la Liebre- cuando has dicho una cosa, esa cosa se queda dicha, fíjate."
-                        </div>
                         <a href="#" class="read-more">Leer más</a>
                     </div>
                 </article>
@@ -843,9 +1172,6 @@
                     <div class="post-content">
                         <h3 class="post-title">¿Quién eres tú?</h3>
                         <p class="post-excerpt">Explorando la naturaleza de la identidad a través de la famosa pregunta de la Oruga Azul y cómo la música nos ayuda a descubrirnos.</p>
-                        <div class="quote">
-                            "¿Quién diablos eres tú? -preguntó la Oruga."
-                        </div>
                         <a href="#" class="read-more">Leer más</a>
                     </div>
                 </article>
@@ -855,9 +1181,6 @@
                     <div class="post-content">
                         <h3 class="post-title">La Fiesta del Té del Sombrerero</h3>
                         <p class="post-excerpt">Cómo las conversaciones aparentemente absurdas pueden revelar verdades profundas y la importancia de celebrar la locura creativa.</p>
-                        <div class="quote">
-                            "¡Estamos todos locos aquí! Yo estoy loco. Tú estás loca."
-                        </div>
                         <a href="#" class="read-more">Leer más</a>
                     </div>
                 </article>
@@ -922,6 +1245,31 @@
                 });
             });
         });
+        
+        // Crear partículas flotantes
+        const particlesContainer = document.getElementById('particles');
+        const particleCount = 50;
+        
+        for (let i = 0; i < particleCount; i++) {
+            const particle = document.createElement('div');
+            particle.classList.add('particle');
+            
+            // Tamaño aleatorio
+            const size = Math.random() * 10 + 5;
+            particle.style.width = `${size}px`;
+            particle.style.height = `${size}px`;
+            
+            // Posición inicial aleatoria
+            particle.style.left = `${Math.random() * 100}vw`;
+            
+            // Retraso de animación aleatorio
+            particle.style.animationDelay = `${Math.random() * 15}s`;
+            
+            // Opacidad aleatoria
+            particle.style.opacity = Math.random() * 0.7 + 0.3;
+            
+            particlesContainer.appendChild(particle);
+        }
     </script>
 </body>
-</html>
+</html>        

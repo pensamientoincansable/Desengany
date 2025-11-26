@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Desengany - Un Viaje Fantástico</title>
     <link href="https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,700;1,400&family=UnifrakturMaguntia&family=MedievalSharp&family=Alice&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         /* Estilos generales */
         * {
@@ -23,7 +24,7 @@
             perspective: 1000px;
         }
         
-        /* Fondo animado de madriguera infinita */
+        /* Fondo animado de madriguera infinita MEJORADO */
         #rabbit-hole {
             position: fixed;
             top: 0;
@@ -40,8 +41,9 @@
             left: 50%;
             transform: translate(-50%, -50%);
             border-radius: 50%;
-            border: 2px solid rgba(123, 65, 173, 0.5);
             animation: tunnel 20s infinite linear;
+            background: radial-gradient(circle, rgba(123,65,173,0.3) 0%, rgba(255,215,0,0.1) 50%, transparent 70%);
+            box-shadow: 0 0 40px rgba(255,215,0,0.2);
         }
         
         .hole-layer:nth-child(1) {
@@ -106,7 +108,7 @@
             }
         }
         
-        /* Efectos de partículas */
+        /* Efectos de partículas MEJORADOS */
         .particles {
             position: fixed;
             top: 0;
@@ -119,9 +121,20 @@
         
         .particle {
             position: absolute;
-            background: rgba(255, 215, 0, 0.7);
             border-radius: 50%;
             animation: float 15s infinite linear;
+        }
+        
+        .particle:nth-child(3n) {
+            background: rgba(255, 215, 0, 0.7);
+        }
+        
+        .particle:nth-child(3n+1) {
+            background: rgba(123, 65, 173, 0.7);
+        }
+        
+        .particle:nth-child(3n+2) {
+            background: rgba(255, 255, 255, 0.5);
         }
         
         @keyframes float {
@@ -141,28 +154,52 @@
             }
         }
         
-        /* Elementos de Alicia en el fondo */
+        /* Elementos de Alicia en el fondo MEJORADOS */
         .wonderland-element {
             position: fixed;
             z-index: -1;
-            opacity: 0.4;
+            opacity: 0.5;
         }
         
         .rabbit {
             top: 10%;
             left: 5%;
-            width: 80px;
-            height: 120px;
-            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 150"><path d="M50,10 C60,5 80,10 80,30 C80,50 70,60 50,60 C30,60 20,50 20,30 C20,10 40,5 50,10 Z" fill="white"/><circle cx="40" cy="25" r="5" fill="black"/><circle cx="60" cy="25" r="5" fill="black"/><circle cx="50" cy="35" r="3" fill="pink"/><path d="M30,70 Q50,90 70,70" stroke="black" fill="none"/><path d="M50,60 L50,100" stroke="white" fill="none"/><path d="M50,100 L30,130" stroke="white" fill="none"/><path d="M50,100 L70,130" stroke="white" fill="none"/><circle cx="65" cy="20" r="8" fill="none" stroke="gold" stroke-width="2"/><line x1="70" y1="15" x2="75" y2="10" stroke="gold" stroke-width="2"/></svg>');
+            width: 120px;
+            height: 150px;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 150"><path d="M60,20 C75,10 95,15 100,35 C105,55 90,65 60,65 C30,65 15,55 20,35 C25,15 45,10 60,20 Z" fill="white" stroke="%23000" stroke-width="1.5"/><ellipse cx="45" cy="35" rx="12" ry="8" fill="white" stroke="%23000" stroke-width="1.5" transform="rotate(-15 45 35)"/><ellipse cx="75" cy="35" rx="12" ry="8" fill="white" stroke="%23000" stroke-width="1.5" transform="rotate(15 75 35)"/><ellipse cx="45" cy="35" rx="6" ry="4" fill="%23000"/><ellipse cx="75" cy="35" rx="6" ry="4" fill="%23000"/><ellipse cx="60" cy="50" rx="4" ry="3" fill="pink"/><path d="M55,55 Q60,60 65,55" stroke="%23000" fill="none" stroke-width="1.5"/><ellipse cx="60" cy="85" rx="25" ry="30" fill="white" stroke="%23000" stroke-width="1.5"/><ellipse cx="45" cy="110" rx="8" ry="12" fill="white" stroke="%23000" stroke-width="1.5"/><ellipse cx="75" cy="110" rx="8" ry="12" fill="white" stroke="%23000" stroke-width="1.5"/><ellipse cx="40" cy="125" rx="10" ry="6" fill="white" stroke="%23000" stroke-width="1.5"/><ellipse cx="80" cy="125" rx="10" ry="6" fill="white" stroke="%23000" stroke-width="1.5"/><circle cx="60" cy="135" r="6" fill="white" stroke="%23000" stroke-width="1.5"/><path d="M50,55 L35,50 M70,55 L85,50 M50,58 L35,63 M70,58 L85,63" stroke="%23000" stroke-width="1.5" fill="none"/></svg>');
             animation: rabbit-run 25s linear infinite;
         }
         
         @keyframes rabbit-run {
             0% {
-                transform: translateX(-100px);
+                transform: translateX(-150px);
             }
             100% {
-                transform: translateX(calc(100vw + 100px));
+                transform: translateX(calc(100vw + 150px));
+            }
+        }
+        
+        .mad-rabbit {
+            top: 70%;
+            left: 10%;
+            width: 100px;
+            height: 120px;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 120"><path d="M50,15 C65,5 85,10 90,30 C95,50 80,55 50,55 C20,55 5,50 10,30 C15,10 35,5 50,15 Z" fill="white" stroke="%23000" stroke-width="1.5"/><ellipse cx="35" cy="30" rx="10" ry="6" fill="white" stroke="%23000" stroke-width="1.5" transform="rotate(-20 35 30)"/><ellipse cx="65" cy="30" rx="10" ry="6" fill="white" stroke="%23000" stroke-width="1.5" transform="rotate(20 65 30)"/><circle cx="35" cy="30" r="4" fill="%23FF0000"/><circle cx="65" cy="30" r="4" fill="%23FF0000"/><ellipse cx="50" cy="45" rx="3" ry="2" fill="pink"/><path d="M45,50 Q50,55 55,50 M45,52 Q50,57 55,52" stroke="%23000" fill="none" stroke-width="1.5"/><ellipse cx="50" cy="75" rx="20" ry="25" fill="white" stroke="%23000" stroke-width="1.5"/><ellipse cx="35" cy="95" rx="6" ry="10" fill="white" stroke="%23000" stroke-width="1.5"/><ellipse cx="65" cy="95" rx="6" ry="10" fill="white" stroke="%23000" stroke-width="1.5"/></svg>');
+            animation: mad-rabbit-move 18s ease-in-out infinite;
+        }
+        
+        @keyframes mad-rabbit-move {
+            0%, 100% {
+                transform: translateY(0) rotate(0deg);
+            }
+            25% {
+                transform: translateY(-20px) rotate(5deg);
+            }
+            50% {
+                transform: translateY(0) rotate(0deg);
+            }
+            75% {
+                transform: translateY(10px) rotate(-5deg);
             }
         }
         
@@ -171,7 +208,7 @@
             right: 10%;
             width: 100px;
             height: 70px;
-            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 70"><path d="M10,40 C30,10 70,10 90,40 L70,40 L30,40 Z" fill="brown"/><rect x="30" y="40" width="40" height="20" fill="brown"/></svg>');
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 70"><path d="M10,40 C30,10 70,10 90,40 L70,40 L30,40 Z" fill="%238B4513" stroke="%23000" stroke-width="1.5"/><rect x="30" y="40" width="40" height="20" fill="%238B4513" stroke="%23000" stroke-width="1.5"/><text x="50" y="55" text-anchor="middle" fill="%23FFD700" font-family="Arial" font-size="14">10/6</text></svg>');
             animation: hat-fall 15s ease-in infinite;
         }
         
@@ -188,16 +225,16 @@
             }
         }
         
-        .cheshire-eyes {
+        .cheshire-cat {
             top: 60%;
-            left: 15%;
-            width: 120px;
-            height: 60px;
-            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 60"><path d="M20,30 Q40,10 60,30 Q80,50 60,30 Q40,10 20,30 Z" fill="yellow"/><path d="M80,30 Q100,10 120,30 Q140,50 120,30 Q100,10 80,30 Z" fill="yellow"/><circle cx="40" cy="30" r="8" fill="green"/><circle cx="100" cy="30" r="8" fill="green"/><circle cx="38" cy="28" r="3" fill="black"/><circle cx="98" cy="28" r="3" fill="black"/></svg>');
-            animation: eyes-appear 8s infinite;
+            right: 15%;
+            width: 140px;
+            height: 100px;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 140 100"><path d="M70,30 C90,10 130,10 130,40 C130,70 110,70 70,70 C30,70 10,70 10,40 C10,10 50,10 70,30 Z" fill="%23FFD700" stroke="%23000" stroke-width="1.5"/><path d="M40,40 Q50,20 60,40 M80,40 Q90,20 100,40" fill="none" stroke="%23000" stroke-width="2"/><ellipse cx="45" cy="35" rx="8" ry="12" fill="%23000"/><ellipse cx="95" cy="35" rx="8" ry="12" fill="%23000"/><ellipse cx="45" cy="35" rx="3" ry="5" fill="%23FFF"/><ellipse cx="95" cy="35" rx="3" ry="5" fill="%23FFF"/><path d="M65,50 Q70,60 75,50" stroke="%23000" fill="none" stroke-width="2"/><path d="M30,70 Q70,90 110,70" stroke="%23000" fill="none" stroke-width="2"/></svg>');
+            animation: cat-appear 12s infinite;
         }
         
-        @keyframes eyes-appear {
+        @keyframes cat-appear {
             0%, 60%, 100% {
                 opacity: 0;
             }
@@ -209,9 +246,9 @@
         .tea-cup-static {
             bottom: 15%;
             right: 5%;
-            width: 60px;
-            height: 40px;
-            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 60 40"><path d="M10,30 C15,10 45,10 50,30 L40,30 L20,30 Z" fill="saddlebrown"/><ellipse cx="30" cy="10" rx="20" ry="10" fill="saddlebrown"/></svg>');
+            width: 70px;
+            height: 50px;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 70 50"><path d="M10,35 C15,15 55,15 60,35 L45,35 L25,35 Z" fill="%238B4513" stroke="%23000" stroke-width="1.5"/><ellipse cx="35" cy="15" rx="25" ry="10" fill="%238B4513" stroke="%23000" stroke-width="1.5"/><path d="M60,25 L70,20" stroke="%238B4513" stroke-width="3"/></svg>');
             animation: cup-tilt 12s ease-in-out infinite;
         }
         
@@ -271,7 +308,7 @@
             font-size: 1.2rem;
         }
         
-        /* Efecto de texto 3D CORREGIDO - sin reflejo externo */
+        /* Efecto de texto 3D */
         h1 {
             font-family: 'Alice', serif;
             font-size: 4.5rem;
@@ -486,7 +523,7 @@
             transform: translateY(-5px) translateZ(10px);
         }
         
-        /* Encabezados con efecto 3D mejorado y movimiento CORREGIDO - sin reflejo externo */
+        /* Encabezados con efecto 3D mejorado y movimiento */
         h2 {
             font-family: 'Alice', serif;
             font-size: 2.8rem;
@@ -778,106 +815,88 @@
             transform: translateZ(15px) translateY(-3px);
         }
         
-        /* Sección de frases célebres */
-        .quotes-section {
+        /* Sección de referentes de investigación */
+        .referentes-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2rem;
             margin-top: 2rem;
         }
         
-        .quotes-tab {
-            margin-bottom: 1.5rem;
-            border: 2px solid #7B41AD;
+        .referente-card {
+            background: rgba(58, 32, 91, 0.6);
             border-radius: 15px;
             overflow: hidden;
+            border: 2px solid #7B41AD;
             transition: all 0.3s;
-            background: rgba(58, 32, 91, 0.4);
             transform-style: preserve-3d;
         }
         
-        .quotes-tab:hover {
+        .referente-card:hover {
+            transform: translateY(-8px) translateZ(10px);
+            box-shadow: 0 15px 30px rgba(123, 65, 173, 0.4);
             border-color: #FFD700;
-            box-shadow: 0 5px 15px rgba(255, 215, 0, 0.3);
-            transform: translateZ(5px);
         }
         
-        .quotes-tab input {
-            display: none;
-        }
-        
-        .quotes-tab label {
-            display: block;
+        .referente-header {
+            background: linear-gradient(135deg, #4A235A, #7B41AD);
             padding: 1.5rem;
-            background: rgba(74, 35, 90, 0.6);
-            cursor: pointer;
-            font-weight: bold;
-            transition: all 0.3s;
-            position: relative;
-            font-family: 'Alice', serif;
-            font-size: 1.5rem;
-            color: #FFD700;
             text-align: center;
-            transform: translateZ(10px);
-            text-shadow: 0 1px 2px rgba(0,0,0,0.5);
+            border-bottom: 2px solid #FFD700;
         }
         
-        .quotes-tab label:hover {
-            background: rgba(90, 45, 110, 0.6);
-        }
-        
-        .quotes-tab label::after {
-            content: "▼";
-            position: absolute;
-            right: 1.5rem;
+        .referente-name {
             font-size: 1.5rem;
-            transition: transform 0.3s;
             color: #FFD700;
+            margin-bottom: 0.5rem;
+            font-family: 'Alice', serif;
         }
         
-        .quotes-tab input:checked + label::after {
-            transform: rotate(180deg);
-        }
-        
-        .quotes-content {
-            max-height: 0;
-            overflow: hidden;
-            transition: max-height 0.5s ease-out;
-            background: rgba(42, 21, 67, 0.6);
-        }
-        
-        .quotes-tab input:checked ~ .quotes-content {
-            max-height: 800px;
-        }
-        
-        .quotes-list {
-            padding: 2rem;
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 1.5rem;
-        }
-        
-        .quote-item {
-            background: rgba(74, 35, 90, 0.5);
-            padding: 1.5rem;
-            border-radius: 10px;
-            border-left: 3px solid #FFD700;
-            transform: translateZ(5px);
-            transition: all 0.3s;
-        }
-        
-        .quote-item:hover {
-            transform: translateZ(10px) translateY(-5px);
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-        }
-        
-        .quote-text {
+        .referente-title {
+            font-size: 1rem;
+            color: #E6D7B8;
             font-style: italic;
-            margin-bottom: 1rem;
-            line-height: 1.6;
         }
         
-        .quote-author {
-            text-align: right;
+        .referente-content {
+            padding: 1.5rem;
+        }
+        
+        .referente-bio {
+            color: #E6D7B8;
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+        }
+        
+        .referente-links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.8rem;
+            justify-content: center;
+        }
+        
+        .referente-link {
+            display: flex;
+            align-items: center;
+            padding: 0.7rem 1.2rem;
+            background: rgba(74, 35, 90, 0.7);
+            border-radius: 8px;
+            text-decoration: none;
+            color: #E6D7B8;
+            transition: all 0.3s;
+            border: 1px solid #7B41AD;
+            font-size: 0.9rem;
+        }
+        
+        .referente-link:hover {
+            background: rgba(123, 65, 173, 0.7);
+            transform: translateY(-3px);
+            border-color: #FFD700;
             color: #FFD700;
-            font-weight: bold;
+        }
+        
+        .referente-link i {
+            margin-right: 0.5rem;
         }
         
         /* Blog */
@@ -1102,7 +1121,7 @@
                 display: none;
             }
             
-            .quotes-list {
+            .referentes-grid {
                 grid-template-columns: 1fr;
             }
             
@@ -1125,10 +1144,11 @@
         <div class="hole-layer"></div>
     </div>
     
-    <!-- Elementos de Alicia en el fondo -->
+    <!-- Elementos de Alicia en el fondo MEJORADOS -->
     <div class="wonderland-element rabbit"></div>
+    <div class="wonderland-element mad-rabbit"></div>
     <div class="wonderland-element hat"></div>
-    <div class="wonderland-element cheshire-eyes"></div>
+    <div class="wonderland-element cheshire-cat"></div>
     <div class="wonderland-element tea-cup-static"></div>
     
     <!-- Partículas flotantes -->
@@ -1153,7 +1173,7 @@
             <li><a href="#biografia">Biografía</a></li>
             <li><a href="#musica">Música</a></li>
             <li><a href="#comentarios">Comentarios</a></li>
-            <li><a href="#frases">Frases Célebres</a></li>
+            <li><a href="#referentes">Referentes</a></li>
             <li><a href="#blog">Blog</a></li>
             <li><a href="#contacto">Contacto</a></li>
         </ul>
@@ -1291,64 +1311,86 @@
             </form>
         </section>
         
-        <!-- Frases célebres -->
-        <section id="frases">
-            <h2 data-text="Frases Célebres">Frases Célebres de Alicia</h2>
+        <!-- Referentes de investigación -->
+        <section id="referentes">
+            <h2 data-text="Referentes de Investigación">Referentes de Investigación</h2>
             
-            <div class="quotes-section">
-                <div class="quotes-tab">
-                    <input type="checkbox" id="quotes-tab">
-                    <label for="quotes-tab">Ver Frases Célebres</label>
-                    <div class="quotes-content">
-                        <div class="quotes-list">
-                            <div class="quote-item">
-                                <div class="quote-text">
-                                    "Solo queda por encontrar la manera de que algunas personas se vuelvan más grandes y otras más pequeñas."
-                                </div>
-                                <div class="quote-author">- El Sombrerero Loco</div>
-                            </div>
-                            <div class="quote-item">
-                                <div class="quote-text">
-                                    "¿Quién eres tú? -preguntó la Oruga. Ésta no era una pregunta alentadora para comenzar una conversación."
-                                </div>
-                                <div class="quote-author">- La Oruga Azul</div>
-                            </div>
-                            <div class="quote-item">
-                                <div class="quote-text">
-                                    "La única manera de lograr lo imposible es creer que es posible."
-                                </div>
-                                <div class="quote-author">- Alicia</div>
-                            </div>
-                            <div class="quote-item">
-                                <div class="quote-text">
-                                    "Empieza por el principio -dijo el Rey con gravedad- y sigue hasta que llegues al final; entonces para."
-                                </div>
-                                <div class="quote-author">- El Rey de Corazones</div>
-                            </div>
-                            <div class="quote-item">
-                                <div class="quote-text">
-                                    "¡Estamos todos locos aquí! Yo estoy loco. Tú estás loca."
-                                </div>
-                                <div class="quote-author">- El Gato de Cheshire</div>
-                            </div>
-                            <div class="quote-item">
-                                <div class="quote-text">
-                                    "Si no sabes a dónde vas, cualquier camino te llevará allí."
-                                </div>
-                                <div class="quote-author">- El Gato de Cheshire</div>
-                            </div>
-                            <div class="quote-item">
-                                <div class="quote-text">
-                                    "Es demasiado tarde para corregirlo -dijo la Liebre- cuando has dicho una cosa, esa cosa se queda dicha, fíjate."
-                                </div>
-                                <div class="quote-author">- La Liebre de Marzo</div>
-                            </div>
-                            <div class="quote-item">
-                                <div class="quote-text">
-                                    "¿Qué importa un nombre? -dijo el Gato- La rosa con cualquier otro nombre olería igual de dulce."
-                                </div>
-                                <div class="quote-author">- El Gato de Cheshire</div>
-                            </div>
+            <div class="referentes-grid">
+                <!-- Cristina Martin Jimenez -->
+                <div class="referente-card">
+                    <div class="referente-header">
+                        <h3 class="referente-name">Cristina Martín Jiménez</h3>
+                        <p class="referente-title">Periodista de investigación</p>
+                    </div>
+                    <div class="referente-content">
+                        <p class="referente-bio">Periodista especializada en geopolítica y análisis del poder. Autora de varios libros sobre los entresijos del poder mundial y las élites globales.</p>
+                        <div class="referente-links">
+                            <a href="#" class="referente-link" target="_blank">
+                                <i class="fab fa-instagram"></i> Instagram
+                            </a>
+                            <a href="#" class="referente-link" target="_blank">
+                                <i class="fas fa-book"></i> Libros
+                            </a>
+                            <a href="#" class="referente-link" target="_blank">
+                                <i class="fab fa-youtube"></i> YouTube
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Coronel Pedro Baños -->
+                <div class="referente-card">
+                    <div class="referente-header">
+                        <h3 class="referente-name">Coronel Pedro Baños</h3>
+                        <p class="referente-title">Experto en geopolítica</p>
+                    </div>
+                    <div class="referente-content">
+                        <p class="referente-bio">Coronel del Ejército de Tierra español, experto en geopolítica, estrategia, defensa, seguridad, inteligencia y terrorismo yihadista.</p>
+                        <div class="referente-links">
+                            <a href="#" class="referente-link" target="_blank">
+                                <i class="fab fa-instagram"></i> Instagram
+                            </a>
+                            <a href="#" class="referente-link" target="_blank">
+                                <i class="fas fa-book"></i> Libros
+                            </a>
+                            <a href="#" class="referente-link" target="_blank">
+                                <i class="fab fa-youtube"></i> YouTube
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Justicia Social -->
+                <div class="referente-card">
+                    <div class="referente-header">
+                        <h3 class="referente-name">Justicia Social</h3>
+                        <p class="referente-title">Canal de Telegram</p>
+                    </div>
+                    <div class="referente-content">
+                        <p class="referente-bio">Canal de Telegram especializado en análisis de actualidad política y social desde una perspectiva crítica y de justicia social.</p>
+                        <div class="referente-links">
+                            <a href="#" class="referente-link" target="_blank">
+                                <i class="fab fa-telegram"></i> Telegram
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Iker Jimenez -->
+                <div class="referente-card">
+                    <div class="referente-header">
+                        <h3 class="referente-name">Iker Jiménez</h3>
+                        <p class="referente-title">Periodista e investigador</p>
+                    </div>
+                    <div class="referente-content">
+                        <p class="referente-bio">Periodista, escritor y director de programas de televisión especializado en misterio, enigmas históricos y fenómenos inexplicables.</p>
+                        <div class="referente-links">
+                            <a href="#" class="referente-link" target="_blank">
+                                <i class="fas fa-book"></i> Libros
+                            </a>
+                            <a href="#" class="referente-link" target="_blank">
+                                <i class="fab fa-youtube"></i> YouTube
+                            </a>
                         </div>
                     </div>
                 </div>

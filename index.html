@@ -23,6 +23,18 @@
             position: relative;
         }
         
+        /* Video de fondo */
+        #bg-video {
+            position: fixed;
+            top: 0;
+            left: 0;
+            min-width: 100%;
+            min-height: 100%;
+            z-index: -3;
+            opacity: 0.2;
+            object-fit: cover;
+        }
+        
         /* Fondo con elementos conspirativos */
         .conspiracy-bg {
             position: fixed;
@@ -187,6 +199,47 @@
             }
             75% {
                 transform: translateY(20px) translateX(-10px);
+            }
+        }
+        
+        /* Stickers animados */
+        .sticker {
+            position: fixed;
+            z-index: 5;
+            border-radius: 50%;
+            overflow: hidden;
+            box-shadow: 0 0 15px rgba(0, 255, 255, 0.7);
+            border: 2px solid #00FFFF;
+        }
+        
+        .sticker-1 {
+            bottom: 10%;
+            left: 5%;
+            width: 120px;
+            height: 120px;
+            animation: float-sticker 15s ease-in-out infinite;
+        }
+        
+        .sticker-2 {
+            top: 15%;
+            right: 5%;
+            width: 100px;
+            height: 100px;
+            animation: float-sticker 12s ease-in-out infinite 2s;
+        }
+        
+        @keyframes float-sticker {
+            0%, 100% {
+                transform: translateY(0) rotate(0deg);
+            }
+            25% {
+                transform: translateY(-20px) rotate(5deg);
+            }
+            50% {
+                transform: translateY(0) rotate(0deg);
+            }
+            75% {
+                transform: translateY(10px) rotate(-5deg);
             }
         }
         
@@ -364,11 +417,16 @@
         nav {
             background: rgba(20, 20, 60, 0.8);
             padding: 1.2rem;
-            position: sticky;
-            top: 0;
             z-index: 100;
             border-bottom: 2px solid #00FFFF;
             backdrop-filter: blur(10px);
+        }
+        
+        @media (min-width: 769px) {
+            nav {
+                position: sticky;
+                top: 0;
+            }
         }
         
         nav ul {
@@ -788,6 +846,39 @@
             color: #00FFFF;
         }
         
+        /* Estilos para audios responsive */
+        .audio-container {
+            position: relative;
+            max-width: 100%;
+            background: rgba(0, 0, 0, 0.3);
+            margin: 2rem auto;
+            border-radius: 10px;
+            border: 2px solid #00FFFF;
+            box-shadow: 0 0 20px rgba(0, 255, 255, 0.3);
+            padding: 1rem;
+        }
+        
+        .audio-container iframe {
+            width: 100%;
+            height: 80px;
+            border: none;
+            border-radius: 5px;
+        }
+        
+        .audio-title {
+            color: #00FFFF;
+            text-align: center;
+            margin: 1rem 0;
+            font-family: 'Rajdhani', sans-serif;
+            font-size: 1.5rem;
+            text-shadow: 0 0 10px rgba(0, 255, 255, 0.7);
+        }
+        
+        /* Asegurar que el iframe sea responsive */
+        iframe {
+            max-width: 100%;
+        }
+        
         /* Sección de comentarios */
         .comments-form {
             max-width: 700px;
@@ -1163,10 +1254,19 @@
             .bg-element {
                 display: none;
             }
+            
+            .sticker {
+                display: none;
+            }
         }
     </style>
 </head>
 <body>
+    <!-- Video de fondo -->
+    <video autoplay muted loop id="bg-video">
+        <source src="https://drive.google.com/uc?export=download&id=1AshQ-13zOeeVsgH-fXDQyGBU5eS9AbDO" type="video/mp4">
+    </video>
+    
     <!-- Fondo con elementos conspirativos -->
     <div class="conspiracy-bg"></div>
     
@@ -1177,6 +1277,15 @@
     <div class="bg-element hologram"></div>
     <div class="bg-element eye-of-providence"></div>
     <div class="bg-element ufo"></div>
+    
+    <!-- Stickers animados -->
+    <div class="sticker sticker-1">
+        <iframe src="https://drive.google.com/file/d/1A5Sl1C5JXxU6401crCt_tVmMw0xPqWEE/preview" width="100%" height="100%" frameborder="0" allow="autoplay"></iframe>
+    </div>
+    
+    <div class="sticker sticker-2">
+        <iframe src="https://drive.google.com/file/d/1qyjpiX5NphAO6I376K5JxMfRKzwsTlxJ/preview" width="100%" height="100%" frameborder="0" allow="autoplay"></iframe>
+    </div>
     
     <!-- Partículas flotantes -->
     <div class="particles" id="particles"></div>
@@ -1236,6 +1345,12 @@
                         <input type="checkbox" id="tab1">
                         <label for="tab1">Cuestión de cuestionar</label>
                         <div class="tab-content">
+                            <!-- Audio integrado desde Google Drive -->
+                            <div class="audio-title">Audio Oficial</div>
+                            <div class="audio-container">
+                                <iframe src="https://drive.google.com/file/d/1qtDT-lUc1bcdPrbsCrL3GADIogxgy69x/preview" width="100%" height="80" frameborder="0" allow="autoplay"></iframe>
+                            </div>
+                            
                             <div class="platform-links">
                                 <a href="https://open.spotify.com/track/5nJCERLNonYEktaFHa4dZu?si=BPy0A_BfS9K-I9H8F803Ew" target="_blank" class="platform-link">
                                     <span class="platform-icon">▶</span> Spotify
@@ -1255,6 +1370,12 @@
                         <input type="checkbox" id="tab2">
                         <label for="tab2">Condiciones altas</label>
                         <div class="tab-content">
+                            <!-- Audio integrado desde Google Drive -->
+                            <div class="audio-title">Audio Oficial</div>
+                            <div class="audio-container">
+                                <iframe src="https://drive.google.com/file/d/1itD4HlXbw8IRu5lb8-jzeq33wY0jMAkh/preview" width="100%" height="80" frameborder="0" allow="autoplay"></iframe>
+                            </div>
+                            
                             <div class="platform-links">
                                 <a href="https://open.spotify.com/track/7lIZAFWSQ5JMh7ZaRNkowZ?si=j6L9uJqsSQm1HEAg6U-5cA" target="_blank" class="platform-link">
                                     <span class="platform-icon">▶</span> Spotify
@@ -1271,6 +1392,12 @@
                         <input type="checkbox" id="tab3">
                         <label for="tab3">Fuego eterno</label>
                         <div class="tab-content">
+                            <!-- Audio integrado desde Google Drive -->
+                            <div class="audio-title">Audio Oficial</div>
+                            <div class="audio-container">
+                                <iframe src="https://drive.google.com/file/d/1KrKwXTUlKOliEm4u3afo7RcjMAmASzbd/preview" width="100%" height="80" frameborder="0" allow="autoplay"></iframe>
+                            </div>
+                            
                             <div class="platform-links">
                                 <a href="https://open.spotify.com/track/4EDQTQDkWRJFK0PXcSV28G?si=qAjHh8O6RzabVUIQDie0SA" target="_blank" class="platform-link">
                                     <span class="platform-icon">▶</span> Spotify
@@ -1285,11 +1412,23 @@
                         </div>
                     </div>
                     
-                    <!-- Nueva Canción 4 -->
+                    <!-- Nueva Canción 4 con audio de Google Drive -->
                     <div class="tab">
                         <input type="checkbox" id="tab4">
                         <label for="tab4">Ciencia tecnológica</label>
                         <div class="tab-content">
+                            <!-- Audio integrado desde Google Drive -->
+                            <div class="audio-title">Audio Oficial</div>
+                            <div class="audio-container">
+                                <iframe 
+                                    src="https://drive.google.com/file/d/1GEIKTil3WF4TBGieMdel6IFxvs2qTO4W/preview" 
+                                    width="100%" 
+                                    height="80" 
+                                    frameborder="0"
+                                    allow="autoplay">
+                                </iframe>
+                            </div>
+                            
                             <div class="platform-links">
                                 <a href="https://open.spotify.com/track/7E5wIKl2RZLua92Z87EfqC?si=JpopT-dbQGC0dgIzkmWSZQ" target="_blank" class="platform-link">
                                     <span class="platform-icon">▶</span> Spotify
@@ -1301,6 +1440,18 @@
                                     <span class="platform-icon">▶</span> Amazon Music
                                 </a>
                             </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Sección de Videos de Interés -->
+                <div class="tab">
+                    <input type="checkbox" id="tab-videos">
+                    <label for="tab-videos">Videos de Interés</label>
+                    <div class="tab-content">
+                        <div class="video-container" style="margin: 2rem 0;">
+                            <!-- Aquí puedes añadir más videos de interés si los tienes -->
+                            <iframe src="https://drive.google.com/file/d/1AshQ-13zOeeVsgH-fXDQyGBU5eS9AbDO/preview" width="640" height="360" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
                         </div>
                     </div>
                 </div>

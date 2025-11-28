@@ -214,6 +214,13 @@
             pointer-events: none;
         }
         
+        .sticker img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 50%;
+        }
+        
         @keyframes float-sticker {
             0%, 100% {
                 transform: translateY(0) rotate(0deg);
@@ -719,9 +726,40 @@
             text-shadow: 0 0 10px rgba(0, 255, 255, 0.7);
         }
         
-        /* Asegurar que el iframe sea responsive */
-        iframe {
-            max-width: 100%;
+        /* Videos de interés */
+        .videos-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        
+        .video-item {
+            background: rgba(30, 30, 80, 0.6);
+            border-radius: 15px;
+            overflow: hidden;
+            border: 2px solid #00FFFF;
+            transition: all 0.3s;
+        }
+        
+        .video-item:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 30px rgba(0, 255, 255, 0.4);
+            border-color: #FF00FF;
+        }
+        
+        .video-item video {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+        
+        .video-title {
+            padding: 1rem;
+            text-align: center;
+            color: #00FFFF;
+            font-family: 'Rajdhani', sans-serif;
+            font-weight: 600;
         }
         
         /* Sección de comentarios */
@@ -1043,42 +1081,6 @@
             50% { content: "Despertar conciencia..."; }
             75% { content: "Realidad expandida..."; }
             100% { content: "Sistema iniciado..."; }
-        }
-        
-        /* Videos de interés */
-        .videos-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 2rem;
-            margin-top: 2rem;
-        }
-        
-        .video-item {
-            background: rgba(30, 30, 80, 0.6);
-            border-radius: 15px;
-            overflow: hidden;
-            border: 2px solid #00FFFF;
-            transition: all 0.3s;
-        }
-        
-        .video-item:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 15px 30px rgba(0, 255, 255, 0.4);
-            border-color: #FF00FF;
-        }
-        
-        .video-item video {
-            width: 100%;
-            height: auto;
-            display: block;
-        }
-        
-        .video-title {
-            padding: 1rem;
-            text-align: center;
-            color: #00FFFF;
-            font-family: 'Rajdhani', sans-serif;
-            font-weight: 600;
         }
         
         /* Responsive */
@@ -1622,18 +1624,20 @@
         const videosContainer = document.getElementById('videos-container');
         const videos = [
             {
-                name: "Video de fondo",
+                name: "Video de Interés",
+                url: "https://raw.githubusercontent.com/pensamientoincansable/Desengany/main/media/videos/video-interes.mp4"
+            },
+            {
+                name: "Video de Fondo",
                 url: "https://raw.githubusercontent.com/pensamientoincansable/Desengany/main/media/videos/video-fondo.mp4"
             }
-            // Puedes añadir más videos aquí manualmente
-            // O implementar una API para listar automáticamente los archivos del repositorio
         ];
         
         videos.forEach(video => {
             const videoItem = document.createElement('div');
             videoItem.className = 'video-item';
             videoItem.innerHTML = `
-                <video controls>
+                <video controls style="width:100%; height:auto;">
                     <source src="${video.url}" type="video/mp4">
                     Tu navegador no soporta el elemento de video.
                 </video>
@@ -1654,14 +1658,13 @@
                 animationDelay: "0s"
             },
             {
-                name: "Sticker 2",
+                name: "Sticker 2", 
                 url: "https://raw.githubusercontent.com/pensamientoincansable/Desengany/main/media/images/sticker2.gif",
                 size: "100px",
                 top: "15%",
                 right: "5%",
                 animationDelay: "2s"
             }
-            // Puedes añadir más stickers aquí manualmente
         ];
         
         stickers.forEach((sticker, index) => {
@@ -1680,13 +1683,25 @@
                 stickerElement.style.animationDelay = sticker.animationDelay;
             }
             
-            stickerElement.innerHTML = `<img src="${sticker.url}" alt="${sticker.name}" width="100%" height="100%">`;
+            const img = document.createElement('img');
+            img.src = sticker.url;
+            img.alt = sticker.name;
+            img.onerror = function() {
+                console.log('Error cargando sticker:', sticker.url);
+                this.style.display = 'none';
+            };
+            
+            stickerElement.appendChild(img);
             stickersContainer.appendChild(stickerElement);
         });
-        
-        // Función para obtener la lista de archivos del repositorio (requeriría autenticación)
-        // Esta función es más compleja y requeriría una API key de GitHub
-        // Por ahora, usamos la lista manual de arriba
+
+        // Preload de archivos de audio para mejor experiencia
+        document.addEventListener('DOMContentLoaded', function() {
+            const audioElements = document.querySelectorAll('audio');
+            audioElements.forEach(audio => {
+                audio.preload = 'metadata';
+            });
+        });
     </script>
 </body>
 </html>

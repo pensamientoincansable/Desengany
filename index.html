@@ -210,22 +210,8 @@
             overflow: hidden;
             box-shadow: 0 0 15px rgba(0, 255, 255, 0.7);
             border: 2px solid #00FFFF;
-        }
-        
-        .sticker-1 {
-            bottom: 10%;
-            left: 5%;
-            width: 120px;
-            height: 120px;
             animation: float-sticker 15s ease-in-out infinite;
-        }
-        
-        .sticker-2 {
-            top: 15%;
-            right: 5%;
-            width: 100px;
-            height: 100px;
-            animation: float-sticker 12s ease-in-out infinite 2s;
+            pointer-events: none;
         }
         
         @keyframes float-sticker {
@@ -719,10 +705,8 @@
             padding: 1rem;
         }
         
-        .audio-container iframe {
+        .audio-container audio {
             width: 100%;
-            height: 166px;
-            border: none;
             border-radius: 5px;
         }
         
@@ -1061,6 +1045,42 @@
             100% { content: "Sistema iniciado..."; }
         }
         
+        /* Videos de interés */
+        .videos-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        
+        .video-item {
+            background: rgba(30, 30, 80, 0.6);
+            border-radius: 15px;
+            overflow: hidden;
+            border: 2px solid #00FFFF;
+            transition: all 0.3s;
+        }
+        
+        .video-item:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 30px rgba(0, 255, 255, 0.4);
+            border-color: #FF00FF;
+        }
+        
+        .video-item video {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+        
+        .video-title {
+            padding: 1rem;
+            text-align: center;
+            color: #00FFFF;
+            font-family: 'Rajdhani', sans-serif;
+            font-weight: 600;
+        }
+        
         /* Responsive */
         @media (max-width: 1024px) {
             .container {
@@ -1110,6 +1130,10 @@
                 grid-template-columns: 1fr;
             }
             
+            .videos-grid {
+                grid-template-columns: 1fr;
+            }
+            
             .bg-element {
                 display: none;
             }
@@ -1136,7 +1160,8 @@
 <body>
     <!-- Video de fondo -->
     <video autoplay muted loop id="bg-video">
-        <source src="https://drive.google.com/uc?export=download&id=1AshQ-13zOeeVsgH-fXDQyGBU5eS9AbDO" type="video/mp4">
+        <source src="https://raw.githubusercontent.com/pensamientoincansable/Desengany/main/media/videos/video-fondo.mp4" type="video/mp4">
+        Tu navegador no soporta el video.
     </video>
     
     <!-- Fondo con elementos conspirativos -->
@@ -1150,14 +1175,8 @@
     <div class="bg-element eye-of-providence"></div>
     <div class="bg-element ufo"></div>
     
-    <!-- Stickers animados -->
-    <div class="sticker sticker-1">
-        <iframe src="https://drive.google.com/file/d/1A5Sl1C5JXxU6401crCt_tVmMw0xPqWEE/preview" width="100%" height="100%" frameborder="0" allow="autoplay"></iframe>
-    </div>
-    
-    <div class="sticker sticker-2">
-        <iframe src="https://drive.google.com/file/d/1qyjpiX5NphAO6I376K5JxMfRKzwsTlxJ/preview" width="100%" height="100%" frameborder="0" allow="autoplay"></iframe>
-    </div>
+    <!-- Stickers animados - Se generarán automáticamente con JavaScript -->
+    <div id="stickers-container"></div>
     
     <!-- Partículas flotantes -->
     <div class="particles" id="particles"></div>
@@ -1184,6 +1203,7 @@
             <li><a href="#musica">Música</a></li>
             <li><a href="#comentarios">Comentarios</a></li>
             <li><a href="#referentes">Referentes</a></li>
+            <li><a href="#videos">Videos</a></li>
             <li><a href="#blog">Blog</a></li>
             <li><a href="#contacto">Contacto</a></li>
         </ul>
@@ -1217,11 +1237,13 @@
                         <input type="checkbox" id="tab1">
                         <label for="tab1">Cuestión de cuestionar</label>
                         <div class="tab-content">
-                            <!-- Audio integrado desde SoundCloud -->
+                            <!-- Audio local desde GitHub -->
                             <div class="audio-title">Audio Oficial</div>
                             <div class="audio-container">
-                                <!-- Reemplaza con el código de embed de SoundCloud para tu canción -->
-                                <iframe width="100%" height="166" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/TRACK_ID&color=%2300ffff&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true"></iframe>
+                                <audio controls>
+                                    <source src="https://raw.githubusercontent.com/pensamientoincansable/Desengany/main/media/audio/cuestion-de-cuestionar.mp3" type="audio/mpeg">
+                                    Tu navegador no soporta el elemento de audio.
+                                </audio>
                             </div>
                             
                             <div class="platform-links">
@@ -1243,11 +1265,13 @@
                         <input type="checkbox" id="tab2">
                         <label for="tab2">Condiciones altas</label>
                         <div class="tab-content">
-                            <!-- Audio integrado desde SoundCloud -->
+                            <!-- Audio local desde GitHub -->
                             <div class="audio-title">Audio Oficial</div>
                             <div class="audio-container">
-                                <!-- Reemplaza con el código de embed de SoundCloud para tu canción -->
-                                <iframe width="100%" height="166" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/TRACK_ID&color=%2300ffff&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true"></iframe>
+                                <audio controls>
+                                    <source src="https://raw.githubusercontent.com/pensamientoincansable/Desengany/main/media/audio/condiciones-altas.mp3" type="audio/mpeg">
+                                    Tu navegador no soporta el elemento de audio.
+                                </audio>
                             </div>
                             
                             <div class="platform-links">
@@ -1266,11 +1290,13 @@
                         <input type="checkbox" id="tab3">
                         <label for="tab3">Fuego eterno</label>
                         <div class="tab-content">
-                            <!-- Audio integrado desde SoundCloud -->
+                            <!-- Audio local desde GitHub -->
                             <div class="audio-title">Audio Oficial</div>
                             <div class="audio-container">
-                                <!-- Reemplaza con el código de embed de SoundCloud para tu canción -->
-                                <iframe width="100%" height="166" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/TRACK_ID&color=%2300ffff&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true"></iframe>
+                                <audio controls>
+                                    <source src="https://raw.githubusercontent.com/pensamientoincansable/Desengany/main/media/audio/fuego-eterno.mp3" type="audio/mpeg">
+                                    Tu navegador no soporta el elemento de audio.
+                                </audio>
                             </div>
                             
                             <div class="platform-links">
@@ -1287,16 +1313,18 @@
                         </div>
                     </div>
                     
-                    <!-- Nueva Canción 4 con audio de SoundCloud -->
+                    <!-- Nueva Canción 4 -->
                     <div class="tab">
                         <input type="checkbox" id="tab4">
                         <label for="tab4">Ciencia tecnológica</label>
                         <div class="tab-content">
-                            <!-- Audio integrado desde SoundCloud -->
+                            <!-- Audio local desde GitHub -->
                             <div class="audio-title">Audio Oficial</div>
                             <div class="audio-container">
-                                <!-- Reemplaza con el código de embed de SoundCloud para tu canción -->
-                                <iframe width="100%" height="166" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/TRACK_ID&color=%2300ffff&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true"></iframe>
+                                <audio controls>
+                                    <source src="https://raw.githubusercontent.com/pensamientoincansable/Desengany/main/media/audio/ciencia-tecnologica.mp3" type="audio/mpeg">
+                                    Tu navegador no soporta el elemento de audio.
+                                </audio>
                             </div>
                             
                             <div class="platform-links">
@@ -1310,19 +1338,6 @@
                                     <span class="platform-icon">▶</span> Amazon Music
                                 </a>
                             </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Sección de Videos de Interés -->
-                <div class="tab">
-                    <input type="checkbox" id="tab-videos">
-                    <label for="tab-videos">Videos de Interés</label>
-                    <div class="tab-content">
-                        <div class="video-container" style="margin: 2rem 0;">
-                            <!-- Aquí puedes añadir más videos de interés si los tienes -->
-                            <!-- Reemplaza con el código de embed de YouTube para tu video -->
-                            <iframe width="100%" height="360" src="https://www.youtube.com/embed/VIDEO_ID" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                         </div>
                     </div>
                 </div>
@@ -1446,6 +1461,16 @@
                             </div>
                         </div>
                     </div>
+                </div>
+            </section>
+            
+            <!-- Videos de Interés -->
+            <section id="videos">
+                <h2 data-text="Videos de Interés">Videos de Interés</h2>
+                <p>Explora contenido visual que complementa el universo de Desengany.</p>
+                
+                <div class="videos-grid" id="videos-container">
+                    <!-- Los videos se cargarán automáticamente aquí -->
                 </div>
             </section>
             
@@ -1592,6 +1617,76 @@
             terminalText.textContent = messages[messageIndex];
             messageIndex = (messageIndex + 1) % messages.length;
         }, 3000);
+        
+        // Cargar videos automáticamente
+        const videosContainer = document.getElementById('videos-container');
+        const videos = [
+            {
+                name: "Video de fondo",
+                url: "https://raw.githubusercontent.com/pensamientoincansable/Desengany/main/media/videos/video-fondo.mp4"
+            }
+            // Puedes añadir más videos aquí manualmente
+            // O implementar una API para listar automáticamente los archivos del repositorio
+        ];
+        
+        videos.forEach(video => {
+            const videoItem = document.createElement('div');
+            videoItem.className = 'video-item';
+            videoItem.innerHTML = `
+                <video controls>
+                    <source src="${video.url}" type="video/mp4">
+                    Tu navegador no soporta el elemento de video.
+                </video>
+                <div class="video-title">${video.name}</div>
+            `;
+            videosContainer.appendChild(videoItem);
+        });
+        
+        // Cargar stickers automáticamente
+        const stickersContainer = document.getElementById('stickers-container');
+        const stickers = [
+            {
+                name: "Sticker 1",
+                url: "https://raw.githubusercontent.com/pensamientoincansable/Desengany/main/media/images/sticker1.gif",
+                size: "120px",
+                top: "10%",
+                left: "5%",
+                animationDelay: "0s"
+            },
+            {
+                name: "Sticker 2",
+                url: "https://raw.githubusercontent.com/pensamientoincansable/Desengany/main/media/images/sticker2.gif",
+                size: "100px",
+                top: "15%",
+                right: "5%",
+                animationDelay: "2s"
+            }
+            // Puedes añadir más stickers aquí manualmente
+        ];
+        
+        stickers.forEach((sticker, index) => {
+            const stickerElement = document.createElement('div');
+            stickerElement.className = 'sticker';
+            stickerElement.id = `sticker-${index + 1}`;
+            stickerElement.style.width = sticker.size;
+            stickerElement.style.height = sticker.size;
+            
+            if (sticker.top) stickerElement.style.top = sticker.top;
+            if (sticker.left) stickerElement.style.left = sticker.left;
+            if (sticker.right) stickerElement.style.right = sticker.right;
+            if (sticker.bottom) stickerElement.style.bottom = sticker.bottom;
+            
+            if (sticker.animationDelay) {
+                stickerElement.style.animationDelay = sticker.animationDelay;
+            }
+            
+            stickerElement.innerHTML = `<img src="${sticker.url}" alt="${sticker.name}" width="100%" height="100%">`;
+            stickersContainer.appendChild(stickerElement);
+        });
+        
+        // Función para obtener la lista de archivos del repositorio (requeriría autenticación)
+        // Esta función es más compleja y requeriría una API key de GitHub
+        // Por ahora, usamos la lista manual de arriba
     </script>
 </body>
 </html>

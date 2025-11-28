@@ -477,149 +477,10 @@
             max-width: 1200px;
             margin: 0 auto;
             padding: 3rem 2rem;
-            display: flex;
-            gap: 2rem;
         }
         
         .main-content {
-            flex: 1;
-        }
-        
-        /* Columna lateral de música */
-        .music-sidebar {
-            width: 320px;
-            background: rgba(20, 20, 60, 0.7);
-            border-radius: 15px;
-            border: 2px solid #00FFFF;
-            padding: 1.5rem;
-            position: sticky;
-            top: 100px;
-            height: fit-content;
-            max-height: calc(100vh - 120px);
-            overflow-y: auto;
-            backdrop-filter: blur(10px);
-            box-shadow: 0 0 20px rgba(0, 255, 255, 0.3);
-        }
-        
-        .music-sidebar h3 {
-            color: #00FFFF;
-            text-align: center;
-            margin-bottom: 1.5rem;
-            font-size: 1.5rem;
-            border-bottom: 1px solid #00FFFF;
-            padding-bottom: 0.5rem;
-            font-family: 'Orbitron', sans-serif;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-        }
-        
-        .player-container {
-            background: rgba(10, 10, 40, 0.5);
-            border-radius: 10px;
-            padding: 1rem;
-            margin-bottom: 1.5rem;
-            border: 1px solid #00FFFF;
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .player-container::before {
-            content: "";
-            position: absolute;
-            top: 0;
-            left: 0;
             width: 100%;
-            height: 100%;
-            background: linear-gradient(45deg, transparent 0%, rgba(0, 255, 255, 0.1) 50%, transparent 100%);
-            z-index: -1;
-            animation: hologram-scan 8s linear infinite;
-        }
-        
-        .player-controls {
-            display: flex;
-            justify-content: center;
-            gap: 1rem;
-            margin-bottom: 1rem;
-        }
-        
-        .player-btn {
-            background: rgba(0, 255, 255, 0.2);
-            border: 1px solid #00FFFF;
-            color: #00FFFF;
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            transition: all 0.3s;
-        }
-        
-        .player-btn:hover {
-            background: rgba(0, 255, 255, 0.4);
-            transform: scale(1.1);
-            box-shadow: 0 0 10px #00FFFF;
-        }
-        
-        .progress-container {
-            background: rgba(0, 100, 100, 0.3);
-            height: 6px;
-            border-radius: 3px;
-            margin-bottom: 0.5rem;
-            overflow: hidden;
-        }
-        
-        .progress-bar {
-            background: #00FFFF;
-            height: 100%;
-            width: 0%;
-            transition: width 0.1s;
-            box-shadow: 0 0 5px #00FFFF;
-        }
-        
-        .time-display {
-            display: flex;
-            justify-content: space-between;
-            font-size: 0.8rem;
-            color: #CCCCFF;
-            font-family: 'Rajdhani', sans-serif;
-        }
-        
-        .now-playing {
-            text-align: center;
-            margin-top: 0.5rem;
-            color: #00FFFF;
-            font-family: 'Rajdhani', sans-serif;
-            font-weight: 500;
-        }
-        
-        .playlist {
-            list-style: none;
-        }
-        
-        .playlist-item {
-            padding: 0.8rem;
-            border-bottom: 1px solid rgba(0, 255, 255, 0.2);
-            cursor: pointer;
-            transition: all 0.3s;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            font-family: 'Rajdhani', sans-serif;
-        }
-        
-        .playlist-item:hover {
-            background: rgba(0, 255, 255, 0.1);
-        }
-        
-        .playlist-item.active {
-            background: rgba(0, 255, 255, 0.2);
-            color: #00FFFF;
-        }
-        
-        .playlist-item i {
-            color: #00FFFF;
         }
         
         section {
@@ -860,7 +721,7 @@
         
         .audio-container iframe {
             width: 100%;
-            height: 80px;
+            height: 166px;
             border: none;
             border-radius: 5px;
         }
@@ -1205,17 +1066,15 @@
             .container {
                 flex-direction: column;
             }
-            
-            .music-sidebar {
-                width: 100%;
-                position: static;
-                margin-bottom: 2rem;
-            }
         }
         
         @media (max-width: 768px) {
             h1 {
                 font-size: 3rem;
+            }
+            
+            h2 {
+                font-size: 2rem;
             }
             
             nav ul {
@@ -1257,6 +1116,19 @@
             
             .sticker {
                 display: none;
+            }
+            
+            section {
+                padding: 1.5rem;
+            }
+            
+            .intro {
+                font-size: 1rem;
+                padding: 1rem;
+            }
+            
+            .tagline {
+                font-size: 1.2rem;
             }
         }
     </style>
@@ -1345,10 +1217,11 @@
                         <input type="checkbox" id="tab1">
                         <label for="tab1">Cuestión de cuestionar</label>
                         <div class="tab-content">
-                            <!-- Audio integrado desde Google Drive -->
+                            <!-- Audio integrado desde SoundCloud -->
                             <div class="audio-title">Audio Oficial</div>
                             <div class="audio-container">
-                                <iframe src="https://drive.google.com/file/d/1qtDT-lUc1bcdPrbsCrL3GADIogxgy69x/preview" width="100%" height="80" frameborder="0" allow="autoplay"></iframe>
+                                <!-- Reemplaza con el código de embed de SoundCloud para tu canción -->
+                                <iframe width="100%" height="166" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/TRACK_ID&color=%2300ffff&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true"></iframe>
                             </div>
                             
                             <div class="platform-links">
@@ -1370,10 +1243,11 @@
                         <input type="checkbox" id="tab2">
                         <label for="tab2">Condiciones altas</label>
                         <div class="tab-content">
-                            <!-- Audio integrado desde Google Drive -->
+                            <!-- Audio integrado desde SoundCloud -->
                             <div class="audio-title">Audio Oficial</div>
                             <div class="audio-container">
-                                <iframe src="https://drive.google.com/file/d/1itD4HlXbw8IRu5lb8-jzeq33wY0jMAkh/preview" width="100%" height="80" frameborder="0" allow="autoplay"></iframe>
+                                <!-- Reemplaza con el código de embed de SoundCloud para tu canción -->
+                                <iframe width="100%" height="166" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/TRACK_ID&color=%2300ffff&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true"></iframe>
                             </div>
                             
                             <div class="platform-links">
@@ -1392,10 +1266,11 @@
                         <input type="checkbox" id="tab3">
                         <label for="tab3">Fuego eterno</label>
                         <div class="tab-content">
-                            <!-- Audio integrado desde Google Drive -->
+                            <!-- Audio integrado desde SoundCloud -->
                             <div class="audio-title">Audio Oficial</div>
                             <div class="audio-container">
-                                <iframe src="https://drive.google.com/file/d/1KrKwXTUlKOliEm4u3afo7RcjMAmASzbd/preview" width="100%" height="80" frameborder="0" allow="autoplay"></iframe>
+                                <!-- Reemplaza con el código de embed de SoundCloud para tu canción -->
+                                <iframe width="100%" height="166" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/TRACK_ID&color=%2300ffff&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true"></iframe>
                             </div>
                             
                             <div class="platform-links">
@@ -1412,21 +1287,16 @@
                         </div>
                     </div>
                     
-                    <!-- Nueva Canción 4 con audio de Google Drive -->
+                    <!-- Nueva Canción 4 con audio de SoundCloud -->
                     <div class="tab">
                         <input type="checkbox" id="tab4">
                         <label for="tab4">Ciencia tecnológica</label>
                         <div class="tab-content">
-                            <!-- Audio integrado desde Google Drive -->
+                            <!-- Audio integrado desde SoundCloud -->
                             <div class="audio-title">Audio Oficial</div>
                             <div class="audio-container">
-                                <iframe 
-                                    src="https://drive.google.com/file/d/1GEIKTil3WF4TBGieMdel6IFxvs2qTO4W/preview" 
-                                    width="100%" 
-                                    height="80" 
-                                    frameborder="0"
-                                    allow="autoplay">
-                                </iframe>
+                                <!-- Reemplaza con el código de embed de SoundCloud para tu canción -->
+                                <iframe width="100%" height="166" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/TRACK_ID&color=%2300ffff&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true"></iframe>
                             </div>
                             
                             <div class="platform-links">
@@ -1451,7 +1321,8 @@
                     <div class="tab-content">
                         <div class="video-container" style="margin: 2rem 0;">
                             <!-- Aquí puedes añadir más videos de interés si los tienes -->
-                            <iframe src="https://drive.google.com/file/d/1AshQ-13zOeeVsgH-fXDQyGBU5eS9AbDO/preview" width="640" height="360" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+                            <!-- Reemplaza con el código de embed de YouTube para tu video -->
+                            <iframe width="100%" height="360" src="https://www.youtube.com/embed/VIDEO_ID" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                         </div>
                     </div>
                 </div>
@@ -1634,47 +1505,6 @@
                 </form>
             </section>
         </div>
-        
-        <!-- Columna lateral de música -->
-        <div class="music-sidebar">
-            <h3>Lista de Reproducción</h3>
-            
-            <div class="player-container">
-                <div class="player-controls">
-                    <button class="player-btn" id="prev-btn"><i class="fas fa-step-backward"></i></button>
-                    <button class="player-btn" id="play-btn"><i class="fas fa-play"></i></button>
-                    <button class="player-btn" id="next-btn"><i class="fas fa-step-forward"></i></button>
-                </div>
-                
-                <div class="progress-container">
-                    <div class="progress-bar" id="progress-bar"></div>
-                </div>
-                
-                <div class="time-display">
-                    <span id="current-time">0:00</span>
-                    <span id="total-time">0:00</span>
-                </div>
-                
-                <div class="now-playing" id="now-playing">
-                    Selecciona una canción
-                </div>
-            </div>
-            
-            <ul class="playlist" id="playlist">
-                <li class="playlist-item" data-src="https://open.spotify.com/track/5nJCERLNonYEktaFHa4dZu?si=BPy0A_BfS9K-I9H8F803Ew">
-                    <i class="fas fa-music"></i> Cuestión de cuestionar
-                </li>
-                <li class="playlist-item" data-src="https://open.spotify.com/track/7lIZAFWSQ5JMh7ZaRNkowZ?si=j6L9uJqsSQm1HEAg6U-5cA">
-                    <i class="fas fa-music"></i> Condiciones altas
-                </li>
-                <li class="playlist-item" data-src="https://open.spotify.com/track/4EDQTQDkWRJFK0PXcSV28G?si=qAjHh8O6RzabVUIQDie0SA">
-                    <i class="fas fa-music"></i> Fuego eterno
-                </li>
-                <li class="playlist-item" data-src="https://open.spotify.com/track/7E5wIKl2RZLua92Z87EfqC?si=JpopT-dbQGC0dgIzkmWSZQ">
-                    <i class="fas fa-music"></i> Ciencia tecnológica
-                </li>
-            </ul>
-        </div>
     </div>
     
     <!-- Footer -->
@@ -1744,116 +1574,6 @@
             alert('¡Gracias por tu comentario! Tu opinión es muy importante para mí.');
             this.reset();
         });
-        
-        // Reproductor de música
-        const playBtn = document.getElementById('play-btn');
-        const prevBtn = document.getElementById('prev-btn');
-        const nextBtn = document.getElementById('next-btn');
-        const progressBar = document.getElementById('progress-bar');
-        const currentTimeEl = document.getElementById('current-time');
-        const totalTimeEl = document.getElementById('total-time');
-        const nowPlayingEl = document.getElementById('now-playing');
-        const playlistItems = document.querySelectorAll('.playlist-item');
-        
-        let currentTrack = 0;
-        let isPlaying = false;
-        let audio = new Audio();
-        
-        // Función para cargar una canción
-        function loadTrack(index) {
-            // En un entorno real, aquí cargaríamos el archivo de audio real
-            // Por ahora, simulamos la carga con un tiempo fijo
-            audio.src = playlistItems[index].getAttribute('data-src');
-            nowPlayingEl.textContent = playlistItems[index].textContent;
-            
-            // Actualizar la clase activa
-            playlistItems.forEach(item => item.classList.remove('active'));
-            playlistItems[index].classList.add('active');
-            
-            // Simular información de la canción
-            totalTimeEl.textContent = '3:45';
-            currentTimeEl.textContent = '0:00';
-            progressBar.style.width = '0%';
-            
-            if (isPlaying) {
-                playBtn.innerHTML = '<i class="fas fa-pause"></i>';
-            }
-        }
-        
-        // Función para reproducir/pausar
-        function playPause() {
-            if (isPlaying) {
-                audio.pause();
-                playBtn.innerHTML = '<i class="fas fa-play"></i>';
-            } else {
-                audio.play();
-                playBtn.innerHTML = '<i class="fas fa-pause"></i>';
-                
-                // Simular progreso de reproducción
-                let currentTime = 0;
-                const totalTime = 225; // 3:45 en segundos
-                
-                const progressInterval = setInterval(() => {
-                    if (!isPlaying) {
-                        clearInterval(progressInterval);
-                        return;
-                    }
-                    
-                    currentTime += 1;
-                    const progressPercent = (currentTime / totalTime) * 100;
-                    progressBar.style.width = `${progressPercent}%`;
-                    
-                    // Actualizar tiempo actual
-                    const minutes = Math.floor(currentTime / 60);
-                    const seconds = currentTime % 60;
-                    currentTimeEl.textContent = `${minutes}:${seconds.toString().padStart(2, '0')}`;
-                    
-                    // Si llegamos al final, pasar a la siguiente canción
-                    if (currentTime >= totalTime) {
-                        nextTrack();
-                    }
-                }, 1000);
-            }
-            
-            isPlaying = !isPlaying;
-        }
-        
-        // Función para la canción anterior
-        function prevTrack() {
-            currentTrack--;
-            if (currentTrack < 0) {
-                currentTrack = playlistItems.length - 1;
-            }
-            loadTrack(currentTrack);
-        }
-        
-        // Función para la siguiente canción
-        function nextTrack() {
-            currentTrack++;
-            if (currentTrack >= playlistItems.length) {
-                currentTrack = 0;
-            }
-            loadTrack(currentTrack);
-        }
-        
-        // Event listeners para los botones del reproductor
-        playBtn.addEventListener('click', playPause);
-        prevBtn.addEventListener('click', prevTrack);
-        nextBtn.addEventListener('click', nextTrack);
-        
-        // Event listeners para los elementos de la lista de reproducción
-        playlistItems.forEach((item, index) => {
-            item.addEventListener('click', () => {
-                currentTrack = index;
-                loadTrack(currentTrack);
-                if (!isPlaying) {
-                    playPause();
-                }
-            });
-        });
-        
-        // Cargar la primera canción al iniciar
-        loadTrack(0);
         
         // Efecto de terminal cambiante
         const terminalText = document.querySelector('.terminal-text');

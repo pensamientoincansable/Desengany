@@ -15,8 +15,8 @@
         }
         
         body {
-            background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 50%, #0a0a0a 100%);
-            color: #e0e0e0;
+            background: linear-gradient(135deg, #0a0a2a 0%, #1a1a4a 50%, #0a0a2a 100%);
+            color: #e0e0ff;
             font-family: 'Exo 2', sans-serif;
             line-height: 1.6;
             overflow-x: hidden;
@@ -31,11 +31,11 @@
             min-width: 100%;
             min-height: 100%;
             z-index: -3;
-            opacity: 0.15;
+            opacity: 0.2;
             object-fit: cover;
         }
         
-        /* Fondo con elementos conspirativos - Tema alternativo */
+        /* Fondo con elementos conspirativos */
         .conspiracy-bg {
             position: fixed;
             top: 0;
@@ -45,16 +45,16 @@
             z-index: -2;
             overflow: hidden;
             background: 
-                radial-gradient(circle at 20% 80%, rgba(100, 100, 100, 0.1) 0%, transparent 50%),
-                radial-gradient(circle at 80% 20%, rgba(150, 150, 150, 0.1) 0%, transparent 50%),
-                radial-gradient(circle at 40% 40%, rgba(200, 200, 200, 0.05) 0%, transparent 50%);
+                radial-gradient(circle at 20% 80%, rgba(0, 100, 255, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(255, 0, 100, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 40% 40%, rgba(0, 255, 150, 0.05) 0%, transparent 50%);
         }
         
-        /* Elementos de fondo animados - Tema alternativo */
+        /* Elementos de fondo animados */
         .bg-element {
             position: fixed;
             z-index: -1;
-            opacity: 0.5;
+            opacity: 0.7;
         }
         
         .pyramid {
@@ -62,7 +62,7 @@
             left: 5%;
             width: 120px;
             height: 80px;
-            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 80"><path d="M60,10 L110,70 L10,70 Z" fill="none" stroke="%23FFFFFF" stroke-width="2"/><circle cx="60" cy="45" r="10" fill="%23FFD700" stroke="%23000" stroke-width="1"/></svg>');
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 80"><path d="M60,10 L110,70 L10,70 Z" fill="none" stroke="%2300FFFF" stroke-width="2"/><circle cx="60" cy="45" r="10" fill="%23FFD700" stroke="%23000" stroke-width="1"/></svg>');
             animation: pyramid-rotate 60s linear infinite;
         }
         
@@ -139,7 +139,7 @@
             right: 15%;
             width: 150px;
             height: 150px;
-            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 150 150"><circle cx="75" cy="75" r="60" fill="none" stroke="%23FFFFFF" stroke-width="2" stroke-dasharray="5,5"/><circle cx="75" cy="75" r="40" fill="none" stroke="%23AAAAAA" stroke-width="1" stroke-dasharray="3,3"/><circle cx="75" cy="75" r="20" fill="none" stroke="%23888888" stroke-width="1" stroke-dasharray="2,2"/><path d="M75,15 L75,135 M15,75 L135,75" stroke="%23FFFFFF" stroke-width="1" stroke-dasharray="4,4"/></svg>');
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 150 150"><circle cx="75" cy="75" r="60" fill="none" stroke="%2300FFFF" stroke-width="2" stroke-dasharray="5,5"/><circle cx="75" cy="75" r="40" fill="none" stroke="%23FF00FF" stroke-width="1" stroke-dasharray="3,3"/><circle cx="75" cy="75" r="20" fill="none" stroke="%2300FF88" stroke-width="1" stroke-dasharray="2,2"/><path d="M75,15 L75,135 M15,75 L135,75" stroke="%2300FFFF" stroke-width="1" stroke-dasharray="4,4"/></svg>');
             animation: hologram-pulse 8s ease-in-out infinite;
         }
         
@@ -183,7 +183,7 @@
             right: 10%;
             width: 80px;
             height: 40px;
-            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 80 40"><ellipse cx="40" cy="20" rx="35" ry="15" fill="%23CCC" stroke="%23000" stroke-width="1"/><ellipse cx="40" cy="15" rx="25" ry="10" fill="%23666" stroke="%23000" stroke-width="1"/><circle cx="40" cy="15" r="5" fill="%23FFFFFF"/><circle cx="30" cy="15" r="3" fill="%23AAAAAA"/><circle cx="50" cy="15" r="3" fill="%23AAAAAA"/></svg>');
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 80 40"><ellipse cx="40" cy="20" rx="35" ry="15" fill="%23CCC" stroke="%23000" stroke-width="1"/><ellipse cx="40" cy="15" rx="25" ry="10" fill="%23666" stroke="%23000" stroke-width="1"/><circle cx="40" cy="15" r="5" fill="%2300FFFF"/><circle cx="30" cy="15" r="3" fill="%23FF00FF"/><circle cx="50" cy="15" r="3" fill="%23FF00FF"/></svg>');
             animation: ufo-hover 20s ease-in-out infinite;
         }
         
@@ -202,14 +202,14 @@
             }
         }
         
-        /* Stickers animados */
+        /* Stickers animados - CORREGIDOS */
         .sticker {
             position: fixed;
             z-index: 5;
             border-radius: 50%;
             overflow: hidden;
-            box-shadow: 0 0 15px rgba(255, 255, 255, 0.5);
-            border: 2px solid #fff;
+            box-shadow: 0 0 15px rgba(0, 255, 255, 0.7);
+            border: 2px solid #00FFFF;
             animation: float-sticker 15s ease-in-out infinite;
             pointer-events: none;
         }
@@ -254,15 +254,15 @@
         }
         
         .particle:nth-child(3n) {
-            background: rgba(255, 255, 255, 0.7);
+            background: rgba(0, 255, 255, 0.7);
         }
         
         .particle:nth-child(3n+1) {
-            background: rgba(200, 200, 200, 0.7);
+            background: rgba(255, 0, 255, 0.7);
         }
         
         .particle:nth-child(3n+2) {
-            background: rgba(150, 150, 150, 0.5);
+            background: rgba(255, 255, 255, 0.5);
         }
         
         @keyframes float {
@@ -282,13 +282,13 @@
             }
         }
         
-        /* Encabezado - Tema alternativo */
+        /* Encabezado - ESTILO ALTERNATIVO */
         header {
-            background: linear-gradient(135deg, rgba(10, 10, 10, 0.8) 0%, rgba(30, 30, 30, 0.6) 100%);
+            background: linear-gradient(135deg, rgba(10, 10, 40, 0.9) 0%, rgba(30, 30, 80, 0.7) 100%);
             padding: 4rem 2rem;
             text-align: center;
-            border-bottom: 3px solid #fff;
-            box-shadow: 0 5px 25px rgba(255, 255, 255, 0.2);
+            border-bottom: 3px solid #00FFFF;
+            box-shadow: 0 5px 25px rgba(0, 255, 255, 0.3);
             position: relative;
             z-index: 10;
             clip-path: polygon(0 0, 100% 0, 100% 85%, 50% 100%, 0 85%);
@@ -302,8 +302,8 @@
             width: 100%;
             height: 100%;
             background: 
-                linear-gradient(90deg, transparent 0%, rgba(255, 255, 255, 0.1) 50%, transparent 100%),
-                linear-gradient(0deg, transparent 0%, rgba(200, 200, 200, 0.1) 50%, transparent 100%);
+                linear-gradient(90deg, transparent 0%, rgba(0, 255, 255, 0.1) 50%, transparent 100%),
+                linear-gradient(0deg, transparent 0%, rgba(255, 0, 255, 0.1) 50%, transparent 100%);
             z-index: -1;
             animation: hologram-scan 10s linear infinite;
         }
@@ -317,42 +317,46 @@
             }
         }
         
-        /* Efecto de texto futurista */
+        /* Efecto de texto 3D con brillo pulsante - ESTILO ALTERNATIVO */
         h1 {
             font-family: 'Orbitron', sans-serif;
             font-size: 4.5rem;
             margin-bottom: 1rem;
             position: relative;
             display: inline-block;
-            font-weight: 700;
+            font-weight: 500; /* Menos grosor */
             letter-spacing: 3px;
             text-transform: uppercase;
-            animation: text-flicker 3s linear infinite;
-            color: #fff;
+            color: #00FFFF;
             text-shadow: 
-                0 0 5px #fff,
-                0 0 10px #fff,
-                0 0 20px #fff,
-                0 0 40px #fff,
-                0 0 80px #fff;
+                0 0 5px #00FFFF,
+                0 0 10px #00FFFF,
+                0 0 20px #00FFFF,
+                0 0 40px #00FFFF,
+                0 0 80px #00FFFF,
+                3px 3px 0 #0055AA,
+                6px 6px 0 #003366;
+            animation: text-pulse 3s infinite alternate;
         }
         
-        @keyframes text-flicker {
-            0%, 100% {
-                opacity: 1;
+        @keyframes text-pulse {
+            0% {
                 text-shadow: 
-                    0 0 5px #fff,
-                    0 0 10px #fff,
-                    0 0 20px #fff,
-                    0 0 40px #fff;
+                    0 0 5px #00FFFF,
+                    0 0 10px #00FFFF,
+                    0 0 20px #00FFFF,
+                    0 0 40px #00FFFF,
+                    3px 3px 0 #0055AA,
+                    6px 6px 0 #003366;
             }
-            50% {
-                opacity: 0.8;
+            100% {
                 text-shadow: 
-                    0 0 2px #fff,
-                    0 0 5px #fff,
-                    0 0 10px #fff,
-                    0 0 20px #fff;
+                    0 0 10px #00FFFF,
+                    0 0 20px #00FFFF,
+                    0 0 30px #00FFFF,
+                    0 0 50px #00FFFF,
+                    3px 3px 0 #0055AA,
+                    6px 6px 0 #003366;
             }
         }
         
@@ -363,12 +367,12 @@
             left: 0;
             width: 100%;
             height: 3px;
-            background: linear-gradient(90deg, transparent, #fff, transparent);
+            background: linear-gradient(90deg, transparent, #00FFFF, transparent);
         }
         
         .tagline {
             font-size: 1.6rem;
-            color: #CCCCCC;
+            color: #CCCCFF;
             margin-bottom: 1.5rem;
             font-style: italic;
             font-weight: 300;
@@ -380,11 +384,11 @@
             max-width: 800px;
             margin: 0 auto;
             font-size: 1.2rem;
-            color: #CCCCCC;
-            background: rgba(20, 20, 20, 0.5);
+            color: #CCCCFF;
+            background: rgba(20, 20, 60, 0.5);
             padding: 1.5rem;
             border-radius: 15px;
-            border: 2px dashed #fff;
+            border: 2px dashed #00FFFF;
             position: relative;
             backdrop-filter: blur(5px);
         }
@@ -392,7 +396,7 @@
         .intro::before, .intro::after {
             content: "⟡";
             position: absolute;
-            color: #fff;
+            color: #00FFFF;
             font-size: 1.5rem;
         }
         
@@ -408,10 +412,10 @@
         
         /* Navegación */
         nav {
-            background: rgba(20, 20, 20, 0.8);
+            background: rgba(20, 20, 60, 0.8);
             padding: 1.2rem;
             z-index: 100;
-            border-bottom: 2px solid #fff;
+            border-bottom: 2px solid #00FFFF;
             backdrop-filter: blur(10px);
         }
         
@@ -440,12 +444,12 @@
             left: -20px;
             top: 50%;
             transform: translateY(-50%);
-            color: #fff;
+            color: #00FFFF;
             font-size: 0.8rem;
         }
         
         nav a {
-            color: #CCCCCC;
+            color: #CCCCFF;
             text-decoration: none;
             font-weight: 600;
             text-transform: uppercase;
@@ -459,10 +463,10 @@
         }
         
         nav a:hover {
-            background-color: rgba(255, 255, 255, 0.2);
-            text-shadow: 0 0 10px #fff;
+            background-color: rgba(0, 255, 255, 0.2);
+            text-shadow: 0 0 10px #00FFFF;
             transform: translateY(-2px);
-            color: #fff;
+            color: #00FFFF;
         }
         
         /* Contenido principal */
@@ -478,10 +482,10 @@
         
         section {
             margin-bottom: 4rem;
-            background: rgba(20, 20, 20, 0.5);
+            background: rgba(20, 20, 60, 0.5);
             padding: 2.5rem;
             border-radius: 20px;
-            border: 2px solid #fff;
+            border: 2px solid #00FFFF;
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
             transition: transform 0.3s;
             position: relative;
@@ -496,15 +500,15 @@
             left: 0;
             width: 100%;
             height: 5px;
-            background: linear-gradient(90deg, #fff, #aaa, #fff);
+            background: linear-gradient(90deg, #00FFFF, #FF00FF, #00FFFF);
         }
         
         section:hover {
             transform: translateY(-5px);
-            box-shadow: 0 15px 35px rgba(255, 255, 255, 0.4);
+            box-shadow: 0 15px 35px rgba(0, 255, 255, 0.4);
         }
         
-        /* Encabezados con efecto futurista */
+        /* Encabezados con efecto 3D y brillo pulsante - ESTILO ALTERNATIVO */
         h2 {
             font-family: 'Orbitron', sans-serif;
             font-size: 2.8rem;
@@ -512,14 +516,36 @@
             text-align: center;
             position: relative;
             padding-bottom: 1rem;
-            font-weight: 700;
+            font-weight: 500; /* Menos grosor */
             text-transform: uppercase;
             letter-spacing: 2px;
-            color: #fff;
+            color: #00FFFF;
             text-shadow: 
-                0 0 5px #fff,
-                0 0 10px #fff,
-                0 0 20px #fff;
+                0 0 5px #00FFFF,
+                0 0 10px #00FFFF,
+                0 0 20px #00FFFF,
+                2px 2px 0 #0055AA,
+                4px 4px 0 #003366;
+            animation: h2-pulse 4s infinite alternate;
+        }
+        
+        @keyframes h2-pulse {
+            0% {
+                text-shadow: 
+                    0 0 5px #00FFFF,
+                    0 0 10px #00FFFF,
+                    0 0 20px #00FFFF,
+                    2px 2px 0 #0055AA,
+                    4px 4px 0 #003366;
+            }
+            100% {
+                text-shadow: 
+                    0 0 10px #00FFFF,
+                    0 0 20px #00FFFF,
+                    0 0 30px #00FFFF,
+                    2px 2px 0 #0055AA,
+                    4px 4px 0 #003366;
+            }
         }
         
         h2::before {
@@ -529,7 +555,7 @@
             left: 25%;
             width: 50%;
             height: 2px;
-            background: linear-gradient(90deg, transparent, #fff, transparent);
+            background: linear-gradient(90deg, transparent, #00FFFF, transparent);
         }
         
         /* Biografía */
@@ -545,10 +571,10 @@
             min-width: 300px;
             line-height: 1.8;
             font-size: 1.1rem;
-            background: rgba(30, 30, 30, 0.4);
+            background: rgba(30, 30, 80, 0.4);
             padding: 1.5rem;
             border-radius: 15px;
-            border: 1px dashed #CCCCCC;
+            border: 1px dashed #CCCCFF;
         }
         
         .bio-text p {
@@ -559,13 +585,13 @@
         .bio-image {
             flex: 0 0 250px;
             height: 250px;
-            background: linear-gradient(135deg, #333, #fff);
+            background: linear-gradient(135deg, #0044AA, #00FFFF);
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            border: 3px solid #fff;
-            box-shadow: 0 0 30px rgba(255, 255, 255, 0.7);
+            border: 3px solid #00FFFF;
+            box-shadow: 0 0 30px rgba(0, 255, 255, 0.7);
             overflow: hidden;
             position: relative;
             cursor: pointer;
@@ -575,12 +601,12 @@
         
         .bio-image:hover {
             transform: scale(1.05);
-            box-shadow: 0 0 40px rgba(255, 255, 255, 0.8);
+            box-shadow: 0 0 40px rgba(0, 255, 255, 0.8);
         }
         
         .bio-image::before {
             content: "DESENGANY";
-            color: #0a0a0a;
+            color: #0a0a2a;
             font-weight: bold;
             text-align: center;
             font-family: 'Orbitron', sans-serif;
@@ -609,16 +635,16 @@
         
         .tab {
             margin-bottom: 1.5rem;
-            border: 2px solid #fff;
+            border: 2px solid #00FFFF;
             border-radius: 15px;
             overflow: hidden;
             transition: all 0.3s;
-            background: rgba(30, 30, 30, 0.4);
+            background: rgba(30, 30, 80, 0.4);
         }
         
         .tab:hover {
-            border-color: #aaa;
-            box-shadow: 0 5px 15px rgba(170, 170, 170, 0.3);
+            border-color: #FF00FF;
+            box-shadow: 0 5px 15px rgba(255, 0, 255, 0.3);
         }
         
         .tab input {
@@ -628,20 +654,20 @@
         .tab label {
             display: block;
             padding: 1.5rem;
-            background: rgba(40, 40, 40, 0.6);
+            background: rgba(40, 40, 100, 0.6);
             cursor: pointer;
             font-weight: bold;
             transition: all 0.3s;
             position: relative;
             font-family: 'Rajdhani', sans-serif;
             font-size: 1.5rem;
-            color: #fff;
+            color: #00FFFF;
             text-align: center;
             text-shadow: 0 1px 2px rgba(0,0,0,0.5);
         }
         
         .tab label:hover {
-            background: rgba(50, 50, 50, 0.6);
+            background: rgba(50, 50, 120, 0.6);
         }
         
         .tab label::after {
@@ -650,7 +676,7 @@
             right: 1.5rem;
             font-size: 1.5rem;
             transition: transform 0.3s;
-            color: #fff;
+            color: #00FFFF;
         }
         
         .tab input:checked + label::after {
@@ -661,7 +687,7 @@
             max-height: 0;
             overflow: hidden;
             transition: max-height 0.5s ease-out;
-            background: rgba(20, 20, 20, 0.6);
+            background: rgba(20, 20, 60, 0.6);
         }
         
         .tab input:checked ~ .tab-content {
@@ -680,12 +706,12 @@
             display: flex;
             align-items: center;
             padding: 1rem 2rem;
-            background: rgba(40, 40, 40, 0.6);
+            background: rgba(40, 40, 100, 0.6);
             border-radius: 10px;
             text-decoration: none;
-            color: #CCCCCC;
+            color: #CCCCFF;
             transition: all 0.3s;
-            border: 1px solid #fff;
+            border: 1px solid #00FFFF;
             font-weight: 600;
             min-width: 180px;
             justify-content: center;
@@ -693,11 +719,11 @@
         }
         
         .platform-link:hover {
-            background: rgba(255, 255, 255, 0.2);
+            background: rgba(0, 255, 255, 0.2);
             transform: translateY(-5px);
             box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
-            border-color: #aaa;
-            color: #fff;
+            border-color: #FF00FF;
+            color: #00FFFF;
         }
         
         /* Reproductor de audio mejorado */
@@ -707,8 +733,8 @@
             background: rgba(0, 0, 0, 0.3);
             margin: 2rem auto;
             border-radius: 15px;
-            border: 2px solid #fff;
-            box-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
+            border: 2px solid #00FFFF;
+            box-shadow: 0 0 20px rgba(0, 255, 255, 0.3);
             padding: 1.5rem;
             overflow: hidden;
         }
@@ -720,17 +746,17 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: linear-gradient(135deg, rgba(255,255,255,0.1) 0%, transparent 100%);
+            background: linear-gradient(135deg, rgba(0,255,255,0.1) 0%, transparent 100%);
             z-index: 0;
         }
         
         .audio-title {
-            color: #fff;
+            color: #00FFFF;
             text-align: center;
             margin: 1rem 0 2rem;
             font-family: 'Rajdhani', sans-serif;
             font-size: 1.5rem;
-            text-shadow: 0 0 10px rgba(255, 255, 255, 0.7);
+            text-shadow: 0 0 10px rgba(0, 255, 255, 0.7);
             position: relative;
             z-index: 1;
         }
@@ -746,8 +772,8 @@
         }
         
         .play-btn {
-            background: rgba(255, 255, 255, 0.2);
-            border: 2px solid #fff;
+            background: rgba(0, 255, 255, 0.2);
+            border: 2px solid #00FFFF;
             border-radius: 50%;
             width: 60px;
             height: 60px;
@@ -756,20 +782,20 @@
             justify-content: center;
             cursor: pointer;
             transition: all 0.3s;
-            color: #fff;
+            color: #00FFFF;
             font-size: 1.5rem;
         }
         
         .play-btn:hover {
-            background: rgba(255, 255, 255, 0.3);
+            background: rgba(0, 255, 255, 0.3);
             transform: scale(1.1);
-            box-shadow: 0 0 15px rgba(255, 255, 255, 0.5);
+            box-shadow: 0 0 15px rgba(0, 255, 255, 0.5);
         }
         
         .progress-container {
             flex-grow: 1;
             height: 8px;
-            background: rgba(255, 255, 255, 0.2);
+            background: rgba(0, 255, 255, 0.2);
             border-radius: 4px;
             overflow: hidden;
             position: relative;
@@ -778,7 +804,7 @@
         
         .progress-bar {
             height: 100%;
-            background: linear-gradient(90deg, #fff, #aaa);
+            background: linear-gradient(90deg, #00FFFF, #FF00FF);
             border-radius: 4px;
             width: 0%;
             transition: width 0.1s linear;
@@ -793,15 +819,15 @@
             transform: translateY(-50%);
             width: 15px;
             height: 15px;
-            background: #fff;
+            background: #00FFFF;
             border-radius: 50%;
-            box-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
+            box-shadow: 0 0 10px rgba(0, 255, 255, 0.8);
         }
         
         .time-display {
             display: flex;
             justify-content: space-between;
-            color: #fff;
+            color: #00FFFF;
             font-family: 'Rajdhani', sans-serif;
             font-size: 0.9rem;
             margin-top: 0.5rem;
@@ -819,14 +845,14 @@
         }
         
         .volume-icon {
-            color: #fff;
+            color: #00FFFF;
             font-size: 1.2rem;
         }
         
         .volume-slider {
             flex-grow: 1;
             height: 6px;
-            background: rgba(255, 255, 255, 0.2);
+            background: rgba(0, 255, 255, 0.2);
             border-radius: 3px;
             overflow: hidden;
             cursor: pointer;
@@ -834,7 +860,7 @@
         
         .volume-level {
             height: 100%;
-            background: linear-gradient(90deg, #fff, #aaa);
+            background: linear-gradient(90deg, #00FFFF, #FF00FF);
             border-radius: 3px;
             width: 80%;
         }
@@ -853,7 +879,7 @@
         
         .wave-bar {
             flex: 1;
-            background: linear-gradient(to top, #fff, #aaa);
+            background: linear-gradient(to top, #00FFFF, #FF00FF);
             border-radius: 2px 2px 0 0;
             min-height: 2px;
             animation: wave-pulse 1.5s infinite ease-in-out;
@@ -877,17 +903,17 @@
         }
         
         .video-item {
-            background: rgba(30, 30, 30, 0.6);
+            background: rgba(30, 30, 80, 0.6);
             border-radius: 15px;
             overflow: hidden;
-            border: 2px solid #fff;
+            border: 2px solid #00FFFF;
             transition: all 0.3s;
         }
         
         .video-item:hover {
             transform: translateY(-8px);
-            box-shadow: 0 15px 30px rgba(255, 255, 255, 0.4);
-            border-color: #aaa;
+            box-shadow: 0 15px 30px rgba(0, 255, 255, 0.4);
+            border-color: #FF00FF;
         }
         
         .video-item video {
@@ -899,7 +925,7 @@
         .video-title {
             padding: 1rem;
             text-align: center;
-            color: #fff;
+            color: #00FFFF;
             font-family: 'Rajdhani', sans-serif;
             font-weight: 600;
         }
@@ -917,7 +943,7 @@
         .form-group label {
             display: block;
             margin-bottom: 0.8rem;
-            color: #fff;
+            color: #00FFFF;
             font-weight: 600;
             font-family: 'Rajdhani', sans-serif;
             text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
@@ -928,10 +954,10 @@
         .form-group select {
             width: 100%;
             padding: 1rem;
-            background: rgba(30, 30, 30, 0.6);
-            border: 1px solid #fff;
+            background: rgba(30, 30, 80, 0.6);
+            border: 1px solid #00FFFF;
             border-radius: 8px;
-            color: #CCCCCC;
+            color: #CCCCFF;
             font-family: 'Exo 2', sans-serif;
             font-size: 1rem;
             transition: all 0.3s;
@@ -941,14 +967,14 @@
         .form-group textarea:focus,
         .form-group select:focus {
             outline: none;
-            border-color: #aaa;
-            box-shadow: 0 0 15px rgba(170, 170, 170, 0.3);
+            border-color: #FF00FF;
+            box-shadow: 0 0 15px rgba(255, 0, 255, 0.3);
         }
         
         .submit-btn {
-            background: rgba(255, 255, 255, 0.2);
-            color: #fff;
-            border: 2px solid #fff;
+            background: rgba(0, 255, 255, 0.2);
+            color: #00FFFF;
+            border: 2px solid #00FFFF;
             padding: 1rem 2.5rem;
             border-radius: 8px;
             cursor: pointer;
@@ -963,8 +989,8 @@
         }
         
         .submit-btn:hover {
-            background: rgba(255, 255, 255, 0.3);
-            box-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
+            background: rgba(0, 255, 255, 0.3);
+            box-shadow: 0 0 20px rgba(0, 255, 255, 0.5);
             transform: translateY(-3px);
         }
         
@@ -977,29 +1003,29 @@
         }
         
         .referente-card {
-            background: rgba(30, 30, 30, 0.6);
+            background: rgba(30, 30, 80, 0.6);
             border-radius: 15px;
             overflow: hidden;
-            border: 2px solid #fff;
+            border: 2px solid #00FFFF;
             transition: all 0.3s;
         }
         
         .referente-card:hover {
             transform: translateY(-8px);
-            box-shadow: 0 15px 30px rgba(255, 255, 255, 0.4);
-            border-color: #aaa;
+            box-shadow: 0 15px 30px rgba(0, 255, 255, 0.4);
+            border-color: #FF00FF;
         }
         
         .referente-header {
-            background: linear-gradient(135deg, #333, #666);
+            background: linear-gradient(135deg, #003366, #0044AA);
             padding: 1.5rem;
             text-align: center;
-            border-bottom: 2px solid #fff;
+            border-bottom: 2px solid #00FFFF;
         }
         
         .referente-name {
             font-size: 1.5rem;
-            color: #fff;
+            color: #00FFFF;
             margin-bottom: 0.5rem;
             font-family: 'Rajdhani', sans-serif;
             font-weight: 600;
@@ -1007,7 +1033,7 @@
         
         .referente-title {
             font-size: 1rem;
-            color: #CCCCCC;
+            color: #CCCCFF;
             font-style: italic;
         }
         
@@ -1016,7 +1042,7 @@
         }
         
         .referente-bio {
-            color: #CCCCCC;
+            color: #CCCCFF;
             line-height: 1.6;
             margin-bottom: 1.5rem;
         }
@@ -1032,20 +1058,20 @@
             display: flex;
             align-items: center;
             padding: 0.7rem 1.2rem;
-            background: rgba(40, 40, 40, 0.7);
+            background: rgba(40, 40, 100, 0.7);
             border-radius: 8px;
             text-decoration: none;
-            color: #CCCCCC;
+            color: #CCCCFF;
             transition: all 0.3s;
-            border: 1px solid #fff;
+            border: 1px solid #00FFFF;
             font-size: 0.9rem;
         }
         
         .referente-link:hover {
-            background: rgba(255, 255, 255, 0.2);
+            background: rgba(0, 255, 255, 0.2);
             transform: translateY(-3px);
-            border-color: #aaa;
-            color: #fff;
+            border-color: #FF00FF;
+            color: #00FFFF;
         }
         
         .referente-link i {
@@ -1060,10 +1086,10 @@
         }
         
         .post {
-            background: rgba(30, 30, 30, 0.6);
+            background: rgba(30, 30, 80, 0.6);
             border-radius: 15px;
             overflow: hidden;
-            border: 2px solid #fff;
+            border: 2px solid #00FFFF;
             transition: all 0.3s;
             height: 100%;
             display: flex;
@@ -1076,23 +1102,23 @@
             position: absolute;
             top: 10px;
             right: 10px;
-            color: #fff;
+            color: #00FFFF;
             font-size: 1.5rem;
         }
         
         .post:hover {
             transform: translateY(-8px);
-            box-shadow: 0 15px 30px rgba(255, 255, 255, 0.4);
-            border-color: #aaa;
+            box-shadow: 0 15px 30px rgba(0, 255, 255, 0.4);
+            border-color: #FF00FF;
         }
         
         .post-image {
             height: 200px;
-            background: linear-gradient(135deg, #333, #fff);
+            background: linear-gradient(135deg, #003366, #00FFFF);
             display: flex;
             align-items: center;
             justify-content: center;
-            color: #0a0a0a;
+            color: #0a0a2a;
             font-weight: bold;
             font-family: 'Orbitron', sans-serif;
             font-size: 1.5rem;
@@ -1105,20 +1131,20 @@
             flex-grow: 1;
             display: flex;
             flex-direction: column;
-            background: rgba(20, 20, 20, 0.5);
+            background: rgba(20, 20, 60, 0.5);
         }
         
         .post-title {
             font-size: 1.5rem;
             margin-bottom: 1rem;
-            color: #fff;
+            color: #00FFFF;
             font-family: 'Rajdhani', sans-serif;
             font-weight: 600;
             text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
         }
         
         .post-excerpt {
-            color: #CCCCCC;
+            color: #CCCCFF;
             line-height: 1.6;
             margin-bottom: 1.5rem;
             flex-grow: 1;
@@ -1126,20 +1152,20 @@
         
         .read-more {
             display: inline-block;
-            color: #fff;
+            color: #00FFFF;
             text-decoration: none;
             font-weight: bold;
             transition: all 0.3s;
             align-self: flex-start;
             padding: 0.5rem 1rem;
-            border: 1px solid #fff;
+            border: 1px solid #00FFFF;
             border-radius: 4px;
             font-family: 'Rajdhani', sans-serif;
         }
         
         .read-more:hover {
-            background: rgba(255, 255, 255, 0.1);
-            text-shadow: 0 0 10px #fff;
+            background: rgba(0, 255, 255, 0.1);
+            text-shadow: 0 0 10px #00FFFF;
             transform: translateY(-2px);
         }
         
@@ -1151,10 +1177,10 @@
         
         /* Footer */
         footer {
-            background: rgba(20, 20, 20, 0.8);
+            background: rgba(20, 20, 60, 0.8);
             padding: 3rem 2rem;
             text-align: center;
-            border-top: 2px solid #fff;
+            border-top: 2px solid #00FFFF;
             margin-top: 3rem;
             clip-path: polygon(0 15%, 50% 0, 100% 15%, 100% 100%, 0 100%);
             backdrop-filter: blur(10px);
@@ -1169,7 +1195,7 @@
         }
         
         .social-link {
-            color: #fff;
+            color: #00FFFF;
             font-size: 1.8rem;
             transition: all 0.3s;
             width: 50px;
@@ -1178,18 +1204,18 @@
             align-items: center;
             justify-content: center;
             border-radius: 50%;
-            background: rgba(40, 40, 40, 0.6);
+            background: rgba(40, 40, 100, 0.6);
             text-decoration: none;
         }
         
         .social-link:hover {
-            text-shadow: 0 0 15px #fff;
+            text-shadow: 0 0 15px #00FFFF;
             transform: translateY(-5px);
-            background: rgba(255, 255, 255, 0.2);
+            background: rgba(0, 255, 255, 0.2);
         }
         
         .copyright {
-            color: #CCCCCC;
+            color: #CCCCFF;
             font-size: 1rem;
         }
         
@@ -1200,17 +1226,17 @@
             left: 20px;
             width: 200px;
             height: 100px;
-            background: rgba(10, 10, 10, 0.7);
-            border: 1px solid #fff;
+            background: rgba(10, 10, 40, 0.7);
+            border: 1px solid #00FFFF;
             border-radius: 5px;
             padding: 10px;
             font-family: 'Courier New', monospace;
             font-size: 12px;
-            color: #fff;
+            color: #00FFFF;
             overflow: hidden;
             z-index: 5;
             opacity: 0.7;
-            box-shadow: 0 0 10px #fff;
+            box-shadow: 0 0 10px #00FFFF;
         }
         
         .terminal-text {
@@ -1311,7 +1337,7 @@
     </style>
 </head>
 <body>
-    <!-- Video de fondo -->
+    <!-- Video de fondo - URL CORREGIDA -->
     <video autoplay muted loop id="bg-video">
         <source src="https://raw.githubusercontent.com/pensamientoincansable/Desengany/main/media/videos/video-fondo.mp4" type="video/mp4">
         Tu navegador no soporta el video.
@@ -1328,7 +1354,7 @@
     <div class="bg-element eye-of-providence"></div>
     <div class="bg-element ufo"></div>
     
-    <!-- Stickers animados - usando imágenes de la carpeta -->
+    <!-- Stickers animados - URLS CORREGIDAS -->
     <div class="sticker" style="width: 100px; height: 100px; top: 20%; left: 5%;">
         <img src="https://raw.githubusercontent.com/pensamientoincansable/Desengany/main/media/images/sticker1.gif" alt="Sticker 1">
     </div>
@@ -1530,7 +1556,147 @@
                         </div>
                     </div>
                     
-                    <!-- Resto de canciones con el mismo patrón -->
+                    <!-- Nueva Canción 3 -->
+                    <div class="tab">
+                        <input type="checkbox" id="tab3">
+                        <label for="tab3">Fuego eterno</label>
+                        <div class="tab-content">
+                            <!-- Reproductor de audio mejorado -->
+                            <div class="audio-player" data-audio="https://raw.githubusercontent.com/pensamientoincansable/Desengany/main/media/audio/fuego-eterno.mp3">
+                                <div class="audio-title">Fuego eterno</div>
+                                
+                                <!-- Visualizador de ondas -->
+                                <div class="waveform">
+                                    <div class="wave-bar" style="height: 50%"></div>
+                                    <div class="wave-bar" style="height: 80%"></div>
+                                    <div class="wave-bar" style="height: 65%"></div>
+                                    <div class="wave-bar" style="height: 90%"></div>
+                                    <div class="wave-bar" style="height: 55%"></div>
+                                    <div class="wave-bar" style="height: 85%"></div>
+                                    <div class="wave-bar" style="height: 70%"></div>
+                                    <div class="wave-bar" style="height: 80%"></div>
+                                    <div class="wave-bar" style="height: 60%"></div>
+                                    <div class="wave-bar" style="height: 75%"></div>
+                                    <div class="wave-bar" style="height: 55%"></div>
+                                    <div class="wave-bar" style="height: 70%"></div>
+                                    <div class="wave-bar" style="height: 45%"></div>
+                                    <div class="wave-bar" style="height: 60%"></div>
+                                    <div class="wave-bar" style="height: 40%"></div>
+                                </div>
+                                
+                                <!-- Controles -->
+                                <div class="player-controls">
+                                    <button class="play-btn">▶</button>
+                                    <div class="progress-container">
+                                        <div class="progress-bar"></div>
+                                    </div>
+                                </div>
+                                
+                                <!-- Tiempo -->
+                                <div class="time-display">
+                                    <span class="current-time">0:00</span>
+                                    <span class="duration">0:00</span>
+                                </div>
+                                
+                                <!-- Control de volumen -->
+                                <div class="volume-control">
+                                    <div class="volume-icon">🔊</div>
+                                    <div class="volume-slider">
+                                        <div class="volume-level"></div>
+                                    </div>
+                                </div>
+                                
+                                <!-- Audio oculto -->
+                                <audio class="audio-element">
+                                    <source src="https://raw.githubusercontent.com/pensamientoincansable/Desengany/main/media/audio/fuego-eterno.mp3" type="audio/mpeg">
+                                    Tu navegador no soporta el elemento de audio.
+                                </audio>
+                            </div>
+                            
+                            <div class="platform-links">
+                                <a href="https://open.spotify.com/track/4EDQTQDkWRJFK0PXcSV28G?si=qAjHh8O6RzabVUIQDie0SA" target="_blank" class="platform-link">
+                                    <span class="platform-icon">▶</span> Spotify
+                                </a>
+                                <a href="https://music.apple.com/es/album/fuego-eterno/1818707341?i=1818707342&ls" target="_blank" class="platform-link">
+                                    <span class="platform-icon">▶</span> Apple Music
+                                </a>
+                                <a href="https://music.amazon.es/albums/B0FC25BCN3?ref=dm_sh_o4gJ9u7r4oJrmYyWWarlyB85D" target="_blank" class="platform-link">
+                                    <span class="platform-icon">▶</span> Amazon Music
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Nueva Canción 4 -->
+                    <div class="tab">
+                        <input type="checkbox" id="tab4">
+                        <label for="tab4">Ciencia tecnológica</label>
+                        <div class="tab-content">
+                            <!-- Reproductor de audio mejorado -->
+                            <div class="audio-player" data-audio="https://raw.githubusercontent.com/pensamientoincansable/Desengany/main/media/audio/ciencia-tecnologica.mp3">
+                                <div class="audio-title">Ciencia tecnológica</div>
+                                
+                                <!-- Visualizador de ondas -->
+                                <div class="waveform">
+                                    <div class="wave-bar" style="height: 35%"></div>
+                                    <div class="wave-bar" style="height: 65%"></div>
+                                    <div class="wave-bar" style="height: 50%"></div>
+                                    <div class="wave-bar" style="height: 75%"></div>
+                                    <div class="wave-bar" style="height: 40%"></div>
+                                    <div class="wave-bar" style="height: 70%"></div>
+                                    <div class="wave-bar" style="height: 55%"></div>
+                                    <div class="wave-bar" style="height: 65%"></div>
+                                    <div class="wave-bar" style="height: 45%"></div>
+                                    <div class="wave-bar" style="height: 60%"></div>
+                                    <div class="wave-bar" style="height: 40%"></div>
+                                    <div class="wave-bar" style="height: 55%"></div>
+                                    <div class="wave-bar" style="height: 30%"></div>
+                                    <div class="wave-bar" style="height: 45%"></div>
+                                    <div class="wave-bar" style="height: 25%"></div>
+                                </div>
+                                
+                                <!-- Controles -->
+                                <div class="player-controls">
+                                    <button class="play-btn">▶</button>
+                                    <div class="progress-container">
+                                        <div class="progress-bar"></div>
+                                    </div>
+                                </div>
+                                
+                                <!-- Tiempo -->
+                                <div class="time-display">
+                                    <span class="current-time">0:00</span>
+                                    <span class="duration">0:00</span>
+                                </div>
+                                
+                                <!-- Control de volumen -->
+                                <div class="volume-control">
+                                    <div class="volume-icon">🔊</div>
+                                    <div class="volume-slider">
+                                        <div class="volume-level"></div>
+                                    </div>
+                                </div>
+                                
+                                <!-- Audio oculto -->
+                                <audio class="audio-element">
+                                    <source src="https://raw.githubusercontent.com/pensamientoincansable/Desengany/main/media/audio/ciencia-tecnologica.mp3" type="audio/mpeg">
+                                    Tu navegador no soporta el elemento de audio.
+                                </audio>
+                            </div>
+                            
+                            <div class="platform-links">
+                                <a href="https://open.spotify.com/track/7E5wIKl2RZLua92Z87EfqC?si=JpopT-dbQGC0dgIzkmWSZQ" target="_blank" class="platform-link">
+                                    <span class="platform-icon">▶</span> Spotify
+                                </a>
+                                <a href="https://music.apple.com/es/album/ciencia-tecnol%C3%B3gica/1789460477?i=1789460724&ls" target="_blank" class="platform-link">
+                                    <span class="platform-icon">▶</span> Apple Music
+                                </a>
+                                <a href="https://music.amazon.es/albums/B0DSKB1W38?trackAsin=B0DSKDGG4G&do=play&ref=dm_sh_O5H4xxJ0TVAtTJdBt02TzNzak" target="_blank" class="platform-link">
+                                    <span class="platform-icon">▶</span> Amazon Music
+                                </a>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </section>
             

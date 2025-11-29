@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Desengany - Realidad Expandida</title>
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700&family=Exo+2:wght@300;400;600&family=Rajdhani:wght@300;400;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;700&family=Exo+2:wght@300;400;600&family=Rajdhani:wght@300;400;500&family=Cinzel+Decorative:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         /* Estilos generales - Tema Conspiración Alternativo */
@@ -61,7 +61,7 @@
             bottom: 10%;
             left: 5%;
             width: 120px;
-            height: 90px;
+            height: 80px;
             background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 80"><path d="M60,10 L110,70 L10,70 Z" fill="none" stroke="%2300FFFF" stroke-width="2"/><circle cx="60" cy="45" r="10" fill="%23FFD700" stroke="%23000" stroke-width="1"/></svg>');
             animation: pyramid-rotate 60s linear infinite;
         }
@@ -317,15 +317,15 @@
             }
         }
         
-        /* Efecto de texto 3D con brillo pulsante - ESTILO ALTERNATIVO */
+        /* Efecto de texto con nueva tipografía más fluida */
         h1 {
-            font-family: 'Orbitron', sans-serif;
+            font-family: 'Cinzel Decorative', cursive;
             font-size: 4.5rem;
             margin-bottom: 1rem;
             position: relative;
             display: inline-block;
-            font-weight: 500; /* Menos grosor */
-            letter-spacing: 3px;
+            font-weight: 500;
+            letter-spacing: 2px;
             text-transform: uppercase;
             color: #00FFFF;
             text-shadow: 
@@ -377,7 +377,7 @@
             font-style: italic;
             font-weight: 300;
             text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
-            font-family: 'Rajdhani', sans-serif;
+            font-family: 'Playfair Display', serif;
         }
         
         .intro {
@@ -508,15 +508,15 @@
             box-shadow: 0 15px 35px rgba(0, 255, 255, 0.4);
         }
         
-        /* Encabezados con efecto 3D y brillo pulsante - ESTILO ALTERNATIVO */
+        /* Encabezados con nueva tipografía más fluida */
         h2 {
-            font-family: 'Orbitron', sans-serif;
+            font-family: 'Playfair Display', serif;
             font-size: 2.8rem;
             margin-bottom: 2rem;
             text-align: center;
             position: relative;
             padding-bottom: 1rem;
-            font-weight: 500; /* Menos grosor */
+            font-weight: 500;
             text-transform: uppercase;
             letter-spacing: 2px;
             color: #00FFFF;
@@ -609,7 +609,7 @@
             color: #0a0a2a;
             font-weight: bold;
             text-align: center;
-            font-family: 'Orbitron', sans-serif;
+            font-family: 'Cinzel Decorative', cursive;
             font-size: 1.8rem;
             padding: 1rem;
             z-index: 2;
@@ -865,7 +865,7 @@
             width: 80%;
         }
         
-        /* Visualizador de ondas de audio */
+        /* Visualizador de ondas de audio - MEJORADO */
         .waveform {
             display: flex;
             align-items: flex-end;
@@ -882,16 +882,7 @@
             background: linear-gradient(to top, #00FFFF, #FF00FF);
             border-radius: 2px 2px 0 0;
             min-height: 2px;
-            animation: wave-pulse 1.5s infinite ease-in-out;
-        }
-        
-        @keyframes wave-pulse {
-            0%, 100% {
-                opacity: 0.6;
-            }
-            50% {
-                opacity: 1;
-            }
+            transition: height 0.1s ease;
         }
         
         /* Videos de interés */
@@ -1120,7 +1111,7 @@
             justify-content: center;
             color: #0a0a2a;
             font-weight: bold;
-            font-family: 'Orbitron', sans-serif;
+            font-family: 'Cinzel Decorative', cursive;
             font-size: 1.5rem;
             text-align: center;
             padding: 1rem;
@@ -1427,22 +1418,8 @@
                                 <div class="audio-title">Cuestión de cuestionar</div>
                                 
                                 <!-- Visualizador de ondas -->
-                                <div class="waveform">
-                                    <div class="wave-bar" style="height: 30%"></div>
-                                    <div class="wave-bar" style="height: 60%"></div>
-                                    <div class="wave-bar" style="height: 45%"></div>
-                                    <div class="wave-bar" style="height: 70%"></div>
-                                    <div class="wave-bar" style="height: 35%"></div>
-                                    <div class="wave-bar" style="height: 80%"></div>
-                                    <div class="wave-bar" style="height: 50%"></div>
-                                    <div class="wave-bar" style="height: 65%"></div>
-                                    <div class="wave-bar" style="height: 40%"></div>
-                                    <div class="wave-bar" style="height: 75%"></div>
-                                    <div class="wave-bar" style="height: 55%"></div>
-                                    <div class="wave-bar" style="height: 70%"></div>
-                                    <div class="wave-bar" style="height: 45%"></div>
-                                    <div class="wave-bar" style="height: 60%"></div>
-                                    <div class="wave-bar" style="height: 35%"></div>
+                                <div class="waveform" id="waveform-1">
+                                    <!-- Las barras se generarán dinámicamente con JavaScript -->
                                 </div>
                                 
                                 <!-- Controles -->
@@ -1498,22 +1475,8 @@
                                 <div class="audio-title">Condiciones altas</div>
                                 
                                 <!-- Visualizador de ondas -->
-                                <div class="waveform">
-                                    <div class="wave-bar" style="height: 40%"></div>
-                                    <div class="wave-bar" style="height: 70%"></div>
-                                    <div class="wave-bar" style="height: 55%"></div>
-                                    <div class="wave-bar" style="height: 80%"></div>
-                                    <div class="wave-bar" style="height: 45%"></div>
-                                    <div class="wave-bar" style="height: 75%"></div>
-                                    <div class="wave-bar" style="height: 60%"></div>
-                                    <div class="wave-bar" style="height: 70%"></div>
-                                    <div class="wave-bar" style="height: 50%"></div>
-                                    <div class="wave-bar" style="height: 65%"></div>
-                                    <div class="wave-bar" style="height: 45%"></div>
-                                    <div class="wave-bar" style="height: 60%"></div>
-                                    <div class="wave-bar" style="height: 35%"></div>
-                                    <div class="wave-bar" style="height: 50%"></div>
-                                    <div class="wave-bar" style="height: 30%"></div>
+                                <div class="waveform" id="waveform-2">
+                                    <!-- Las barras se generarán dinámicamente con JavaScript -->
                                 </div>
                                 
                                 <!-- Controles -->
@@ -1566,22 +1529,8 @@
                                 <div class="audio-title">Fuego eterno</div>
                                 
                                 <!-- Visualizador de ondas -->
-                                <div class="waveform">
-                                    <div class="wave-bar" style="height: 50%"></div>
-                                    <div class="wave-bar" style="height: 80%"></div>
-                                    <div class="wave-bar" style="height: 65%"></div>
-                                    <div class="wave-bar" style="height: 90%"></div>
-                                    <div class="wave-bar" style="height: 55%"></div>
-                                    <div class="wave-bar" style="height: 85%"></div>
-                                    <div class="wave-bar" style="height: 70%"></div>
-                                    <div class="wave-bar" style="height: 80%"></div>
-                                    <div class="wave-bar" style="height: 60%"></div>
-                                    <div class="wave-bar" style="height: 75%"></div>
-                                    <div class="wave-bar" style="height: 55%"></div>
-                                    <div class="wave-bar" style="height: 70%"></div>
-                                    <div class="wave-bar" style="height: 45%"></div>
-                                    <div class="wave-bar" style="height: 60%"></div>
-                                    <div class="wave-bar" style="height: 40%"></div>
+                                <div class="waveform" id="waveform-3">
+                                    <!-- Las barras se generarán dinámicamente con JavaScript -->
                                 </div>
                                 
                                 <!-- Controles -->
@@ -1637,22 +1586,8 @@
                                 <div class="audio-title">Ciencia tecnológica</div>
                                 
                                 <!-- Visualizador de ondas -->
-                                <div class="waveform">
-                                    <div class="wave-bar" style="height: 35%"></div>
-                                    <div class="wave-bar" style="height: 65%"></div>
-                                    <div class="wave-bar" style="height: 50%"></div>
-                                    <div class="wave-bar" style="height: 75%"></div>
-                                    <div class="wave-bar" style="height: 40%"></div>
-                                    <div class="wave-bar" style="height: 70%"></div>
-                                    <div class="wave-bar" style="height: 55%"></div>
-                                    <div class="wave-bar" style="height: 65%"></div>
-                                    <div class="wave-bar" style="height: 45%"></div>
-                                    <div class="wave-bar" style="height: 60%"></div>
-                                    <div class="wave-bar" style="height: 40%"></div>
-                                    <div class="wave-bar" style="height: 55%"></div>
-                                    <div class="wave-bar" style="height: 30%"></div>
-                                    <div class="wave-bar" style="height: 45%"></div>
-                                    <div class="wave-bar" style="height: 25%"></div>
+                                <div class="waveform" id="waveform-4">
+                                    <!-- Las barras se generarán dinámicamente con JavaScript -->
                                 </div>
                                 
                                 <!-- Controles -->
@@ -1700,9 +1635,206 @@
                 </div>
             </section>
             
-            <!-- Resto del contenido (comentarios, referentes, videos, blog, contacto) -->
-            <!-- Se mantiene igual que en el código anterior -->
+            <!-- Sección de comentarios -->
+            <section id="comentarios">
+                <h2 data-text="Me gustaría conocer tu opinión">Me gustaría conocer tu opinión</h2>
+                <form class="comments-form" id="commentForm">
+                    <div class="form-group">
+                        <label for="comment-name">Nombre</label>
+                        <input type="text" id="comment-name" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="comment-email">Email</label>
+                        <input type="email" id="comment-email" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="comment-rating">Valoración</label>
+                        <select id="comment-rating" required>
+                            <option value="">Selecciona una valoración</option>
+                            <option value="5">⭐️⭐️⭐️⭐️⭐️ Excelente</option>
+                            <option value="4">⭐️⭐️⭐️⭐️ Muy Bueno</option>
+                            <option value="3">⭐️⭐️⭐️ Bueno</option>
+                            <option value="2">⭐️⭐️ Regular</option>
+                            <option value="1">⭐️ Mejorable</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="comment-message">Tu comentario</label>
+                        <textarea id="comment-message" rows="5" required></textarea>
+                    </div>
+                    
+                    <button type="submit" class="submit-btn">Enviar Comentario</button>
+                </form>
+            </section>
             
+            <!-- Referentes de investigación -->
+            <section id="referentes">
+                <h2 data-text="Referentes de Investigación">Referentes de Investigación</h2>
+                
+                <div class="referentes-grid">
+                    <!-- Cristina Martin Jimenez -->
+                    <div class="referente-card">
+                        <div class="referente-header">
+                            <h3 class="referente-name">Cristina Martín Jiménez</h3>
+                            <p class="referente-title">Periodista de investigación</p>
+                        </div>
+                        <div class="referente-content">
+                            <p class="referente-bio">Periodista especializada en geopolítica y análisis del poder. Autora de varios libros sobre los entresijos del poder mundial y las élites globales.</p>
+                            <div class="referente-links">
+                                <a href="#" class="referente-link" target="_blank">
+                                    <i class="fab fa-instagram"></i> Instagram
+                                </a>
+                                <a href="#" class="referente-link" target="_blank">
+                                    <i class="fas fa-book"></i> Libros
+                                </a>
+                                <a href="#" class="referente-link" target="_blank">
+                                    <i class="fab fa-youtube"></i> YouTube
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Coronel Pedro Baños -->
+                    <div class="referente-card">
+                        <div class="referente-header">
+                            <h3 class="referente-name">Coronel Pedro Baños</h3>
+                            <p class="referente-title">Experto en geopolítica</p>
+                        </div>
+                        <div class="referente-content">
+                            <p class="referente-bio">Coronel del Ejército de Tierra español, experto en geopolítica, estrategia, defensa, seguridad, inteligencia y terrorismo yihadista.</p>
+                            <div class="referente-links">
+                                <a href="#" class="referente-link" target="_blank">
+                                    <i class="fab fa-instagram"></i> Instagram
+                                </a>
+                                <a href="#" class="referente-link" target="_blank">
+                                    <i class="fas fa-book"></i> Libros
+                                </a>
+                                <a href="#" class="referente-link" target="_blank">
+                                    <i class="fab fa-youtube"></i> YouTube
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Justicia Social -->
+                    <div class="referente-card">
+                        <div class="referente-header">
+                            <h3 class="referente-name">Justicia Social</h3>
+                            <p class="referente-title">Canal de Telegram</p>
+                        </div>
+                        <div class="referente-content">
+                            <p class="referente-bio">Canal de Telegram especializado en análisis de actualidad política y social desde una perspectiva crítica y de justicia social.</p>
+                            <div class="referente-links">
+                                <a href="#" class="referente-link" target="_blank">
+                                    <i class="fab fa-telegram"></i> Telegram
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Iker Jimenez -->
+                    <div class="referente-card">
+                        <div class="referente-header">
+                            <h3 class="referente-name">Iker Jiménez</h3>
+                            <p class="referente-title">Periodista e investigador</p>
+                        </div>
+                        <div class="referente-content">
+                            <p class="referente-bio">Periodista, escritor y director de programas de televisión especializado en misterio, enigmas históricos y fenómenos inexplicables.</p>
+                            <div class="referente-links">
+                                <a href="#" class="referente-link" target="_blank">
+                                    <i class="fas fa-book"></i> Libros
+                                </a>
+                                <a href="#" class="referente-link" target="_blank">
+                                    <i class="fab fa-youtube"></i> YouTube
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- Videos de Interés - URLS CORREGIDAS -->
+            <section id="videos">
+                <h2 data-text="Videos de Interés">Videos de Interés</h2>
+                <p>Explora contenido visual que complementa el universo de Desengany.</p>
+                
+                <div class="videos-grid" id="videos-container">
+                    <div class="video-item">
+                        <video controls style="width:100%; height:auto;">
+                            <source src="https://raw.githubusercontent.com/pensamientoincansable/Desengany/main/media/videos/video-interes.mp4" type="video/mp4">
+                            Tu navegador no soporta el elemento de video.
+                        </video>
+                        <div class="video-title">Video de Interés</div>
+                    </div>
+                    
+                    <div class="video-item">
+                        <video controls style="width:100%; height:auto;">
+                            <source src="https://raw.githubusercontent.com/pensamientoincansable/Desengany/main/media/videos/video-fondo.mp4" type="video/mp4">
+                            Tu navegador no soporta el elemento de video.
+                        </video>
+                        <div class="video-title">Video de Fondo</div>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- Blog -->
+            <section id="blog">
+                <h2 data-text="Blog de Conciencia">Blog de Conciencia</h2>
+                <div class="blog-posts">
+                    <article class="post">
+                        <div class="post-image">REALIDAD EXPANDIDA</div>
+                        <div class="post-content">
+                            <h3 class="post-title">Más Allá del Velo</h3>
+                            <p class="post-excerpt">Una reflexión sobre los límites de la percepción humana y cómo trascender la realidad convencional para explorar dimensiones más amplias de la existencia.</p>
+                            <a href="#" class="read-more">Leer más</a>
+                        </div>
+                    </article>
+                    
+                    <article class="post">
+                        <div class="post-image">CONSPIRACIÓN</div>
+                        <div class="post-content">
+                            <h3 class="post-title">Patrones Ocultos</h3>
+                            <p class="post-excerpt">Explorando la naturaleza de la realidad a través del análisis de patrones ocultos en los eventos globales y cómo discernir la verdad entre la desinformación.</p>
+                            <a href="#" class="read-more">Leer más</a>
+                        </div>
+                    </article>
+                    
+                    <article class="post">
+                        <div class="post-image">HOLOGRAMA</div>
+                        <div class="post-content">
+                            <h3 class="post-title">La Realidad como Holograma</h3>
+                            <p class="post-excerpt">Cómo las teorías holográficas del universo pueden ayudarnos a comprender la naturaleza ilusoria de la realidad y nuestro lugar en el cosmos.</p>
+                            <a href="#" class="read-more">Leer más</a>
+                        </div>
+                    </article>
+                </div>
+            </section>
+            
+            <!-- Contacto -->
+            <section id="contacto">
+                <h2 data-text="Contacto">Contacto</h2>
+                <form class="contact-form" action="https://formspree.io/f/pensamientoincansable@gmail.com" method="POST" id="contactForm">
+                    <div class="form-group">
+                        <label for="name">Nombre</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="message">Mensaje</label>
+                        <textarea id="message" name="message" rows="5" required></textarea>
+                    </div>
+                    
+                    <button type="submit" class="submit-btn">Enviar Mensaje</button>
+                </form>
+            </section>
         </div>
     </div>
     
@@ -1792,6 +1924,18 @@
             messageIndex = (messageIndex + 1) % messages.length;
         }, 3000);
 
+        // Crear barras de onda para cada reproductor
+        document.querySelectorAll('.waveform').forEach(waveform => {
+            for (let i = 0; i < 15; i++) {
+                const bar = document.createElement('div');
+                bar.classList.add('wave-bar');
+                // Altura inicial aleatoria
+                const randomHeight = Math.random() * 60 + 20;
+                bar.style.height = `${randomHeight}%`;
+                waveform.appendChild(bar);
+            }
+        });
+
         // Reproductores de audio personalizados
         document.querySelectorAll('.audio-player').forEach(player => {
             const audio = player.querySelector('.audio-element');
@@ -1817,13 +1961,13 @@
                 progressBar.style.width = `${percent}%`;
                 currentTimeEl.textContent = formatTime(audio.currentTime);
                 
-                // Animar barras de onda
-                waveBars.forEach(bar => {
-                    if (!audio.paused) {
+                // Animar barras de onda en tiempo real
+                if (!audio.paused) {
+                    waveBars.forEach(bar => {
                         const randomHeight = Math.random() * 80 + 20;
                         bar.style.height = `${randomHeight}%`;
-                    }
-                });
+                    });
+                }
             }
             
             // Establecer duración
@@ -1854,20 +1998,29 @@
                     audio.play();
                     playBtn.textContent = '❚❚';
                     
-                    // Activar animación de barras de onda
-                    waveBars.forEach(bar => {
-                        bar.style.animationPlayState = 'running';
-                    });
+                    // Iniciar animación de barras de onda
+                    animateWaveBars();
                 } else {
                     audio.pause();
                     playBtn.textContent = '▶';
                     
-                    // Pausar animación de barras de onda
-                    waveBars.forEach(bar => {
-                        bar.style.animationPlayState = 'paused';
-                    });
+                    // Detener animación de barras de onda
+                    cancelAnimationFrame(animationFrame);
                 }
             });
+            
+            let animationFrame;
+            
+            function animateWaveBars() {
+                waveBars.forEach(bar => {
+                    const randomHeight = Math.random() * 80 + 20;
+                    bar.style.height = `${randomHeight}%`;
+                });
+                
+                if (!audio.paused) {
+                    animationFrame = requestAnimationFrame(animateWaveBars);
+                }
+            }
             
             // Eventos de audio
             audio.addEventListener('loadedmetadata', setDuration);
@@ -1876,11 +2029,7 @@
                 playBtn.textContent = '▶';
                 progressBar.style.width = '0%';
                 currentTimeEl.textContent = '0:00';
-                
-                // Reiniciar barras de onda
-                waveBars.forEach(bar => {
-                    bar.style.animationPlayState = 'paused';
-                });
+                cancelAnimationFrame(animationFrame);
             });
             
             // Inicializar volumen

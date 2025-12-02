@@ -4,8 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Desengany - Realidad Expandida</title>
-    <!-- Favicon/Logo de pestaña -->
-    <link rel="icon" type="image/webp" href="https://raw.githubusercontent.com/pensamientoincansable/Desengany/main/media/images/desengany.webp">
+    
+    <!-- Favicon (logo en la pestaña del navegador) -->
+    <link rel="icon" href="https://raw.githubusercontent.com/pensamientoincansable/Desengany/main/media/images/desengany.webp" type="image/webp">
+    
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;700&family=Exo+2:wght@300;400;600&family=Rajdhani:wght@300;400;500&family=Cinzel+Decorative:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
@@ -386,7 +388,7 @@
             margin-bottom: 1rem;
         }
         
-        /* Botón de Instagram */
+        /* Botón de Instagram - MEJORADO CON ANIMACIÓN ESPECIAL */
         .bio-image {
             flex: 0 0 200px;
             height: 200px;
@@ -400,17 +402,19 @@
             overflow: hidden;
             position: relative;
             cursor: pointer;
-            transition: all 0.3s;
+            transition: all 0.5s;
             text-decoration: none;
+            animation: instagram-pulse 4s infinite alternate;
         }
         
         .bio-image:hover {
-            transform: scale(1.03);
-            box-shadow: 0 0 25px rgba(0, 255, 255, 0.6);
+            transform: scale(1.08) rotate(5deg);
+            box-shadow: 0 0 40px rgba(0, 255, 255, 0.8), 0 0 60px rgba(255, 0, 255, 0.6);
+            animation: none;
         }
         
         .bio-image::before {
-            content: "DESENGANY";
+            content: "CONTACTO";
             color: #0a0a2a;
             font-weight: bold;
             text-align: center;
@@ -418,6 +422,13 @@
             font-size: 1.5rem;
             padding: 1rem;
             z-index: 2;
+            transition: all 0.5s;
+        }
+        
+        .bio-image:hover::before {
+            content: "INSTAGRAM";
+            color: #FF00FF;
+            text-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
         }
         
         .bio-image::after {
@@ -429,6 +440,23 @@
             height: 100%;
             background: radial-gradient(circle at 30% 30%, rgba(255, 255, 255, 0.3) 0%, transparent 50%);
             opacity: 0.5;
+            transition: all 0.5s;
+        }
+        
+        .bio-image:hover::after {
+            background: radial-gradient(circle at 70% 30%, rgba(255, 0, 255, 0.4) 0%, transparent 70%);
+            opacity: 0.8;
+        }
+        
+        @keyframes instagram-pulse {
+            0% {
+                box-shadow: 0 0 20px rgba(0, 255, 255, 0.5);
+                transform: scale(1);
+            }
+            100% {
+                box-shadow: 0 0 30px rgba(255, 0, 255, 0.7), 0 0 40px rgba(0, 255, 255, 0.5);
+                transform: scale(1.02);
+            }
         }
         
         /* Pestañas de música */
@@ -682,7 +710,7 @@
             transition: height 0.2s ease;
         }
         
-        /* Videos de interés */
+        /* Videos de interés - ACTUALIZADO CON YOUTUBE */
         .videos-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
@@ -701,20 +729,36 @@
         .video-item:hover {
             transform: translateY(-5px);
             border-color: #FF00FF;
+            box-shadow: 0 10px 20px rgba(0, 255, 255, 0.3);
         }
         
-        .video-item video {
+        .video-wrapper {
+            position: relative;
             width: 100%;
-            height: auto;
-            display: block;
+            padding-bottom: 56.25%; /* Relación de aspecto 16:9 */
+            height: 0;
+            overflow: hidden;
+        }
+        
+        .video-wrapper iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
         }
         
         .video-title {
-            padding: 0.8rem;
+            padding: 1rem;
             text-align: center;
             color: #00FFFF;
             font-family: 'Rajdhani', sans-serif;
             font-weight: 600;
+            min-height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
         
         /* Sección de comentarios */
@@ -953,12 +997,6 @@
             color: #00FFFF;
         }
         
-        /* Contacto */
-        .contact-form {
-            max-width: 600px;
-            margin: 0 auto;
-        }
-        
         /* Sección de Evidencias Conspirativas */
         .evidencias-grid {
             display: grid;
@@ -1051,38 +1089,36 @@
             font-weight: bold;
         }
         
-        /* Footer - ACTUALIZADO con logo y redes sociales */
+        /* Logo del footer */
+        .footer-logo {
+            text-align: center;
+            margin-bottom: 1.5rem;
+        }
+        
+        .footer-logo img {
+            max-width: 150px;
+            height: auto;
+            opacity: 0.9;
+            transition: all 0.3s ease;
+            border-radius: 10px;
+            border: 1px solid rgba(0, 255, 255, 0.3);
+            box-shadow: 0 0 15px rgba(0, 255, 255, 0.2);
+        }
+        
+        .footer-logo img:hover {
+            opacity: 1;
+            transform: scale(1.05);
+            box-shadow: 0 0 20px rgba(0, 255, 255, 0.4);
+        }
+        
+        /* Footer */
         footer {
             background: rgba(20, 20, 60, 0.9);
-            padding: 3rem 1.5rem 2.5rem;
+            padding: 2.5rem 1.5rem;
             text-align: center;
             border-top: 1px solid #00FFFF;
             margin-top: 2.5rem;
             clip-path: polygon(0 10%, 50% 0, 100% 10%, 100% 100%, 0 100%);
-        }
-        
-        /* Logo en el footer */
-        .footer-logo {
-            width: 120px;
-            height: 120px;
-            margin: 0 auto 2rem;
-            border-radius: 50%;
-            overflow: hidden;
-            border: 2px solid #00FFFF;
-            box-shadow: 0 0 20px rgba(0, 255, 255, 0.4);
-            transition: all 0.3s;
-        }
-        
-        .footer-logo:hover {
-            transform: scale(1.05);
-            box-shadow: 0 0 30px rgba(0, 255, 255, 0.6);
-        }
-        
-        .footer-logo img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            display: block;
         }
         
         .social-links {
@@ -1097,8 +1133,8 @@
             color: #00FFFF;
             font-size: 1.5rem;
             transition: all 0.3s;
-            width: 50px;
-            height: 50px;
+            width: 45px;
+            height: 45px;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -1110,24 +1146,13 @@
         .social-link:hover {
             transform: translateY(-3px);
             background: rgba(0, 255, 255, 0.2);
-            box-shadow: 0 5px 15px rgba(0, 255, 255, 0.3);
-        }
-        
-        /* TikTok específico */
-        .tiktok-link {
-            color: #00FFFF;
-            background: rgba(40, 40, 100, 0.7);
-        }
-        
-        .tiktok-link:hover {
-            color: #00FFFF;
-            background: rgba(0, 255, 255, 0.2);
+            color: #FF00FF;
         }
         
         .copyright {
             color: #CCCCFF;
             font-size: 0.9rem;
-            margin-top: 1.5rem;
+            margin-top: 1rem;
         }
         
         /* Terminal decorativo - ELIMINADO EN MÓVILES */
@@ -1320,23 +1345,6 @@
                 left: 75%;
             }
             
-            /* Footer responsive */
-            .footer-logo {
-                width: 100px;
-                height: 100px;
-                margin-bottom: 1.5rem;
-            }
-            
-            .social-links {
-                gap: 1rem;
-            }
-            
-            .social-link {
-                width: 45px;
-                height: 45px;
-                font-size: 1.3rem;
-            }
-            
             .matrix-terminal {
                 display: none;
             }
@@ -1355,6 +1363,20 @@
             /* Ajustar el footer */
             footer {
                 padding: 2rem 1rem;
+            }
+            
+            .footer-logo img {
+                max-width: 120px;
+            }
+            
+            .social-links {
+                gap: 1rem;
+            }
+            
+            .social-link {
+                width: 40px;
+                height: 40px;
+                font-size: 1.3rem;
             }
         }
         
@@ -1396,9 +1418,8 @@
                 font-size: 1.2rem;
             }
             
-            .footer-logo {
-                width: 80px;
-                height: 80px;
+            .footer-logo img {
+                max-width: 100px;
             }
         }
         
@@ -1453,7 +1474,7 @@
         </div>
     </header>
     
-    <!-- Navegación ACTUALIZADA con nueva sección -->
+    <!-- Navegación ACTUALIZADA - Contacto eliminado y reemplazado por Instagram -->
     <nav>
         <ul>
             <li><a href="#biografia">Biografía</a></li>
@@ -1463,7 +1484,7 @@
             <li><a href="#videos">Videos</a></li>
             <li><a href="#evidencias">Evidencias</a></li>
             <li><a href="#blog">Blog</a></li>
-            <li><a href="#contacto">Contacto</a></li>
+            <li><a href="#biografia" class="contacto-link">Contacto</a></li>
         </ul>
     </nav>
     
@@ -1480,7 +1501,7 @@
                         <p>El proceso creativo combina técnicas tradicionales con tecnología de vanguardia, creando un sonido que es a la vez orgánico y digital, terrenal y cósmico. Las letras exploran temas de identidad, realidad, control social y la búsqueda de autenticidad en un mundo de información contradictoria.</p>
                         <p>Con cada nuevo lanzamiento, invito a mis oyentes a cuestionar lo establecido y explorar perspectivas alternativas, siempre con mente abierta pero con espíritu crítico.</p>
                     </div>
-                    <a href="https://www.instagram.com/conillet_blanquet?igsh=MXQxc2diY3dhMDVkdQ==" target="_blank" class="bio-image"></a>
+                    <a href="https://www.instagram.com/conillet_blanquet?igsh=MXQxc2diY3dhMDVkdQ==" target="_blank" class="bio-image" id="instagram-contact"></a>
                 </div>
             </section>
             
@@ -1838,26 +1859,62 @@
                 </div>
             </section>
             
-            <!-- Videos de Interés SIN video de fondo -->
+            <!-- Videos de Interés ACTUALIZADOS con YouTube -->
             <section id="videos">
                 <h2 data-text="Videos de Interés">Videos de Interés</h2>
                 <p>Explora contenido visual que complementa el universo de Desengany.</p>
                 
                 <div class="videos-grid" id="videos-container">
                     <div class="video-item">
-                        <video controls style="width:100%; height:auto;" preload="metadata" poster="">
-                            <source src="https://raw.githubusercontent.com/pensamientoincansable/Desengany/main/media/videos/video-interes.mp4" type="video/mp4">
-                            Tu navegador no soporta el elemento de video.
-                        </video>
-                        <div class="video-title">Video de Interés</div>
+                        <div class="video-wrapper">
+                            <iframe 
+                                src="https://www.youtube.com/embed/xp3Kggtm3os?start=737" 
+                                title="Joan Ramon Laporte - Medicamentos que matan"
+                                frameborder="0" 
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                                allowfullscreen>
+                            </iframe>
+                        </div>
+                        <div class="video-title">Joan Ramon Laporte - Medicamentos que matan</div>
                     </div>
                     
                     <div class="video-item">
-                        <video controls style="width:100%; height:auto;" preload="metadata" poster="">
-                            <source src="https://raw.githubusercontent.com/pensamientoincansable/Desengany/main/media/videos/video-fondo.mp4" type="video/mp4">
-                            Tu navegador no soporta el elemento de video.
-                        </video>
-                        <div class="video-title">Video de Fondo</div>
+                        <div class="video-wrapper">
+                            <iframe 
+                                src="https://www.youtube.com/embed/7yyxy0nLuk8" 
+                                title="Desmontando la teoría oficial del 11M"
+                                frameborder="0" 
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                                allowfullscreen>
+                            </iframe>
+                        </div>
+                        <div class="video-title">Desmontando la teoría oficial del 11M</div>
+                    </div>
+                    
+                    <div class="video-item">
+                        <div class="video-wrapper">
+                            <iframe 
+                                src="https://www.youtube.com/embed/L4ixaGOJCr4" 
+                                title="La verdad sobre el 11S"
+                                frameborder="0" 
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                                allowfullscreen>
+                            </iframe>
+                        </div>
+                        <div class="video-title">La verdad sobre el 11S</div>
+                    </div>
+                    
+                    <div class="video-item">
+                        <div class="video-wrapper">
+                            <iframe 
+                                src="https://www.youtube.com/embed/cBVxoC13mDQ" 
+                                title="Conspiraciones reales"
+                                frameborder="0" 
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                                allowfullscreen>
+                            </iframe>
+                        </div>
+                        <div class="video-title">Conspiraciones reales</div>
                     </div>
                 </div>
             </section>
@@ -1957,67 +2014,31 @@
                     </article>
                 </div>
             </section>
-            
-            <!-- Contacto SIN video de fondo -->
-            <section id="contacto">
-                <h2 data-text="Contacto">Contacto</h2>
-                <form class="contact-form" action="https://formspree.io/f/pensamientoincansable@gmail.com" method="POST" id="contactForm">
-                    <div class="form-group">
-                        <label for="name">Nombre</label>
-                        <input type="text" id="name" name="name" required>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="email">Email</label>
-                        <input type="email" id="email" name="email" required>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="message">Mensaje</label>
-                        <textarea id="message" name="message" rows="5" required></textarea>
-                    </div>
-                    
-                    <button type="submit" class="submit-btn">Enviar Mensaje</button>
-                </form>
-            </section>
         </div>
     </div>
     
-    <!-- Footer ACTUALIZADO con logo y redes sociales modificadas -->
+    <!-- Footer actualizado -->
     <footer>
         <!-- Logo de Desengany -->
         <div class="footer-logo">
-            <img src="https://raw.githubusercontent.com/pensamientoincansable/Desengany/main/media/images/desengany.webp" alt="Logo Desengany" loading="lazy">
+            <img src="https://raw.githubusercontent.com/pensamientoincansable/Desengany/main/media/images/desengany.webp" alt="Logo Desengany">
         </div>
         
-        <!-- Enlaces a redes sociales ACTUALIZADOS -->
+        <!-- Enlaces a redes sociales (sin FB y Twitter, con TikTok) -->
         <div class="social-links">
-            <!-- Instagram (mantenido) -->
             <a href="https://www.instagram.com/conillet_blanquet?igsh=MXQxc2diY3dhMDVkdQ==" target="_blank" class="social-link">
                 <i class="fab fa-instagram"></i>
             </a>
-            
-            <!-- YouTube (mantenido) -->
             <a href="#" class="social-link">
                 <i class="fab fa-youtube"></i>
             </a>
-            
-            <!-- SoundCloud (mantenido) -->
             <a href="#" class="social-link">
                 <i class="fab fa-soundcloud"></i>
             </a>
-            
-            <!-- TikTok (NUEVO - reemplaza a Twitter) -->
-            <a href="#" class="social-link tiktok-link">
+            <a href="#" class="social-link">
                 <i class="fab fa-tiktok"></i>
             </a>
-            
-            <!-- Spotify (nuevo, reemplaza a Facebook) -->
-            <a href="https://open.spotify.com/artist/..." target="_blank" class="social-link">
-                <i class="fab fa-spotify"></i>
-            </a>
         </div>
-        
         <p class="copyright">&copy; 2023 Desengany. Todos los derechos reservados.</p>
     </footer>
     
@@ -2039,16 +2060,33 @@
                             top: targetElement.offsetTop - 20,
                             behavior: 'smooth'
                         });
+                        
+                        // Si el enlace es "Contacto", destacar el botón de Instagram
+                        if (this.classList.contains('contacto-link')) {
+                            setTimeout(() => {
+                                const instagramBtn = document.getElementById('instagram-contact');
+                                if (instagramBtn) {
+                                    // Añadir clase de animación especial
+                                    instagramBtn.classList.add('contacto-highlight');
+                                    
+                                    // Remover después de 3 segundos
+                                    setTimeout(() => {
+                                        instagramBtn.classList.remove('contacto-highlight');
+                                    }, 3000);
+                                    
+                                    // Scroll adicional para centrar el botón
+                                    setTimeout(() => {
+                                        instagramBtn.scrollIntoView({
+                                            behavior: 'smooth',
+                                            block: 'center'
+                                        });
+                                    }, 600);
+                                }
+                            }, 800);
+                        }
                     }, 50);
                 }
             });
-        });
-        
-        // Manejo del formulario de contacto
-        document.getElementById('contactForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-            alert('¡Gracias por tu mensaje! Te responderé lo antes posible.');
-            this.reset();
         });
         
         // Manejo del formulario de comentarios
@@ -2236,6 +2274,28 @@
         document.querySelectorAll('.evidencia-video').forEach(video => {
             videoObserver.observe(video);
         });
+        
+        // Estilo adicional para el resaltado del botón de contacto
+        const style = document.createElement('style');
+        style.textContent = `
+            .bio-image.contacto-highlight {
+                animation: contacto-pulse 0.5s 6 !important;
+                box-shadow: 0 0 30px rgba(255, 0, 255, 0.8), 0 0 60px rgba(0, 255, 255, 0.6) !important;
+                transform: scale(1.1) !important;
+            }
+            
+            @keyframes contacto-pulse {
+                0%, 100% { 
+                    box-shadow: 0 0 30px rgba(255, 0, 255, 0.8), 0 0 60px rgba(0, 255, 255, 0.6);
+                    transform: scale(1.1);
+                }
+                50% { 
+                    box-shadow: 0 0 40px rgba(255, 0, 255, 1), 0 0 80px rgba(0, 255, 255, 0.8);
+                    transform: scale(1.15);
+                }
+            }
+        `;
+        document.head.appendChild(style);
     </script>
 </body>
 </html>

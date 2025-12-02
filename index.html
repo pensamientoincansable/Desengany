@@ -957,6 +957,98 @@
             margin: 0 auto;
         }
         
+        /* Sección de Evidencias Conspirativas */
+        .evidencias-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        
+        .evidencia-item {
+            background: rgba(30, 30, 80, 0.8);
+            border-radius: 12px;
+            overflow: hidden;
+            border: 1px solid #00FFFF;
+            transition: all 0.3s;
+            position: relative;
+        }
+        
+        .evidencia-item:hover {
+            transform: translateY(-8px);
+            border-color: #FF00FF;
+            box-shadow: 0 10px 25px rgba(0, 255, 255, 0.3);
+        }
+        
+        .evidencia-item::before {
+            content: "⚠️";
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            z-index: 2;
+            font-size: 1.2rem;
+            background: rgba(0, 0, 0, 0.6);
+            border-radius: 50%;
+            width: 30px;
+            height: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .evidencia-video {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            display: block;
+            border-bottom: 1px solid #00FFFF;
+        }
+        
+        .evidencia-content {
+            padding: 1.5rem;
+        }
+        
+        .evidencia-title {
+            font-size: 1.4rem;
+            color: #00FFFF;
+            margin-bottom: 0.8rem;
+            font-family: 'Rajdhani', sans-serif;
+            font-weight: 600;
+            text-align: center;
+        }
+        
+        .evidencia-desc {
+            color: #CCCCFF;
+            line-height: 1.5;
+            font-size: 0.95rem;
+            text-align: center;
+            margin-bottom: 1rem;
+        }
+        
+        .evidencia-info {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 1.2rem;
+            padding-top: 1rem;
+            border-top: 1px dashed rgba(0, 255, 255, 0.3);
+        }
+        
+        .evidencia-source {
+            font-size: 0.8rem;
+            color: #8888CC;
+            font-style: italic;
+        }
+        
+        .evidencia-tag {
+            background: rgba(255, 0, 0, 0.2);
+            color: #FF5555;
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: bold;
+        }
+        
         /* Footer */
         footer {
             background: rgba(20, 20, 60, 0.9);
@@ -1137,6 +1229,15 @@
                 gap: 1.2rem;
             }
             
+            .evidencias-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+            
+            .evidencia-video {
+                height: 180px;
+            }
+            
             .blog-posts {
                 grid-template-columns: 1fr;
                 gap: 1.5rem;
@@ -1189,7 +1290,7 @@
             }
             
             /* Asegurar que los textos no se salgan de sus contenedores */
-            .bio-text, .tab-content, .referente-bio, .post-excerpt, .intro p {
+            .bio-text, .tab-content, .referente-bio, .post-excerpt, .intro p, .evidencia-desc {
                 word-wrap: break-word;
                 overflow-wrap: break-word;
                 hyphens: auto;
@@ -1239,6 +1340,14 @@
             .bio-image::before {
                 font-size: 1rem;
                 padding: 0.8rem;
+            }
+            
+            .evidencia-video {
+                height: 160px;
+            }
+            
+            .evidencia-title {
+                font-size: 1.2rem;
             }
         }
         
@@ -1293,7 +1402,7 @@
         </div>
     </header>
     
-    <!-- Navegación -->
+    <!-- Navegación ACTUALIZADA con nueva sección -->
     <nav>
         <ul>
             <li><a href="#biografia">Biografía</a></li>
@@ -1301,6 +1410,7 @@
             <li><a href="#comentarios">Comentarios</a></li>
             <li><a href="#referentes">Referentes</a></li>
             <li><a href="#videos">Videos</a></li>
+            <li><a href="#evidencias">Evidencias</a></li>
             <li><a href="#blog">Blog</a></li>
             <li><a href="#contacto">Contacto</a></li>
         </ul>
@@ -1701,6 +1811,69 @@
                 </div>
             </section>
             
+            <!-- NUEVA SECCIÓN: Evidencias Conspirativas -->
+            <section id="evidencias">
+                <h2 data-text="Evidencias Conspirativas">Evidencias Conspirativas</h2>
+                <p class="tagline" style="text-align: center; margin-bottom: 2rem;">Documentación y pruebas sobre operaciones encubiertas y agendas ocultas</p>
+                
+                <div class="evidencias-grid">
+                    <!-- Evidencia 1 -->
+                    <div class="evidencia-item">
+                        <video class="evidencia-video" controls playsinline preload="metadata" poster="">
+                            <source src="https://raw.githubusercontent.com/pensamientoincansable/Desengany/main/media/videos/Noolvidamos.webm" type="video/webm">
+                            Tu navegador no soporta el formato de video WEBM.
+                        </video>
+                        <div class="evidencia-content">
+                            <h3 class="evidencia-title">No Olvidamos</h3>
+                            <p class="evidencia-desc">Documental que explora los eventos históricos que han sido sistemáticamente ocultados o distorsionados por los medios de comunicación convencionales.</p>
+                            <div class="evidencia-info">
+                                <span class="evidencia-source">Fuente: Archivos desclasificados</span>
+                                <span class="evidencia-tag">HISTORIA OCULTA</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Evidencia 2 -->
+                    <div class="evidencia-item">
+                        <video class="evidencia-video" controls playsinline preload="metadata" poster="">
+                            <source src="https://raw.githubusercontent.com/pensamientoincansable/Desengany/main/media/videos/Patentes-fumigacion.webm" type="video/webm">
+                            Tu navegador no soporta el formato de video WEBM.
+                        </video>
+                        <div class="evidencia-content">
+                            <h3 class="evidencia-title">Patentes de Fumigación</h3>
+                            <p class="evidencia-desc">Revelación de patentes registradas para sistemas de dispersión de compuestos químicos en la atmósfera. Documentación oficial que evidencia la planificación de operaciones de geoingeniería.</p>
+                            <div class="evidencia-info">
+                                <span class="evidencia-source">Oficina de Patentes</span>
+                                <span class="evidencia-tag">CHEMTRAILS</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Evidencia 3 -->
+                    <div class="evidencia-item">
+                        <video class="evidencia-video" controls playsinline preload="metadata" poster="">
+                            <source src="https://raw.githubusercontent.com/pensamientoincansable/Desengany/main/media/videos/fumigacionaerea.webm" type="video/webm">
+                            Tu navegador no soporta el formato de video WEBM.
+                        </video>
+                        <div class="evidencia-content">
+                            <h3 class="evidencia-title">Fumigación Aérea</h3>
+                            <p class="evidencia-desc">Imágenes y testimonios sobre operaciones de dispersión de sustancias químicas desde aviones comerciales y militares. Análisis de patrones y composiciones identificadas.</p>
+                            <div class="evidencia-info">
+                                <span class="evidencia-source">Investigación independiente</span>
+                                <span class="evidencia-tag">GEOINGENIERÍA</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div style="margin-top: 3rem; padding: 1.5rem; background: rgba(0, 0, 0, 0.2); border-radius: 10px; border-left: 3px solid #FF5555;">
+                    <h3 style="color: #FF5555; margin-bottom: 1rem; font-family: 'Rajdhani', sans-serif;">⚠️ Importante</h3>
+                    <p style="color: #CCCCFF; line-height: 1.6;">
+                        Esta sección presenta documentación e investigaciones sobre temas controvertidos. Te invitamos a analizar la información con mente crítica y contrastar diferentes fuentes. La búsqueda de la verdad requiere discernimiento y verificación independiente.
+                    </p>
+                </div>
+            </section>
+            
             <!-- Blog SIN video de fondo -->
             <section id="blog">
                 <h2 data-text="Blog de Conciencia">Blog de Conciencia</h2>
@@ -1959,6 +2132,32 @@
                     el.style.animationPlayState = 'running';
                 });
             }
+        });
+        
+        // Optimización para videos de evidencias: cargar solo cuando sean visibles
+        const observerOptions = {
+            root: null,
+            rootMargin: '100px',
+            threshold: 0.1
+        };
+        
+        const videoObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const video = entry.target;
+                    video.setAttribute('preload', 'auto');
+                    
+                    // Precargar el video cuando sea visible
+                    if (video.readyState === 0) {
+                        video.load();
+                    }
+                }
+            });
+        }, observerOptions);
+        
+        // Observar todos los videos de la sección de evidencias
+        document.querySelectorAll('.evidencia-video').forEach(video => {
+            videoObserver.observe(video);
         });
     </script>
 </body>

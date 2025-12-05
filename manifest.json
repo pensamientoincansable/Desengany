@@ -1,0 +1,21 @@
+{
+  "name": "Desengany - Realidad Expandida",
+  "short_name": "Desengany",
+  "description": "Realidad Expandida a Través de la Música",
+  "start_url": "/Desengany/",
+  "display": "standalone",
+  "background_color": "#0a0a2a",
+  "theme_color": "#00FFFF",
+  "icons": [
+    {
+      "src": "https://raw.githubusercontent.com/pensamientoincansable/Desengany/main/media/images/desengany.webp",
+      "sizes": "192x192",
+      "type": "image/webp"
+    },
+    {
+      "src": "https://raw.githubusercontent.com/pensamientoincansable/Desengany/main/media/images/desengany.webp",
+      "sizes": "512x512",
+      "type": "image/webp"
+    }
+  ]
+}

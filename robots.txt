@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://pensamientoincansable.github.io/Desengany/sitemap.xml

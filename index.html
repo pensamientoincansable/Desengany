@@ -8,12 +8,6 @@
     <!-- Favicon (logo en la pestaña del navegador) -->
     <link rel="icon" href="https://raw.githubusercontent.com/pensamientoincansable/Desengany/main/media/images/desengany.webp" type="image/webp">
     
-    <!-- PWA Config -->
-    <link rel="manifest" href="manifest.json">
-    <meta name="theme-color" content="#00FFFF">
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;700&family=Exo+2:wght@300;400;600&family=Rajdhani:wght@300;400;500&family=Cinzel+Decorative:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
@@ -1512,20 +1506,237 @@
             </section>
             
             <!-- Música con reproductor mejorado SIN video de fondo -->
-<section id="musica">
-    <h2 data-text="Música">Música</h2>
-    <p>Explora el universo sonoro de Desengany a través de sus canciones, disponibles en todas las plataformas digitales.</p>
-    
-    <div class="song-tabs" id="song-tabs-container">
-        <!-- Las canciones se cargarán automáticamente aquí desde GitHub -->
-        <div class="song-loading">
-            <p style="color: #00FFFF; text-align: center; padding: 2rem;">
-                <i class="fas fa-sync-alt fa-spin" style="margin-right: 10px;"></i>
-                Cargando canciones...
-            </p>
-        </div>
-    </div>
-</section>
+            <section id="musica">
+                <h2 data-text="Música">Música</h2>
+                <p>Explora el universo sonoro de Desengany a través de sus canciones, disponibles en todas las plataformas digitales.</p>
+                
+                <div class="song-tabs">
+                    <!-- Canción 1 -->
+                    <div class="tab">
+                        <input type="checkbox" id="tab1">
+                        <label for="tab1">Cuestión de cuestionar</label>
+                        <div class="tab-content">
+                            <!-- Reproductor de audio mejorado -->
+                            <div class="audio-player" data-audio="https://raw.githubusercontent.com/pensamientoincansable/Desengany/main/media/audio/cuestion-de-cuestionar.mp3">
+                                <div class="audio-title">Cuestión de cuestionar</div>
+                                
+                                <!-- Visualizador de ondas -->
+                                <div class="waveform" id="waveform-1">
+                                    <!-- Las barras se generarán dinámicamente con JavaScript -->
+                                </div>
+                                
+                                <!-- Controles -->
+                                <div class="player-controls">
+                                    <button class="play-btn">▶</button>
+                                    <div class="progress-container">
+                                        <div class="progress-bar"></div>
+                                    </div>
+                                </div>
+                                
+                                <!-- Tiempo -->
+                                <div class="time-display">
+                                    <span class="current-time">0:00</span>
+                                    <span class="duration">0:00</span>
+                                </div>
+                                
+                                <!-- Control de volumen -->
+                                <div class="volume-control">
+                                    <div class="volume-icon">🔊</div>
+                                    <div class="volume-slider">
+                                        <div class="volume-level"></div>
+                                    </div>
+                                </div>
+                                
+                                <!-- Audio oculto -->
+                                <audio class="audio-element" preload="metadata">
+                                    <source src="https://raw.githubusercontent.com/pensamientoincansable/Desengany/main/media/audio/cuestion-de-cuestionar.mp3" type="audio/mpeg">
+                                    Tu navegador no soporta el elemento de audio.
+                                </audio>
+                            </div>
+                            
+                            <div class="platform-links">
+                                <a href="https://open.spotify.com/track/5nJCERLNonYEktaFHa4dZu?si=BPy0A_BfS9K-I9H8F803Ew" target="_blank" class="platform-link">
+                                    <span class="platform-icon">▶</span> Spotify
+                                </a>
+                                <a href="https://music.apple.com/es/album/cuesti%C3%B3n-de-cuestionar/1789460477?i=1789460722&ls" target="_blank" class="platform-link">
+                                    <span class="platform-icon">▶</span> Apple Music
+                                </a>
+                                <a href="https://music.youtube.com/watch?v=TaHzAyvNZBo&si=GlqsMNgoiLjRB_9k" target="_blank" class="platform-link">
+                                    <span class="platform-icon">▶</span> YouTube Music
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Canción 2 -->
+                    <div class="tab">
+                        <input type="checkbox" id="tab2">
+                        <label for="tab2">Condiciones altas</label>
+                        <div class="tab-content">
+                            <!-- Reproductor de audio mejorado -->
+                            <div class="audio-player" data-audio="https://raw.githubusercontent.com/pensamientoincansable/Desengany/main/media/audio/condiciones-altas.mp3">
+                                <div class="audio-title">Condiciones altas</div>
+                                
+                                <!-- Visualizador de ondas -->
+                                <div class="waveform" id="waveform-2">
+                                    <!-- Las barras se generarán dinámicamente con JavaScript -->
+                                </div>
+                                
+                                <!-- Controles -->
+                                <div class="player-controls">
+                                    <button class="play-btn">▶</button>
+                                    <div class="progress-container">
+                                        <div class="progress-bar"></div>
+                                    </div>
+                                </div>
+                                
+                                <!-- Tiempo -->
+                                <div class="time-display">
+                                    <span class="current-time">0:00</span>
+                                    <span class="duration">0:00</span>
+                                </div>
+                                
+                                <!-- Control de volumen -->
+                                <div class="volume-control">
+                                    <div class="volume-icon">🔊</div>
+                                    <div class="volume-slider">
+                                        <div class="volume-level"></div>
+                                    </div>
+                                </div>
+                                
+                                <!-- Audio oculto -->
+                                <audio class="audio-element" preload="metadata">
+                                    <source src="https://raw.githubusercontent.com/pensamientoincansable/Desengany/main/media/audio/condiciones-altas.mp3" type="audio/mpeg">
+                                    Tu navegador no soporta el elemento de audio.
+                                </audio>
+                            </div>
+                            
+                            <div class="platform-links">
+                                <a href="https://open.spotify.com/track/7lIZAFWSQ5JMh7ZaRNkowZ?si=j6L9uJqsSQm1HEAg6U-5cA" target="_blank" class="platform-link">
+                                    <span class="platform-icon">▶</span> Spotify
+                                </a>
+                                <a href="https://music.apple.com/es/album/condiciones-altas/1776039004?i=1776039013&ls" target="_blank" class="platform-link">
+                                    <span class="platform-icon">▶</span> Apple Music
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Nueva Canción 3 -->
+                    <div class="tab">
+                        <input type="checkbox" id="tab3">
+                        <label for="tab3">Fuego eterno</label>
+                        <div class="tab-content">
+                            <!-- Reproductor de audio mejorado -->
+                            <div class="audio-player" data-audio="https://raw.githubusercontent.com/pensamientoincansable/Desengany/main/media/audio/fuego-eterno.mp3">
+                                <div class="audio-title">Fuego eterno</div>
+                                
+                                <!-- Visualizador de ondas -->
+                                <div class="waveform" id="waveform-3">
+                                    <!-- Las barras se generarán dinámicamente con JavaScript -->
+                                </div>
+                                
+                                <!-- Controles -->
+                                <div class="player-controls">
+                                    <button class="play-btn">▶</button>
+                                    <div class="progress-container">
+                                        <div class="progress-bar"></div>
+                                    </div>
+                                </div>
+                                
+                                <!-- Tiempo -->
+                                <div class="time-display">
+                                    <span class="current-time">0:00</span>
+                                    <span class="duration">0:00</span>
+                                </div>
+                                
+                                <!-- Control de volumen -->
+                                <div class="volume-control">
+                                    <div class="volume-icon">🔊</div>
+                                    <div class="volume-slider">
+                                        <div class="volume-level"></div>
+                                    </div>
+                                </div>
+                                
+                                <!-- Audio oculto -->
+                                <audio class="audio-element" preload="metadata">
+                                    <source src="https://raw.githubusercontent.com/pensamientoincansable/Desengany/main/media/audio/fuego-eterno.mp3" type="audio/mpeg">
+                                    Tu navegador no soporta el elemento de audio.
+                                </audio>
+                            </div>
+                            
+                            <div class="platform-links">
+                                <a href="https://open.spotify.com/track/4EDQTQDkWRJFK0PXcSV28G?si=qAjHh8O6RzabVUIQDie0SA" target="_blank" class="platform-link">
+                                    <span class="platform-icon">▶</span> Spotify
+                                </a>
+                                <a href="https://music.apple.com/es/album/fuego-eterno/1818707341?i=1818707342&ls" target="_blank" class="platform-link">
+                                    <span class="platform-icon">▶</span> Apple Music
+                                </a>
+                                <a href="https://music.amazon.es/albums/B0FC25BCN3?ref=dm_sh_o4gJ9u7r4oJrmYyWWarlyB85D" target="_blank" class="platform-link">
+                                    <span class="platform-icon">▶</span> Amazon Music
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Nueva Canción 4 -->
+                    <div class="tab">
+                        <input type="checkbox" id="tab4">
+                        <label for="tab4">Ciencia tecnológica</label>
+                        <div class="tab-content">
+                            <!-- Reproductor de audio mejorado -->
+                            <div class="audio-player" data-audio="https://raw.githubusercontent.com/pensamientoincansable/Desengany/main/media/audio/ciencia-tecnologica.mp3">
+                                <div class="audio-title">Ciencia tecnológica</div>
+                                
+                                <!-- Visualizador de ondas -->
+                                <div class="waveform" id="waveform-4">
+                                    <!-- Las barras se generarán dinámicamente con JavaScript -->
+                                </div>
+                                
+                                <!-- Controles -->
+                                <div class="player-controls">
+                                    <button class="play-btn">▶</button>
+                                    <div class="progress-container">
+                                        <div class="progress-bar"></div>
+                                    </div>
+                                </div>
+                                
+                                <!-- Tiempo -->
+                                <div class="time-display">
+                                    <span class="current-time">0:00</span>
+                                    <span class="duration">0:00</span>
+                                </div>
+                                
+                                <!-- Control de volumen -->
+                                <div class="volume-control">
+                                    <div class="volume-icon">🔊</div>
+                                    <div class="volume-slider">
+                                        <div class="volume-level"></div>
+                                    </div>
+                                </div>
+                                
+                                <!-- Audio oculto -->
+                                <audio class="audio-element" preload="metadata">
+                                    <source src="https://raw.githubusercontent.com/pensamientoincansable/Desengany/main/media/audio/ciencia-tecnologica.mp3" type="audio/mpeg">
+                                    Tu navegador no soporta el elemento de audio.
+                                </audio>
+                            </div>
+                            
+                            <div class="platform-links">
+                                <a href="https://open.spotify.com/track/7E5wIKl2RZLua92Z87EfqC?si=JpopT-dbQGC0dgIzkmWSZQ" target="_blank" class="platform-link">
+                                    <span class="platform-icon">▶</span> Spotify
+                                </a>
+                                <a href="https://music.apple.com/es/album/ciencia-tecnol%C3%B3gica/1789460477?i=1789460724&ls" target="_blank" class="platform-link">
+                                    <span class="platform-icon">▶</span> Apple Music
+                                </a>
+                                <a href="https://music.amazon.es/albums/B0DSKB1W38?trackAsin=B0DSKDGG4G&do=play&ref=dm_sh_O5H4xxJ0TVAtTJdBt02TzNzak" target="_blank" class="platform-link">
+                                    <span class="platform-icon">▶</span> Amazon Music
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
             
             <!-- Sección de comentarios SIN video de fondo -->
             <section id="comentarios">
@@ -1708,18 +1919,58 @@
                 </div>
             </section>
             
-            <!-- NUEVA SECCIÓN: Evidencias Conspirativas (VERSIÓN DINÁMICA) -->
+            <!-- NUEVA SECCIÓN: Evidencias Conspirativas -->
             <section id="evidencias">
                 <h2 data-text="Evidencias Conspirativas">Evidencias Conspirativas</h2>
                 <p class="tagline" style="text-align: center; margin-bottom: 2rem;">Documentación y pruebas sobre operaciones encubiertas y agendas ocultas</p>
                 
-                <div class="evidencias-grid" id="evidencias-container">
-                    <!-- Las evidencias se cargarán aquí automáticamente desde GitHub -->
-                    <div class="evidencia-loading">
-                        <p style="color: #00FFFF; text-align: center; padding: 2rem;">
-                            <i class="fas fa-sync-alt fa-spin" style="margin-right: 10px;"></i>
-                            Cargando evidencias...
-                        </p>
+                <div class="evidencias-grid">
+                    <!-- Evidencia 1 -->
+                    <div class="evidencia-item">
+                        <video class="evidencia-video" controls playsinline preload="metadata" poster="">
+                            <source src="https://raw.githubusercontent.com/pensamientoincansable/Desengany/main/media/videos/Noolvidamos.webm" type="video/webm">
+                            Tu navegador no soporta el formato de video WEBM.
+                        </video>
+                        <div class="evidencia-content">
+                            <h3 class="evidencia-title">No Olvidamos</h3>
+                            <p class="evidencia-desc">Documental que explora los eventos históricos que han sido sistemáticamente ocultados o distorsionados por los medios de comunicación convencionales.</p>
+                            <div class="evidencia-info">
+                                <span class="evidencia-source">Fuente: Archivos desclasificados</span>
+                                <span class="evidencia-tag">HISTORIA OCULTA</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Evidencia 2 -->
+                    <div class="evidencia-item">
+                        <video class="evidencia-video" controls playsinline preload="metadata" poster="">
+                            <source src="https://raw.githubusercontent.com/pensamientoincansable/Desengany/main/media/videos/Patentes-fumigacion.webm" type="video/webm">
+                            Tu navegador no soporta el formato de video WEBM.
+                        </video>
+                        <div class="evidencia-content">
+                            <h3 class="evidencia-title">Patentes de Fumigación</h3>
+                            <p class="evidencia-desc">Revelación de patentes registradas para sistemas de dispersión de compuestos químicos en la atmósfera. Documentación oficial que evidencia la planificación de operaciones de geoingeniería.</p>
+                            <div class="evidencia-info">
+                                <span class="evidencia-source">Oficina de Patentes</span>
+                                <span class="evidencia-tag">CHEMTRAILS</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Evidencia 3 -->
+                    <div class="evidencia-item">
+                        <video class="evidencia-video" controls playsinline preload="metadata" poster="">
+                            <source src="https://raw.githubusercontent.com/pensamientoincansable/Desengany/main/media/videos/fumigacionaerea.webm" type="video/webm">
+                            Tu navegador no soporta el formato de video WEBM.
+                        </video>
+                        <div class="evidencia-content">
+                            <h3 class="evidencia-title">Fumigación Aérea</h3>
+                            <p class="evidencia-desc">Imágenes y testimonios sobre operaciones de dispersión de sustancias químicas desde aviones comerciales y militares. Análisis de patrones y composiciones identificadas.</p>
+                            <div class="evidencia-info">
+                                <span class="evidencia-source">Investigación independiente</span>
+                                <span class="evidencia-tag">GEOINGENIERÍA</span>
+                            </div>
+                        </div>
                     </div>
                 </div>
                 
@@ -2045,199 +2296,6 @@
             }
         `;
         document.head.appendChild(style);
-
-        // ============================================
-        // FUNCIÓN PARA CARGAR VIDEOS DESDE GITHUB
-        // ============================================
-
-        async function cargarVideosDesdeGitHub() {
-            const container = document.getElementById('evidencias-container');
-            if (!container) return;
-            
-            try {
-                // Usamos la API de GitHub para listar archivos
-                const apiUrl = 'https://api.github.com/repos/pensamientoincansable/Desengany/contents/media/videos';
-                const response = await fetch(apiUrl);
-                
-                if (!response.ok) {
-                    throw new Error(`Error HTTP: ${response.status}`);
-                }
-                
-                const files = await response.json();
-                
-                // Filtrar solo archivos WEBM que no sean los ya usados en otras secciones
-                const videoFiles = files.filter(file => 
-                    file.name.endsWith('.webm') && 
-                    !['Noolvidamos.webm', 'Patentes-fumigacion.webm', 'fumigacionaerea.webm', 'stopchemtrails.gif', 'hastalavista.gif'].includes(file.name)
-                );
-                
-                if (videoFiles.length === 0) {
-                    container.innerHTML = `
-                        <div class="no-videos">
-                            <p style="color: #00FFFF; text-align: center; padding: 2rem;">
-                                No se encontraron videos adicionales en la carpeta.
-                            </p>
-                        </div>
-                    `;
-                    return;
-                }
-                
-                // Limpiar contenedor y agregar videos estáticos iniciales
-                container.innerHTML = '';
-                
-                // Primeros 3 videos estáticos (los originales)
-                const videosEstaticos = [
-                    {
-                        src: 'https://raw.githubusercontent.com/pensamientoincansable/Desengany/main/media/videos/Noolvidamos.webm',
-                        title: 'No Olvidamos',
-                        desc: 'Documental que explora los eventos históricos que han sido sistemáticamente ocultados o distorsionados por los medios de comunicación convencionales.',
-                        source: 'Archivos desclasificados',
-                        tag: 'HISTORIA OCULTA'
-                    },
-                    {
-                        src: 'https://raw.githubusercontent.com/pensamientoincansable/Desengany/main/media/videos/Patentes-fumigacion.webm',
-                        title: 'Patentes de Fumigación',
-                        desc: 'Revelación de patentes registradas para sistemas de dispersión de compuestos químicos en la atmósfera.',
-                        source: 'Oficina de Patentes',
-                        tag: 'CHEMTRAILS'
-                    },
-                    {
-                        src: 'https://raw.githubusercontent.com/pensamientoincansable/Desengany/main/media/videos/fumigacionaerea.webm',
-                        title: 'Fumigación Aérea',
-                        desc: 'Imágenes y testimonios sobre operaciones de dispersión de sustancias químicas desde aviones.',
-                        source: 'Investigación independiente',
-                        tag: 'GEOINGENIERÍA'
-                    }
-                ];
-                
-                // Agregar videos estáticos
-                videosEstaticos.forEach(video => {
-                    const evidenciaItem = crearElementoEvidencia(video);
-                    container.appendChild(evidenciaItem);
-                });
-                
-                // Agregar videos dinámicos desde GitHub
-                videoFiles.forEach((file, index) => {
-                    const video = {
-                        src: file.download_url,
-                        title: formatearTitulo(file.name.replace('.webm', '')),
-                        desc: generarDescripcion(file.name),
-                        source: 'Archivo GitHub',
-                        tag: getTagFromFilename(file.name)
-                    };
-                    
-                    const evidenciaItem = crearElementoEvidencia(video);
-                    container.appendChild(evidenciaItem);
-                });
-                
-                // Inicializar IntersectionObserver para los nuevos videos
-                document.querySelectorAll('.evidencia-video').forEach(video => {
-                    videoObserver.observe(video);
-                });
-                
-                console.log(`✅ Se cargaron ${videoFiles.length} videos adicionales desde GitHub`);
-                
-            } catch (error) {
-                console.error('Error al cargar videos:', error);
-                container.innerHTML = `
-                    <div class="error-videos">
-                        <p style="color: #FF5555; text-align: center; padding: 2rem;">
-                            <i class="fas fa-exclamation-triangle" style="margin-right: 10px;"></i>
-                            Error al cargar las evidencias. Por favor, inténtalo más tarde.
-                        </p>
-                    </div>
-                `;
-            }
-        }
-
-        // Función para crear elementos de evidencia
-        function crearElementoEvidencia(videoData) {
-            const evidenciaItem = document.createElement('div');
-            evidenciaItem.className = 'evidencia-item';
-            
-            evidenciaItem.innerHTML = `
-                <video class="evidencia-video" controls playsinline preload="metadata" poster="">
-                    <source src="${videoData.src}" type="video/webm">
-                    Tu navegador no soporta el formato de video WEBM.
-                </video>
-                <div class="evidencia-content">
-                    <h3 class="evidencia-title">${videoData.title}</h3>
-                    <p class="evidencia-desc">${videoData.desc}</p>
-                    <div class="evidencia-info">
-                        <span class="evidencia-source">Fuente: ${videoData.source}</span>
-                        <span class="evidencia-tag">${videoData.tag}</span>
-                    </div>
-                </div>
-            `;
-            
-            return evidenciaItem;
-        }
-
-        // Funciones auxiliares
-        function formatearTitulo(filename) {
-            return filename
-                .split('-')
-                .map(word => word.charAt(0).toUpperCase() + word.slice(1))
-                .join(' ')
-                .replace(/_/g, ' ');
-        }
-
-        function generarDescripcion(filename) {
-            const keywords = {
-                'chemtrail': 'Documentación sobre operaciones de geoingeniería y dispersión atmosférica.',
-                'fumigacion': 'Evidencias de fumigación aérea y sus efectos documentados.',
-                'conspiracion': 'Análisis de operaciones encubiertas y agendas ocultas.',
-                'documental': 'Documental de investigación sobre eventos históricos ocultos.',
-                'prueba': 'Pruebas documentales y testimonios verificados.',
-                'evidencia': 'Material probatorio recopilado de diversas fuentes.'
-            };
-            
-            const nameLower = filename.toLowerCase();
-            for (const [key, desc] of Object.entries(keywords)) {
-                if (nameLower.includes(key)) {
-                    return desc;
-                }
-            }
-            
-            return 'Evidencia documental sobre ' + formatearTitulo(filename).toLowerCase() + '.';
-        }
-
-        function getTagFromFilename(filename) {
-            const tags = {
-                'chemtrail': 'CHEMTRAILS',
-                'fumigacion': 'GEOINGENIERÍA',
-                'conspiracion': 'CONSPIRACIÓN',
-                'documental': 'DOCUMENTAL',
-                'prueba': 'EVIDENCIA',
-                'oculto': 'OCULTO',
-                'historia': 'HISTORIA'
-            };
-            
-            const nameLower = filename.toLowerCase();
-            for (const [key, tag] of Object.entries(tags)) {
-                if (nameLower.includes(key)) {
-                    return tag;
-                }
-            }
-            
-            return 'INVESTIGACIÓN';
-        }
-
-        // Cargar videos cuando el DOM esté listo
-        document.addEventListener('DOMContentLoaded', cargarVideosDesdeGitHub);
-
-        // Registrar Service Worker para PWA
-        if ('serviceWorker' in navigator) {
-            window.addEventListener('load', () => {
-                navigator.serviceWorker.register('/service-worker.js')
-                    .then(registration => {
-                        console.log('Service Worker registrado con éxito:', registration);
-                    })
-                    .catch(error => {
-                        console.log('Error al registrar el Service Worker:', error);
-                    });
-            });
-        }
     </script>
 </body>
 </html>

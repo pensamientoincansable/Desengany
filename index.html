@@ -1636,6 +1636,22 @@
                         </div>
                     </div>
                     
+                    <!-- Primado Negativo -->
+                    <div class="referente-card">
+                        <div class="referente-header">
+                            <h3 class="referente-name">Primado Negativo</h3>
+                            <p class="referente-title">Canal de Investigación</p>
+                        </div>
+                        <div class="referente-content">
+                            <p class="referente-bio">Canal especializado en exponer verdades ocultas, análisis de manipulación mediática y deconstrucción de narrativas oficiales.</p>
+                            <div class="referente-links">
+                                <a href="https://www.youtube.com/channel/UCvQcgQDoEP8gN1q5fTl-USA" class="referente-link" target="_blank">
+                                    <i class="fab fa-youtube"></i> YouTube
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    
                     <!-- Justicia Social -->
                     <div class="referente-card">
                         <div class="referente-header">
@@ -1754,34 +1770,34 @@
                 </div>
             </section>
             
-            <!-- Blog SIN video de fondo -->
+            <!-- Blog SIN video de fondo - ACTUALIZADO CON ENLACES REALES -->
             <section id="blog">
                 <h2 data-text="Blog de Conciencia">Blog de Conciencia</h2>
                 <div class="blog-posts">
                     <article class="post">
-                        <div class="post-image">REALIDAD EXPANDIDA</div>
+                        <div class="post-image">DESPERTAR</div>
                         <div class="post-content">
-                            <h3 class="post-title">Más Allá del Velo</h3>
-                            <p class="post-excerpt">Una reflexión sobre los límites de la percepción humana y cómo trascender la realidad convencional para explorar dimensiones más amplias de la existencia.</p>
-                            <a href="#" class="read-more">Leer más</a>
+                            <h3 class="post-title">Despertar de Conciencia</h3>
+                            <p class="post-excerpt">Explora cómo despertar tu conciencia y trascender la programación social. Recursos y técnicas para expandir tu percepción de la realidad.</p>
+                            <a href="https://www.gaia.com/" target="_blank" class="read-more">Explorar Gaia</a>
+                        </div>
+                    </article>
+                    
+                    <article class="post">
+                        <div class="post-image">EXPOSICIÓN</div>
+                        <div class="post-content">
+                            <h3 class="post-title">Exponiendo la Verdad</h3>
+                            <p class="post-excerpt">Análisis profundo de las verdades ocultas y manipulación mediática. Documentación sobre operaciones encubiertas y agendas ocultas.</p>
+                            <a href="https://www.corbettreport.com/" target="_blank" class="read-more">Ver Corbett Report</a>
                         </div>
                     </article>
                     
                     <article class="post">
                         <div class="post-image">CONSPIRACIÓN</div>
                         <div class="post-content">
-                            <h3 class="post-title">Patrones Ocultos</h3>
-                            <p class="post-excerpt">Explorando la naturaleza de la realidad a través del análisis de patrones ocultos en los eventos globales y cómo discernir la verdad entre la desinformación.</p>
-                            <a href="#" class="read-more">Leer más</a>
-                        </div>
-                    </article>
-                    
-                    <article class="post">
-                        <div class="post-image">HOLOGRAMA</div>
-                        <div class="post-content">
-                            <h3 class="post-title">La Realidad como Holograma</h3>
-                            <p class="post-excerpt">Cómo las teorías holográficas del universo pueden ayudarnos a comprender la naturaleza ilusoria de la realidad y nuestro lugar en el cosmos.</p>
-                            <a href="#" class="read-more">Leer más</a>
+                            <h3 class="post-title">Teorías Conspirativas Verificadas</h3>
+                            <p class="post-excerpt">Investigación sobre teorías conspirativas que han sido verificadas como verdaderas. Análisis de documentos desclasificados.</p>
+                            <a href="https://www.richarddawkins.net/" target="_blank" class="read-more">Leer Más</a>
                         </div>
                     </article>
                 </div>
@@ -2025,19 +2041,17 @@
             });
         }
 
-        // Función para escanear videos del repositorio
+        // Función para escanear videos del repositorio - MODIFICADO: SOLO CARGAR WEBM
         async function loadEvidenceVideos() {
             const evidenciasContainer = document.getElementById('evidencias-container');
             if (!evidenciasContainer) return;
 
             try {
-                // Lista de videos conocidos (puedes expandir esta lista)
+                // Lista de videos conocidos (SOLO WEBM)
                 const videoFiles = [
                     { name: 'Noolvidamos', file: 'Noolvidamos.webm', desc: 'Documental que explora los eventos históricos que han sido sistemáticamente ocultados o distorsionados por los medios de comunicación convencionales.' },
                     { name: 'Patentes de Fumigación', file: 'Patentes-fumigacion.webm', desc: 'Revelación de patentes registradas para sistemas de dispersión de compuestos químicos en la atmósfera.' },
-                    { name: 'Fumigación Aérea', file: 'fumigacionaerea.webm', desc: 'Imágenes y testimonios sobre operaciones de dispersión de sustancias químicas desde aviones comerciales y militares.' },
-                    { name: 'stopchemtrails', file: 'stopchemtrails.gif', desc: 'Animación sobre la concienciación de los chemtrails.' },
-                    { name: 'hastalavista', file: 'hastalavista.gif', desc: 'Animación con mensaje críptico.' }
+                    { name: 'Fumigación Aérea', file: 'fumigacionaerea.webm', desc: 'Imágenes y testimonios sobre operaciones de dispersión de sustancias químicas desde aviones comerciales y militares.' }
                 ];
 
                 // Intentar obtener la lista de archivos del repositorio usando GitHub API
@@ -2045,11 +2059,10 @@
                     const response = await fetch('https://api.github.com/repos/pensamientoincansable/Desengany/contents/media/videos');
                     if (response.ok) {
                         const repoFiles = await response.json();
-                        const videoExtensions = ['.webm', '.mp4', '.mov', '.avi', '.gif'];
                         
+                        // Filtrar SOLO archivos .webm (excluir .gif y otros formatos)
                         repoFiles.forEach(file => {
-                            const ext = file.name.toLowerCase().substring(file.name.lastIndexOf('.'));
-                            if (videoExtensions.includes(ext)) {
+                            if (file.name.toLowerCase().endsWith('.webm')) {
                                 // Verificar si ya existe en nuestra lista
                                 const exists = videoFiles.some(vf => vf.file === file.name);
                                 if (!exists) {
@@ -2071,30 +2084,14 @@
                 // Limpiar contenedor
                 evidenciasContainer.innerHTML = '';
 
-                // Crear elementos para cada video
-                videoFiles.forEach((video, index) => {
-                    if (video.file.endsWith('.gif')) {
-                        // Para GIFs, usar img en lugar de video
-                        const evidenciaItem = document.createElement('div');
-                        evidenciaItem.className = 'evidencia-item';
-                        evidenciaItem.innerHTML = `
-                            <img class="evidencia-video" src="https://raw.githubusercontent.com/pensamientoincansable/Desengany/main/media/videos/${video.file}" alt="${video.name}" style="object-fit: contain; background: #000;">
-                            <div class="evidencia-content">
-                                <h3 class="evidencia-title">${video.name}</h3>
-                                <p class="evidencia-desc">${video.desc}</p>
-                                <div class="evidencia-info">
-                                    <span class="evidencia-source">Fuente: Investigación independiente</span>
-                                    <span class="evidencia-tag">EVIDENCIA</span>
-                                </div>
-                            </div>
-                        `;
-                        evidenciasContainer.appendChild(evidenciaItem);
-                    } else {
+                // Crear elementos para cada video WEBM
+                if (videoFiles.length > 0) {
+                    videoFiles.forEach((video, index) => {
                         const evidenciaItem = document.createElement('div');
                         evidenciaItem.className = 'evidencia-item';
                         evidenciaItem.innerHTML = `
                             <video class="evidencia-video" controls playsinline preload="metadata">
-                                <source src="https://raw.githubusercontent.com/pensamientoincansable/Desengany/main/media/videos/${video.file}" type="video/${video.file.endsWith('.webm') ? 'webm' : video.file.endsWith('.mp4') ? 'mp4' : 'ogg'}">
+                                <source src="https://raw.githubusercontent.com/pensamientoincansable/Desengany/main/media/videos/${video.file}" type="video/webm">
                                 Tu navegador no soporta el formato de video WEBM.
                             </video>
                             <div class="evidencia-content">
@@ -2107,8 +2104,10 @@
                             </div>
                         `;
                         evidenciasContainer.appendChild(evidenciaItem);
-                    }
-                });
+                    });
+                } else {
+                    evidenciasContainer.innerHTML = '<p style="color: #CCCCFF; text-align: center; padding: 2rem;">No se encontraron evidencias en formato WEBM en el repositorio.</p>';
+                }
 
                 // Observar videos para carga diferida
                 const videoObserver = new IntersectionObserver((entries) => {
